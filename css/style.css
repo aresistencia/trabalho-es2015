@@ -2,10 +2,49 @@ section {
 
 }
 footer {
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 25px;
+  border-top: 1px solid #BDC3C7;
+  color: #555;
+  background-color: #fefefe;
+}
+.navbar {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+.showcase .jumbotron {
+  color: #fefefe;
+  background-color: #22A7F0;
+  margin: 0;
+}
+.showcase .jumbotron small {
+  color: #fefefe;
+}
+.lista-niveis {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0;
+  background-color: #fefefe;
 }
 .lista-niveis .btn {
   padding-top: 15px;
   padding-bottom: 15px;
   margin-bottom: 10px;
+  color: #fefefe;
+}
+.nivel-disponivel {
+  background-color: #22A7F0;
+  border-color: #22A7F0;
+}
+.nivel-bloqueado {
+  background-color: #BDC3C7;
+  border-color: #BDC3C7;
+}
+.fa-lock {
+  color: #6C7A89;
+}
+.star-empty {
+  /*color: #275AAA;*/
+  color: #0070BA;
 }
