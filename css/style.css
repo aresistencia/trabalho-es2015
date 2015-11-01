@@ -1,6 +1,3 @@
-section {
-
-}
 footer {
   padding-top: 20px;
   padding-bottom: 25px;
@@ -37,9 +34,19 @@ footer {
   background-color: #22A7F0;
   border-color: #22A7F0;
 }
+.nivel-disponivel:hover, .nivel-disponivel:focus, .nivel-disponivel:active {
+  color: #fefefe !important;
+  background-color: #1297E0 !important;
+  border-color: #1297E0 !important;
+}
 .nivel-bloqueado {
   background-color: #BDC3C7;
   border-color: #BDC3C7;
+}
+.nivel-bloqueado:hover, .nivel-bloqueado:focus, .nivel-bloqueado:active {
+  color: #fefefe !important;
+  background-color: #ADB3B7 !important;
+  border-color: #ADB3B7 !important;
 }
 .fa-lock {
   color: #6C7A89;
