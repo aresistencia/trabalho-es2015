@@ -85,6 +85,9 @@ footer {
   border-color: #22A7F0;
   color: #fefefe;
 }
+.btn-desafio .progress-circle {
+  font-size: 42px;
+}
 .btn-desafio:hover, .btn-desafio:focus, .btn-desafio:active {
   color: #fefefe !important;
   background-color: #1297E0 !important;
@@ -93,15 +96,14 @@ footer {
 .desafio-descricao {
   padding-top: 20px;
 }
-.desafio-icone-progresso {
+.progress-circle {
   border: 4px solid #fefefe;
   border-radius: 50%;
   padding: 5px;
-  font-size: 42px;
+  margin: 0 auto 0 auto;
 }
 
 /* Estilos para tela de desafio */
-/*#entradaResposta .form-control {
-  display: block;
-  width: 100%;
-}*/
+.desafio {
+  background-color: #22A7F0;
+}
