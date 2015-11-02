@@ -1,3 +1,4 @@
+/* Estilos gerais */
 footer {
   padding-top: 20px;
   padding-bottom: 25px;
@@ -18,6 +19,8 @@ footer {
 .showcase .jumbotron small {
   color: #fefefe;
 }
+
+/* Estilos para tela de selecao de nivel */
 .lista-niveis {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -52,6 +55,34 @@ footer {
   color: #6C7A89;
 }
 .star-empty {
-  /*color: #275AAA;*/
   color: #0070BA;
+}
+
+/* Estilos para tela de nivel */
+.lista-desafios {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0;
+  background-color: #fefefe;
+}
+.btn-desafio {
+  padding-top: 30px;
+  height: 200px;
+  background-color: #22A7F0;
+  border-color: #22A7F0;
+  color: #fefefe;
+}
+.btn-desafio:hover, .btn-desafio:focus, .btn-desafio:active {
+  color: #fefefe !important;
+  background-color: #1297E0 !important;
+  border-color: #1297E0 !important;
+}
+.desafio-descricao {
+  padding-top: 20px;
+}
+.desafio-icone-progresso {
+  border: 4px solid #fefefe;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 42px;
 }
