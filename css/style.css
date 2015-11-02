@@ -68,6 +68,9 @@ footer {
   margin: 0;
   background-color: #fefefe;
 }
+.lista-desafios .col-xs-12 {
+  margin-bottom: 10px;
+}
 .btn-desafio {
   padding-top: 30px;
   height: 200px;
