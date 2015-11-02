@@ -3,6 +3,11 @@
   // Modulo principal do jogo
   var app = angular.module('jogo', []);
 
+  // Controlador da lista de niveis
+  app.controller('ListaNiveisController', function() {
+    this.niveis = listaNiveis;
+  });
+
   // Lista dos niveis do jogo
   var listaNiveis = [
     {
