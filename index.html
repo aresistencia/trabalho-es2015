@@ -50,51 +50,53 @@
     <section class="lista-niveis">
       <div class="container">
         <div class="row">
-          <div class="col-xs-offset-1 col-xs-5 col-sm-offset-1 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-disponivel" href="nivel-01.html">
-              01 <i class="fa fa-star"></i><i class="fa fa-star star-empty"></i><i class="fa fa-star star-empty"></i>
-            </a>
-          </div>
-          <div class="col-xs-5 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              02 <i class="fa fa-lock"></i>
-            </a>
-          </div>
-          <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              03 <i class="fa fa-lock"></i>
-            </a>
-          </div>
-          <div class="col-xs-5 col-sm-offset-1 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              04 <i class="fa fa-lock"></i>
-            </a>
-          </div>
-          <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              05 <i class="fa fa-lock"></i>
-            </a>
-          </div>
-          <div class="col-xs-5 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              06 <i class="fa fa-lock"></i>
-            </a>
-          </div>
-          <div class="col-xs-offset-1 col-xs-5 col-sm-offset-1 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              07 <i class="fa fa-lock"></i>
-            </a>
-          </div>
-          <div class="col-xs-5 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              08 <i class="fa fa-lock"></i>
-            </a>
-          </div>
-          <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
-              09 <i class="fa fa-lock"></i>
-            </a>
-          </div>
+          <div ng-controller="ListaNiveisController as niveisCtrl">
+            <div class="col-xs-offset-1 col-xs-5 col-sm-offset-1 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-disponivel" href="nivel-01.html">
+                {{ niveisCtrl.niveis[0]['nivel'] }} <i class="fa fa-star"></i><i class="fa fa-star star-empty"></i><i class="fa fa-star star-empty"></i>
+              </a>
+            </div>
+            <div class="col-xs-5 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[1]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+            <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[2]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+            <div class="col-xs-5 col-sm-offset-1 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[3]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+            <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[4]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+            <div class="col-xs-5 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[5]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+            <div class="col-xs-offset-1 col-xs-5 col-sm-offset-1 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[6]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+            <div class="col-xs-5 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[7]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+            <div class="col-xs-offset-1 col-xs-5 col-sm-offset-0 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block nivel-bloqueado" href="#">
+                {{ niveisCtrl.niveis[8]['nivel'] }} <i class="fa fa-lock"></i>
+              </a>
+            </div>
+          </div><!-- /ng-controller -->
         </div>
       </div>
     </section><!-- /.lista-niveis -->
