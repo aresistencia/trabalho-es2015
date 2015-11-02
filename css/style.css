@@ -104,21 +104,22 @@ footer {
 }
 
 /* Estilos para tela de desafio */
-.desafio {
-  background-color: #22A7F0;
+.desafio-showcase h2 {
+  padding-bottom: 20px;
 }
-.btn1 {
-  padding-bottom: 66.66666667%;
-  background-color: white;
-  margin: 5px;
+.desafio-showcase .fa-long-arrow-left {
+  padding-top: 10px;
+  color: #fefefe;
 }
-.btn2 {
-  padding-bottom: 33.33333333%;
-  background-color: white;
-  margin: 5px;
+.desafio-showcase .fa-long-arrow-left:hover,
+.desafio-showcase .fa-long-arrow-left:focus,
+.desafio-showcase .fa-long-arrow-left:active {
+  padding-top: 10px;
+  color: #0070BA;
 }
-.btn3 {
-  padding-bottom: 66.66666667%;
-  background-color: white;
-  margin: 5px;
+.desafio-showcase .progress-circle {
+  font-size: 30px;
 }
+.fa-circle {
+  color: #F7CA18;
+} 
