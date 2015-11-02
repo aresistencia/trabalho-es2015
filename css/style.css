@@ -63,6 +63,12 @@ footer {
   padding-top: 10px;
   color: #fefefe;
 }
+.nivel-showcase .fa-long-arrow-left:hover,
+.nivel-showcase .fa-long-arrow-left:focus,
+.nivel-showcase .fa-long-arrow-left:active {
+  padding-top: 10px;
+  color: #0070BA;
+}
 .lista-desafios {
   padding-top: 60px;
   padding-bottom: 60px;
