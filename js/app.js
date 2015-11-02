@@ -63,7 +63,7 @@
       'titulo': '',
       'isDisponivel': false,
       'desafiosCompletados': 0,
-    },
+    }
   ];
 
 })();
