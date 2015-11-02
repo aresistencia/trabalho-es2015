@@ -61,6 +61,7 @@ footer {
 /* Estilos para tela de nivel */
 .nivel-showcase .fa-long-arrow-left {
   padding-top: 10px;
+  color: #fefefe;
 }
 .lista-desafios {
   padding-top: 60px;
