@@ -123,3 +123,15 @@ footer {
 .fa-circle {
   color: #F7CA18;
 } 
+.btn-desafio {
+  margin-bottom: 10px;
+}
+.form-resposta {
+  color: #fefefe;
+  background-color: #22A7F0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.form-resposta .fa-question-circle {
+  color: #fefefe;
+}
