@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="jogo">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +22,7 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="#">
             94% Wannabe
           </a>
         </div>
@@ -34,7 +34,7 @@
       </div><!-- /.container -->
     </nav>
 
-    <!-- SHOW CASE DA PAGINA -->
+    <!-- SHOWCASE DA PAGINA -->
     <section class="showcase">
       <div class="jumbotron">
         <div class="container">
@@ -46,30 +46,24 @@
       </div>
     </section><!-- /.showcase -->
 
-    <!-- LISTA DE SELECAO DE NIVEIS -->
-    <section class="lista-niveis">
+
+    <section class="inicio-botoes">
       <div class="container">
-        <div class="row">
-          <div ng-controller="ListaNiveisController as niveisCtrl">
-            <div ng-repeat="nivel in niveisCtrl.niveis">
-              <div class="col-xs-6 col-sm-4">
-                <a class="btn btn-default btn-lg btn-block" href="nivel-01.html" ng-class="{ 'nivel-disponivel':nivel.isDisponivel, 'nivel-bloqueado':!nivel.isDisponivel }">
-                  {{ nivel['nivel'] }}
-                  <span ng-show="nivel.isDisponivel">
-                    <i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados === 0 }"></i><!-- 
-                 --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados < 2 }"></i><!-- 
-                 --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados < 3 }"></i>
-                  </span>
-                  <span ng-hide="nivel.isDisponivel">
-                    <i class="fa fa-lock"></i>
-                  </span>
-                </a>
-              </div>
-            </div><!-- /ng-repeat -->
-          </div><!-- /ng-controller -->
-        </div><!-- /.row -->
+        <!-- <div class="text-center"> -->
+          <div class="row">
+            <div class="col-xs-offset-2 col-xs-8 col-sm-offset-3 col-sm-2">
+              <a class="btn btn-default btn-lg btn-block" target="_blank" href="http://aresistencia.cpdee.ufmg.br/git"><i class="fa fa-github-square fa-lg"></i> Projeto</a>
+            </div>
+            <div class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-2">
+              <a class="btn btn-primary btn-lg btn-block" href="lista-niveis.html">Jogar!</a>
+            </div>
+            <div class="col-xs-offset-2 col-xs-8 col-sm-offset-0 col-sm-2">
+              <a class="btn btn-default btn-lg btn-block" target="_blank" href="http://aresistencia.cpdee.ufmg.br/trello"><i class="fa fa-trello fa-lg"></i> Tarefas</a>
+            </div>
+          </div>
+        <!-- </div> -->
       </div><!-- /.container -->
-    </section><!-- /.lista-niveis -->
+    </section>
 
     <!-- RODAPE -->
     <footer>

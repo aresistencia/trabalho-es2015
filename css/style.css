@@ -19,6 +19,13 @@ footer {
 .showcase .jumbotron small {
   color: #fefefe;
 }
+/* Estilos para a tela inicial */
+.inicio-botoes {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0;
+  background-color: #fefefe;
+}
 
 /* Estilos para tela de selecao de nivel */
 .lista-niveis {
