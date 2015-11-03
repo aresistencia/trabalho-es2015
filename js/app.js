@@ -81,7 +81,14 @@
       {
         'titulo': 'Animais que nascem de um ovo',
         'pontuacao': 94,
-        'isCompletado': true
+        'isCompletado': true,
+        'respostas': [
+          [ 'Peixe', 3 ],
+          [ 'Tartaruga', 11 ],
+          [ 'Pássaro', 64 ],
+          [ 'Cobra', 7 ],
+          [ 'Jacaré', 9 ]
+        ]
       },
       {
         'titulo': 'Frutas com sementes ou caroço',
