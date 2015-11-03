@@ -54,26 +54,28 @@
     <section class="lista-desafios">
       <div class="container">
         <div class="row">
-          <div class="col-xs-12 col-sm-4">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="desafio-01-01.html">
-              <i class="fa fa-star fa-3x desafio-icone"></i><br>
-              <div class="desafio-descricao">Animais que nascem de um ovo</div>
-            </a>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-              <span class="progress-circle">68</span><br>
-              <div class="desafio-descricao">Frutas com sementes ou caroço</div>
-            </a>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-              <span class="progress-circle">11</span><br>
-              <div class="desafio-descricao">Alguma outra coisa</div>
-            </a>
-          </div>
+          <div ng-controller="ListaDesafiosController as desafiosCtrl">
+            <div class="col-xs-12 col-sm-4">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="desafio-01-01.html">
+                <i class="fa fa-star fa-3x desafio-icone"></i><br>
+                <div class="desafio-descricao">Animais que nascem de um ovo</div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+                <span class="progress-circle">68</span><br>
+                <div class="desafio-descricao">Frutas com sementes ou caroço</div>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+                <span class="progress-circle">11</span><br>
+                <div class="desafio-descricao">Alguma outra coisa</div>
+              </a>
+            </div>
+          </div><!-- /ng-controller -->
         </div><!-- /.row -->
-      </div>
+      </div><!-- /.container -->
     </section><!-- /.lista-desafios -->
 
     <!-- RODAPE -->

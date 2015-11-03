@@ -8,6 +8,11 @@
     this.niveis = listaNiveis;
   });
 
+  // Controlador da lista de desafios
+  app.controller('ListaDesafiosController', function() {
+    this.desafios = listaDesafios;
+  });
+
   // Lista dos niveis do jogo
   var listaNiveis = [
     {
@@ -66,6 +71,7 @@
     }
   ];
 
+  // Lista de desafios
   var listaDesafios = [
     {
       'nivel': 1,
