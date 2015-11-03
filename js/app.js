@@ -14,7 +14,7 @@
   });
 
   app.controller('RespostasController', function() {
-    
+    this.desafios = listaDesafios;
   });
 
   // Lista dos niveis do jogo
@@ -83,11 +83,11 @@
         'pontuacao': 94,
         'isCompletado': true,
         'respostas': [
-          [ 'Peixe', 3 ],
-          [ 'Tartaruga', 11 ],
-          [ 'Pássaro', 64 ],
-          [ 'Cobra', 7 ],
-          [ 'Jacaré', 9 ]
+          [ 'Peixe', '03' ],
+          [ 'Tartaruga', '11' ],
+          [ 'Pássaro', '64' ],
+          [ 'Cobra', '07' ],
+          [ 'Jacaré', '09' ]
         ]
       },
       {
