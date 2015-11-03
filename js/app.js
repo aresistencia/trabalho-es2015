@@ -66,6 +66,27 @@
     }
   ];
 
-
+  var listaDesafios = [
+    {
+      'nivel': 1,
+      'desafios': [
+        {
+          'titulo': 'Animais que nascem de um ovo',
+          'pontuacao': 94,
+          'completado': true
+        },
+        {
+          'titulo': 'Frutas com sementes ou caroço',
+          'pontuacao': 68,
+          'completado': false
+        },
+        {
+          'titulo': 'Alguma outra coisa',
+          'pontuacao': 11,
+          'completado': false
+        }
+      ]
+    }
+  ];
 
 })();
