@@ -17,6 +17,19 @@
     this.desafios = listaDesafios;
   });
 
+  app.controller('FormRespController', function() {
+    this.respostas = "";
+    this.texto = "";
+    this.validaResposta = function(inputText) {
+      // listaDesafios = true;
+      for (var i = 0; i < 5; i++) {
+        if (listaDesafios[0][0].respostas[i].resposta === inputText) {
+          listaDesafios[0][0].respostas[i].isRespondida = true;
+        }
+      }
+    };
+  });
+
   // Lista dos niveis do jogo
   var listaNiveis = [
     {
@@ -83,7 +96,7 @@
         'pontuacao': 94,
         'isCompletado': true,
         'respostas': [
-          { 'resposta': 'Peixe', 'pontos': '03', 'isRespondida': true },
+          { 'resposta': 'Peixe', 'pontos': '03', 'isRespondida': false },
           { 'resposta': 'Tartaruga', 'pontos': '11', 'isRespondida': false },
           { 'resposta': 'Pássaro', 'pontos': '64', 'isRespondida': false },
           { 'resposta': 'Cobra', 'pontos': '07', 'isRespondida': false },
