@@ -13,6 +13,10 @@
     this.desafios = listaDesafios;
   });
 
+  app.controller('RespostasController', function() {
+    
+  });
+
   // Lista dos niveis do jogo
   var listaNiveis = [
     {

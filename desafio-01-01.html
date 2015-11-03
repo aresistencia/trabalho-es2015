@@ -35,67 +35,70 @@
     </nav>
 
     <!-- SHOW CASE DA PAGINA -->
-    <section class="showcase desafio-showcase">
-      <div class="jumbotron">
-        <div class="container">
-          <div class="row">
-            <div class="col-xs-1">
-              <a href="nivel-01.html"><i class="fa fa-long-arrow-left fa-3x"></i></a>
+    <div ng-controller="RespostasController as respostasCtrl">
+
+      <section class="showcase desafio-showcase">
+        <div class="jumbotron">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-1">
+                <a href="nivel-01.html"><i class="fa fa-long-arrow-left fa-3x"></i></a>
+              </div>
+              <div class="col-xs-10">
+                <h2 class="text-center">Animais que nascem de um ovo</h2>
+              </div>
             </div>
-            <div class="col-xs-10">
-              <h2 class="text-center">Animais que nascem de um ovo</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-offset-3 col-sm-3 text-center">
-              <span class="progress-circle">94</span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <i class="fa fa-circle fa-2x"></i><br>
-              2500
+            <div class="row">
+              <div class="col-sm-offset-3 col-sm-3 text-center">
+                <span class="progress-circle">94</span>
+              </div>
+              <div class="col-sm-3 text-center">
+                <i class="fa fa-circle fa-2x"></i><br>
+                2500
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section><!-- /.showcase -->
+      </section><!-- /.showcase -->
 
-    <!-- LISTA DE DESAFIO -->
-    <section class="lista-desafios">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-6 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-              <span class="progress-circle">03</span><br>
-              <div class="desafio-descricao">Peixe</div>
-            </a>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-              <span class="progress-circle">11</span><br>
-              <div class="desafio-descricao">Tartaruga</div>
-            </a>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-              <span class="progress-circle">64</span><br>
-              <div class="desafio-descricao">Pássaro</div>
-            </a>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-              <span class="progress-circle">07</span><br>
-              <div class="desafio-descricao">Cobra</div>
-            </a>
-          </div>
-          <div class="col-xs-6 col-sm-3">
-            <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-              <span class="progress-circle">09</span><br>
-              <div class="desafio-descricao">Jacaré</div>
-            </a>
-          </div>
-        </div><!-- /.row -->
-      </div>
-    </section><!-- /.lista-desafios -->
+      <section class="lista-desafios">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+                <span class="progress-circle">03</span><br>
+                <div class="desafio-descricao">Peixe</div>
+              </a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+                <span class="progress-circle">11</span><br>
+                <div class="desafio-descricao">Tartaruga</div>
+              </a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+                <span class="progress-circle">64</span><br>
+                <div class="desafio-descricao">Pássaro</div>
+              </a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+                <span class="progress-circle">07</span><br>
+                <div class="desafio-descricao">Cobra</div>
+              </a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+                <span class="progress-circle">09</span><br>
+                <div class="desafio-descricao">Jacaré</div>
+              </a>
+            </div>
+          </div><!-- /.row -->
+        </div>
+      </section><!-- /.lista-desafios -->
+
+    </div><!-- /ng-controller -->
 
     <form class="form-resposta">
       <div class="container">
