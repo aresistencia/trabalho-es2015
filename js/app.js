@@ -13,6 +13,11 @@
     this.desafios = listaDesafios;
   });
 
+  // Controlador de cada desafio
+  app.controller('DesafioController', function() {
+
+  });
+
   // Lista dos niveis do jogo
   var listaNiveis = [
     {
@@ -71,25 +76,12 @@
     }
   ];
 
-  // Lista de desafios
-  var listaDesafios = [
-    [
-      {
-        'titulo': 'Animais que nascem de um ovo',
-        'pontuacao': 94,
-        'isCompletado': true
-      },
-      {
-        'titulo': 'Frutas com sementes ou caroço',
-        'pontuacao': 68,
-        'isCompletado': false
-      },
-      {
-        'titulo': 'Alguma outra coisa',
-        'pontuacao': 11,
-        'isCompletado': false
-      }
-    ]
+  // Lista de perguntas
+  var listaPerguntas = [
+    {
+      'Pergunta': 
+    },
+
   ];
 
 })();
