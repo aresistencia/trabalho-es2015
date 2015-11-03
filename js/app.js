@@ -93,8 +93,8 @@
     [
       {
         'titulo': 'Animais que nascem de um ovo',
-        'pontuacao': 94,
-        'isCompletado': true,
+        'pontuacao': 00,
+        'isCompletado': false,
         'respostas': [
           { 'resposta': 'Peixe', 'pontos': '03', 'isRespondida': false },
           { 'resposta': 'Tartaruga', 'pontos': '11', 'isRespondida': false },
@@ -105,12 +105,12 @@
       },
       {
         'titulo': 'Frutas com sementes ou caroço',
-        'pontuacao': 68,
+        'pontuacao': 00,
         'isCompletado': false
       },
       {
         'titulo': 'Alguma outra coisa',
-        'pontuacao': 11,
+        'pontuacao': 00,
         'isCompletado': false
       }
     ]
