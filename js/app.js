@@ -83,11 +83,11 @@
         'pontuacao': 94,
         'isCompletado': true,
         'respostas': [
-          [ 'Peixe', '03' ],
-          [ 'Tartaruga', '11' ],
-          [ 'Pássaro', '64' ],
-          [ 'Cobra', '07' ],
-          [ 'Jacaré', '09' ]
+          { 'resposta': 'Peixe', 'pontos': '03', 'isRespondida': true },
+          { 'resposta': 'Tartaruga', 'pontos': '11', 'isRespondida': false },
+          { 'resposta': 'Pássaro', 'pontos': '64', 'isRespondida': false },
+          { 'resposta': 'Cobra', 'pontos': '07', 'isRespondida': false },
+          { 'resposta': 'Jacaré', 'pontos': '09', 'isRespondida': false }
         ]
       },
       {

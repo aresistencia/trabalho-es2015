@@ -74,9 +74,9 @@
               <div class="col-xs-6 col-sm-3">
                 <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
                   <!-- Pontuacao da respostas -->
-                  <span class="progress-circle">{{ resposta[1] }}</span><br>
+                  <span class="progress-circle">{{ resposta.pontos }}</span><br>
                   <!-- Resposta -->
-                  <div class="desafio-descricao">{{ resposta[0] }}</div>
+                  <div class="desafio-descricao" ng-show="resposta.isRespondida">{{ resposta.resposta }}</div>
                 </a>
               </div>
             </div><!-- /ng-repeat -->
