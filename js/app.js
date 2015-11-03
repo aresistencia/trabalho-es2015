@@ -73,26 +73,23 @@
 
   // Lista de desafios
   var listaDesafios = [
-    {
-      'nivel': 1,
-      'desafios': [
-        {
-          'titulo': 'Animais que nascem de um ovo',
-          'pontuacao': 94,
-          'isCompletado': true
-        },
-        {
-          'titulo': 'Frutas com sementes ou caroço',
-          'pontuacao': 68,
-          'isCompletado': false
-        },
-        {
-          'titulo': 'Alguma outra coisa',
-          'pontuacao': 11,
-          'isCompletado': false
-        }
-      ]
-    }
+    [
+      {
+        'titulo': 'Animais que nascem de um ovo',
+        'pontuacao': 94,
+        'isCompletado': true
+      },
+      {
+        'titulo': 'Frutas com sementes ou caroço',
+        'pontuacao': 68,
+        'isCompletado': false
+      },
+      {
+        'titulo': 'Alguma outra coisa',
+        'pontuacao': 11,
+        'isCompletado': false
+      }
+    ]
   ];
 
 })();
