@@ -58,7 +58,12 @@
             <div ng-repeat="desafio in desafiosCtrl.desafios[0]['desafios']">
               <div class="col-xs-12 col-sm-4">
                 <a class="btn btn-default btn-lg btn-block btn-desafio" href="desafio-01-01.html">
-                  <i class="fa fa-star fa-3x desafio-icone"></i><br>
+                  <span ng-show="desafio.isCompletado">
+                    <i class="fa fa-star fa-3x desafio-icone"></i><br>
+                  </span>
+                  <span class="progress-circle" ng-hide="desafio.isCompletado">
+                    94
+                  </span>
                   <div class="desafio-descricao">{{ desafio['titulo'] }}</div>
                 </a>
               </div>
