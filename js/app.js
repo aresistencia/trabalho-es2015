@@ -5,7 +5,6 @@
 
   // Controlador da lista de niveis
   app.controller('ListaNiveisController', [ '$http', function($http) {
-    // this.niveis = listaNiveis;
     var listaNiveis = this;
     listaNiveis.niveis = [];
     $http.get('https://api.myjson.com/bins/3is4h').success(function(data) {
@@ -15,9 +14,13 @@
   }]);
 
   // Controlador da lista de desafios
-  app.controller('ListaDesafiosController', function() {
-    this.desafios = listaDesafios;
-  });
+  app.controller('ListaDesafiosController', [ '$http', function($http) {
+    var listaDesafios = this;
+    listaDesafios.desafios = [];
+    $http.get('https://api.myjson.com/bins/3epip').success(function(data) {
+      listaDesafios.desafios = data;
+    });
+  }]);
 
   app.controller('RespostasController', function() {
     this.desafios = listaDesafios;
