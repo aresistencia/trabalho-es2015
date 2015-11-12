@@ -47,6 +47,14 @@
     };
   });
 
+  // Configuracao da diretiva resposta-button
+  app.directive('respostaButton', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'resposta-button.html'
+    };
+  });
+
   // Lista dos niveis do jogo
   var listaNiveis = [
     {
