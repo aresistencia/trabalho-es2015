@@ -26,6 +26,7 @@
         if (listaDesafios[0][0].respostas[i].resposta === inputText) {
           listaDesafios[0][0].respostas[i].isRespondida = true;
         }
+        this.texto = "";
       }
     };
   });
