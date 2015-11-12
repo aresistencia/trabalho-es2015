@@ -31,6 +31,15 @@
     };
   });
 
+  // Configuracao da diretiva nivel-button
+  app.directive('nivelButton', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'nivel-button.html'
+    };
+  });
+
+
   // Lista dos niveis do jogo
   var listaNiveis = [
     {
