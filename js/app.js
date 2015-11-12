@@ -39,6 +39,13 @@
     };
   });
 
+  // Configuracao da diretiva desafio-button
+  app.directive('desafioButton', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'desafio-button.html'
+    };
+  });
 
   // Lista dos niveis do jogo
   var listaNiveis = [
