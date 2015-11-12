@@ -27,10 +27,8 @@
   });
 
   app.controller('FormRespController', function() {
-    this.respostas = "";
     this.texto = "";
     this.validaResposta = function(inputText) {
-      // listaDesafios = true;
       for (var i = 0; i < 5; i++) {
         if (listaDesafios[0][0].respostas[i].resposta === inputText) {
           listaDesafios[0][0].respostas[i].isRespondida = true;
