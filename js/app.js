@@ -4,9 +4,15 @@
   var app = angular.module('jogo', []);
 
   // Controlador da lista de niveis
-  app.controller('ListaNiveisController', function() {
-    this.niveis = listaNiveis;
-  });
+  app.controller('ListaNiveisController', [ '$http', function($http) {
+    // this.niveis = listaNiveis;
+    var listaNiveis = this;
+    listaNiveis.niveis = [];
+    $http.get('https://api.myjson.com/bins/3is4h').success(function(data) {
+      listaNiveis.niveis = data;
+    });
+
+  }]);
 
   // Controlador da lista de desafios
   app.controller('ListaDesafiosController', function() {
