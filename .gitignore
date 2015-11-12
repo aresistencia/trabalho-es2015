@@ -2,3 +2,6 @@
 .DS_Store
 
 outros/**
+
+# Arquivos JSON de backup, caso os armazenados em api.myson.com se percam
+js/json/**
