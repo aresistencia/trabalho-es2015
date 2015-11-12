@@ -1,4 +1,8 @@
-Jogo do Grupo A Resistência, que utiliza a ideia do jogo 94% para ensinar conceitos de engenharia de software.
+# 94% Wannabe
+
+Jogo do Grupo **A Resistência**, que utiliza a ideia do jogo 94% para ensinar/testar conceitos de engenharia de software.
+
+Matéria de Engenharia de Software - UFMG - 2015/02
 
 * Página do jogo: http://aresistencia.cpdee.ufmg.br/jogo/
 * Gerenciamento de tarefas:
