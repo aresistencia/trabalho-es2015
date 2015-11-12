@@ -5,20 +5,19 @@
 
   // Controlador da lista de niveis
   app.controller('ListaNiveisController', [ '$http', function($http) {
-    var listaNiveis = this;
-    listaNiveis.niveis = [];
+    var jogo = this;
+    jogo.niveis = [];
     $http.get('https://api.myjson.com/bins/3is4h').success(function(data) {
-      listaNiveis.niveis = data;
+      jogo.niveis = data;
     });
-
   }]);
 
   // Controlador da lista de desafios
   app.controller('ListaDesafiosController', [ '$http', function($http) {
-    var listaDesafios = this;
-    listaDesafios.desafios = [];
+    var jogo = this;
+    jogo.desafios = [];
     $http.get('https://api.myjson.com/bins/3epip').success(function(data) {
-      listaDesafios.desafios = data;
+      jogo.desafios = data;
     });
   }]);
 
