@@ -1,0 +1,27 @@
+// Armazenado em https://api.myjson.com/bins/3epip
+[
+  [
+    {
+      "titulo": "Animais que nascem de um ovo",
+      "pontuacao": 0,
+      "isCompletado": false,
+      "respostas": [
+        { "resposta": "Peixe", "pontos": "03", "isRespondida": false },
+        { "resposta": "Tartaruga", "pontos": "11", "isRespondida": false },
+        { "resposta": "Pássaro", "pontos": "64", "isRespondida": false },
+        { "resposta": "Cobra", "pontos": "07", "isRespondida": false },
+        { "resposta": "Jacaré", "pontos": "09", "isRespondida": false }
+      ]
+    },
+    {
+      "titulo": "Frutas com sementes ou caroço",
+      "pontuacao": 0,
+      "isCompletado": false
+    },
+    {
+      "titulo": "Alguma outra coisa",
+      "pontuacao": 0,
+      "isCompletado": false
+    }
+  ]
+]
