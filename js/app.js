@@ -1,4 +1,1 @@
-angular.module('jogo', [ngRoute])
-.config(function($routeProvider){
-  
-});
+angular.module('jogo', [ngRoute]);
