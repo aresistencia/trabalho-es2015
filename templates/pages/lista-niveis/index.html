@@ -17,7 +17,17 @@
       <div ng-controller="ListaNiveisController as niveisCtrl">
         <div ng-repeat="nivel in niveisCtrl.niveis">
           <div class="col-xs-6 col-sm-4">
-            <nivel-button></nivel-button>
+            <a class="btn btn-default btn-lg btn-block" href="nivel-01.html" ng-class="{ 'nivel-disponivel':nivel.isDisponivel, 'nivel-bloqueado':!nivel.isDisponivel }">
+              {{ nivel['nivel'] }}
+              <span ng-show="nivel.isDisponivel">
+                <i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados === 0 }"></i><!-- 
+             --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados < 2 }"></i><!-- 
+             --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados < 3 }"></i>
+              </span>
+              <span ng-hide="nivel.isDisponivel">
+                <i class="fa fa-lock"></i>
+              </span>
+            </a>
           </div>
         </div><!-- /ng-repeat -->
       </div><!-- /ng-controller -->

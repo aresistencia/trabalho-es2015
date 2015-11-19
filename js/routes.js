@@ -5,7 +5,9 @@ angular.module('jogo')
     templateUrl: 'templates/pages/inicio/index.html'
   })
   .when('/lista-niveis', {
-    templateUrl: 'templates/pages/lista-niveis/index.html'
+    templateUrl: 'templates/pages/lista-niveis/index.html',
+    controller: 'ListaNiveisController',
+    controllerAs: 'niveisCtrl'
   })
   ;
 });
