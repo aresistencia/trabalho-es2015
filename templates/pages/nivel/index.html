@@ -23,7 +23,8 @@
         <!-- <div ng-controller="ListaDesafiosController as desafiosCtrl"> -->
           <div ng-repeat="desafio in desafiosCtrl.desafios">
             <div class="col-xs-12 col-sm-4">
-              <a class="btn btn-default btn-lg btn-block btn-desafio" href="desafio-01-01.html">
+              <a class="btn btn-default btn-lg btn-block btn-desafio"
+                 ng-href="#/nivel/{{nivel}}/desafio/{{desafio.numero}}.html">
                 <span ng-show="desafio.isCompletado">
                   <i class="fa fa-star fa-3x desafio-icone"></i><br>
                 </span>

@@ -18,7 +18,7 @@
         <div ng-repeat="nivel in niveisCtrl.niveis">
           <div class="col-xs-6 col-sm-4">
             <a class="btn btn-default btn-lg btn-block"
-               ng-href="#/lista-niveis/{{nivel.nivel}}"
+               ng-href="#/nivel/{{nivel.numero}}"
                ng-class="{ 'nivel-disponivel':nivel.isDisponivel, 'nivel-bloqueado':!nivel.isDisponivel }">
               {{ nivel['nivel'] }}
               <span ng-show="nivel.isDisponivel">
