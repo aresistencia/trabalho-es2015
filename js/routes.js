@@ -1,4 +1,6 @@
 angular.module('jogo')
-,config(function($routeProvider) {
-  
-})
+.config(function($routeProvider) {
+  $routeProvider.when('/', {
+    templateUrl: 'templates/pages/inicio/index.html'
+  });
+});

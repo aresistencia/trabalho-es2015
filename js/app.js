@@ -1,1 +1,1 @@
-angular.module('jogo', [ngRoute]);
+angular.module('jogo', ['ngRoute']);
