@@ -1,6 +1,6 @@
 app.directive('respostaButton', function() {
   return {
     restrict: 'E',
-    templateUrl: 'resposta-button.html'
+    templateUrl: 'templates/directives/resposta-button.html'
   };
 });

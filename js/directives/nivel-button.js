@@ -1,6 +1,6 @@
 app.directive('nivelButton', function() {
   return {
     restrict: 'E',
-    templateUrl: 'nivel-button.html'
+    templateUrl: 'templates/directives/nivel-button.html'
   };
 });

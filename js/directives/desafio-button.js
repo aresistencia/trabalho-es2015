@@ -1,6 +1,6 @@
 app.directive('desafioButton', function() {
   return {
     restrict: 'E',
-    templateUrl: 'desafio-button.html'
+    templateUrl: 'templates/directives/desafio-button.html'
   };
 });
