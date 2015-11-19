@@ -18,8 +18,8 @@ angular.module('jogo')
   // .when('/nivel/:nivel/desafio/:desafio', {
   .when('/nivel/1/desafio/1', {
     templateUrl: 'templates/pages/desafio/index.html',
-    controller: 'ListaDesafiosController',
-    controllerAs: 'desafiosCtrl'
+    controller: 'RespostasController',
+    controllerAs: 'respostasCtrl'
   })
   ;
 });
