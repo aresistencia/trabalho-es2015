@@ -5,38 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>A Resistência | 94% Wannabe</title>
+    <title>94% Wannabe | Nível 01</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  </head>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- Estilos da aplicacao -->
     <link rel="stylesheet" href="css/style.css">
-
-  </head>
   <body>
 
     <!-- BARRA DE NAVEGACAO -->
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#/">
+          <a class="navbar-brand" href="index.html">
             94% Wannabe
           </a>
         </div>
         <ul class="nav navbar-nav pull-right">
-          <li><a href="ranking.html">Ranking</a></li>
+          <li><a href="#">Ranking</a></li>
           <li><a href="registro.html">Registrar</a></li>
-          <li><a href="login.html">Entrar</a></li>
         </ul>
       </div><!-- /.container -->
     </nav>
 
-    <div ng-view></div>
+    <div ng-controller="ListaDesafiosController as desafiosCtrl">
 
+      <!-- SHOW CASE DA PAGINA -->
+      <section class="showcase nivel-showcase" ng-init="nivel = 1">
+        <div class="jumbotron">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-1">
+                <a href="index.html"><i class="fa fa-long-arrow-left fa-3x"></i></a>
+              </div>
+              <div class="col-xs-10">
+                <h2 class="text-center">Registro</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section><!-- /.showcase -->
+
+      <!-- Login -->
+
+      
+
+    </div><!-- /ng-controller -->
     <!-- RODAPE -->
     <footer>
       <div class="container text-center">
@@ -48,28 +67,13 @@
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
     <!-- Angular -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-    <script src="js/vendor/angular-route.js"></script>
-    
+
     <!-- Codigo da aplicacao -->
-    <script src="js/app.js"></script>
-    <script src="js/routes.js"></script>
-
-    <!-- Controllers -->
-    <script src="js/controllers/lista-niveis-controller.js"></script>
-    <script src="js/controllers/lista-desafios-controller.js"></script>
-    <script src="js/controllers/form-resp-controller.js"></script>
-    <script src="js/controllers/respostas-controller.js"></script>
-
-    <!-- Directives -->
-    <script src="js/directives/nivel-button.js"></script>
-    <script src="js/directives/desafio-button.js"></script>
-    <script src="js/directives/resposta-button.js"></script>
-    <script src="js/directives/resposta-form.js"></script>
-
+    <script src="js/register.controller.js"></script>
   </body>
 </html>
