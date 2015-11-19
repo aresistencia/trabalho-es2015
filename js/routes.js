@@ -9,5 +9,11 @@ angular.module('jogo')
     controller: 'ListaNiveisController',
     controllerAs: 'niveisCtrl'
   })
+  // .when('/lista-niveis/:nivel', {
+  .when('/lista-niveis/01', {
+    templateUrl: 'templates/pages/nivel/index.html',
+    controller: 'ListaDesafiosController',
+    controllerAs: 'desafiosCtrl'
+  })
   ;
 });
