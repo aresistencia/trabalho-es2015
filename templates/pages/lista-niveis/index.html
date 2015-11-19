@@ -8,19 +8,17 @@
       </h1>
     </div>
   </div>
-</section><!-- /.showcase -->
+</section>
 
 <!-- LISTA DE SELECAO DE NIVEIS -->
 <section class="lista-niveis">
   <div class="container">
     <div class="row">
-      <div ng-controller="ListaNiveisController as niveisCtrl">
-        <div ng-repeat="nivel in niveisCtrl.niveis">
-          <div class="col-xs-6 col-sm-4">
-            <nivel-button></nivel-button>
-          </div>
-        </div><!-- /ng-repeat -->
-      </div><!-- /ng-controller -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</section><!-- /.lista-niveis -->
+      <div ng-repeat="nivel in niveisCtrl.niveis">
+        <div class="col-xs-6 col-sm-4">
+          <nivel-button></nivel-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
