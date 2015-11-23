@@ -3,5 +3,5 @@
 
 outros/**
 
-js/json/**
-js/json/lista-niveis.json
+public/js/json/**
+public/js/json/lista-niveis.json
