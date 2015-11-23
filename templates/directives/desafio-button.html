@@ -1,10 +1,12 @@
-<a class="btn btn-default btn-lg btn-block btn-desafio"
-   ng-href="#/nivel/{{nivel}}/desafio/{{desafio.numero}}">
-  <span ng-show="desafio.isCompletado">
-    <i class="fa fa-star fa-3x desafio-icone"></i><br>
-  </span>
-  <span class="progress-circle" ng-hide="desafio.isCompletado">
-    {{ desafio['pontuacao'] }}
-  </span>
-  <div class="desafio-descricao">{{ desafio['titulo'] }}</div>
-</a>
+<div class="col-xs-12 col-sm-4">
+  <a class="btn btn-default btn-lg btn-block btn-desafio"
+     ng-href="#/nivel/{{nivel}}/desafio/{{desafio.numero}}">
+    <span ng-show="desafio.isCompletado">
+      <i class="fa fa-star fa-3x desafio-icone"></i><br>
+    </span>
+    <span class="progress-circle" ng-hide="desafio.isCompletado">
+      {{ desafio['pontuacao'] }}
+    </span>
+    <div class="desafio-descricao">{{ desafio['titulo'] }}</div>
+  </a>
+</div>
