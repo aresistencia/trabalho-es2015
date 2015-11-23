@@ -1,0 +1,19 @@
+{
+  "name": "jogoengsoft",
+  "version": "1.0.0",
+  "description": "Jogo do Grupo **A Resistência**, que utiliza a ideia do jogo 94% para ensinar/testar conceitos de engenharia de software.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aresistencia/trabalho-es2015.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aresistencia/trabalho-es2015/issues"
+  },
+  "homepage": "https://github.com/aresistencia/trabalho-es2015#readme"
+}
