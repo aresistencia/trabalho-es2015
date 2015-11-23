@@ -18,5 +18,14 @@ angular.module('jogo')
     templateUrl: 'templates/pages/desafio/index.html',
     controller: 'RespostasController'
   })
+  .when('/entrar', {
+    templateUrl: 'templates/pages/entrar/index.html'
+  })
+  .when('/registro', {
+    templateUrl: 'templates/pages/registro/index.html'
+  })
+  .when('/ranking', {
+    templateUrl: 'templates/pages/ranking/index.html'
+  })
   ;
 });
