@@ -31,10 +31,9 @@
 <section class="lista-desafios">
   <div class="container">
     <div class="row">
-      <div ng-repeat="resposta in respostasCtrl.respostas">
-        <div class="col-xs-6 col-sm-3">
-          <resposta-button></resposta-button>
-        </div>
+      <div ng-controller="RespostasController">
+        <resposta-button ng-repeat="resposta in respostas">
+        </resposta-button>
       </div>
     </div>
   </div>

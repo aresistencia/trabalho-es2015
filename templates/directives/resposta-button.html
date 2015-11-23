@@ -1,6 +1,10 @@
-<a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
-  <!-- Pontuacao da respostas -->
-  <span class="progress-circle">{{ resposta.pontos }}</span><br>
-  <!-- Resposta -->
-  <div class="desafio-descricao">{{ resposta.resposta }}</div>
-</a>
+<div ng-controller="RespostasController">
+  <div class="col-xs-6 col-sm-3">
+    <a class="btn btn-default btn-lg btn-block btn-desafio" href="#">
+      <!-- Pontuacao da respostas -->
+      <span>{{ resposta.pontos }}</span><br>
+      <!-- Resposta -->
+      <div class="desafio-descricao">{{ resposta.resposta }}</div>
+    </a>
+  </div>
+</div>
