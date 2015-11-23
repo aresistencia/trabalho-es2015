@@ -12,6 +12,9 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
   "bugs": {
     "url": "https://github.com/aresistencia/trabalho-es2015/issues"
   },
