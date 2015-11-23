@@ -1,8 +1,7 @@
 angular.module('jogo')
-.controller('ListaDesafiosController', [ '$http', function($http) {
-  var controller = this;
-  controller.desafios = [];
+.controller('ListaDesafiosController', [ '$scope', '$http', function($scope, $http) {
+  $scope.desafios = [];
   $http.get('https://api.myjson.com/bins/115np').success(function(data) {
-    controller.desafios = data;
+    $scope.desafios = data;
   });
 }]);
