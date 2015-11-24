@@ -32,66 +32,67 @@ describe('Faz requisicao para a lista de niveis', function() {
   });
 
   it('Retorna lista de niveis', function(done) {
-
-    var listaNiveis = [
-      {
-        "numero": 1,
-        "titulo": "",
-        "isDisponivel": true,
-        "desafiosCompletados": 1
-      },
-      {
-        "numero": 2,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      },
-      {
-        "numero": 3,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      },
-      {
-        "numero": 4,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      },
-      {
-        "numero": 5,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      },
-      {
-        "numero": 6,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      },
-      {
-        "numero": 7,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      },
-      {
-        "numero": 8,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      },
-      {
-        "numero": 9,
-        "titulo": "",
-        "isDisponivel": false,
-        "desafiosCompletados": 0
-      }
-    ];
-
     request(app)
       .get('/lista-niveis')
       .expect(listaNiveis, done);
   });
+
 });
+
+// Variaveis para auxiliar os testes
+var listaNiveis = [
+  {
+    "numero": 1,
+    "titulo": "",
+    "isDisponivel": true,
+    "desafiosCompletados": 1
+  },
+  {
+    "numero": 2,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  },
+  {
+    "numero": 3,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  },
+  {
+    "numero": 4,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  },
+  {
+    "numero": 5,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  },
+  {
+    "numero": 6,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  },
+  {
+    "numero": 7,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  },
+  {
+    "numero": 8,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  },
+  {
+    "numero": 9,
+    "titulo": "",
+    "isDisponivel": false,
+    "desafiosCompletados": 0
+  }
+];
