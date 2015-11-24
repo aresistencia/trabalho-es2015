@@ -1,8 +1,8 @@
 angular.module('jogo')
-.controller('RespostasController', ['$scope', '$http', function($scope, $http) {
+.controller('RespostasController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 
   $scope.respostas = [];
-  $http.get('/nivel/1/desafio/1').success(function(data) {
+  $http.get('/nivel/' + $routeParams.nivelID + '/desafio/' + $routeParams.desafioID).success(function(data) {
     $scope.respostas = data;
   });
 

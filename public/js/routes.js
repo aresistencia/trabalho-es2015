@@ -8,13 +8,11 @@ angular.module('jogo')
     templateUrl: 'templates/pages/lista-niveis/index.html',
     controller: 'ListaNiveisController'
   })
-  // .when('/nivel/:nivel', {
-  .when('/nivel/1', {
+  .when('/nivel/:nivelID', {
     templateUrl: 'templates/pages/nivel/index.html',
     controller: 'ListaDesafiosController'
   })
-  // .when('/nivel/:nivel/desafio/:desafio', {
-  .when('/nivel/1/desafio/1', {
+  .when('/nivel/:nivelID/desafio/:desafioID', {
     templateUrl: 'templates/pages/desafio/index.html',
     controller: 'RespostasController'
   })

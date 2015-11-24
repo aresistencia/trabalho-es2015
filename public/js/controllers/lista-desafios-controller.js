@@ -1,7 +1,7 @@
 angular.module('jogo')
-.controller('ListaDesafiosController', [ '$scope', '$http', function($scope, $http) {
+.controller('ListaDesafiosController', [ '$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
   $scope.infoDesafios = [];
-  $http.get('/nivel/1').success(function(data) {
+  $http.get('/nivel/' + $routeParams.nivelID).success(function(data) {
     $scope.infoDesafios = data;
   });
 }]);
