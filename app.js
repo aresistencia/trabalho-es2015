@@ -8,7 +8,7 @@ app.get('/lista-niveis', function(request, response) {
 });
 
 app.get('/nivel/1', function(request, response) {
-  response.send(listaInfoDesafios[1]);
+  response.send(infoDesafios[1]);
 });
 
 // Variaveis para auxiliar as respostas das requisicoes
@@ -72,7 +72,7 @@ var listaNiveis = [
 ];
 
 // Lista com informacao dos desafios desafios de cada nivel
-var listaInfoDesafios = [
+var infoDesafios = [
   { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
   {
     'nivel': {

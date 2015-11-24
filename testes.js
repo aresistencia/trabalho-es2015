@@ -59,7 +59,7 @@ describe('Faz requisicao para a lista de desafios do nivel 1', function() {
   it('Retorna lista de desafios', function(done) {
     request(app)
       .get('/nivel/1')
-      .expect(listaInfoDesafios[1], done);
+      .expect(infoDesafios[1], done);
   });
 
 });
@@ -123,7 +123,7 @@ var listaNiveis = [
 ];
 
 // Lista com informacao dos desafios desafios de cada nivel
-var listaInfoDesafios = [
+var infoDesafios = [
   { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
   {
     'nivel': {

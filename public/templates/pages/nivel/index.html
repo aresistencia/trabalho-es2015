@@ -8,8 +8,8 @@
         </div>
         <div class="col-xs-10">
           <h2 class="text-center">
-            Nível {{ desafios.nivel.id }}<br>
-            <small>{{ desafios.nivel.titulo}}</small>
+            Nível {{ infoDesafios.nivel.id }}<br>
+            <small>{{ infoDesafios.nivel.titulo}}</small>
           </h2>
         </div>
       </div>
@@ -21,7 +21,7 @@
 <section class="lista-desafios">
   <div class="container">
     <div class="row">
-      <desafio-button ng-repeat="desafio in desafios['desafios']"></desafio-button>
+      <desafio-button ng-repeat="desafio in infoDesafios.desafios"></desafio-button>
     </div>
   </div>
 </section>
