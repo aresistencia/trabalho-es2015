@@ -7,17 +7,29 @@ app.get('/lista-niveis', function(request, response) {
   response.json(listaNiveis);
 });
 
-app.get('/nivel/1', function(request, response) {
-  response.json(infoDesafios[1]);
+app.get('/nivel/:nivelID', function(request, response) {
+  var desafios = infoDesafios[request.params.nivelID];
+  if (!desafios) {
+    response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
+  } else {
+    response.json(desafios);
+  }
 });
 
-app.get('/nivel/1/desafio/1', function(request, response) {
-  response.json(infoRespostas[1].desafios[1]);
+app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
+  var nivel = infoRespostas[request.params.nivelID];
+  if (!nivel) {
+    response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
+  } else {
+    var desafio = infoRespostas[request.params.nivelID].desafios[request.params.desafioID];
+    if (!desafio) {
+      response.status(404).json("Desafio " + request.params.desafioID + " do nivel "+ request.params.nivelID + " nao existe");
+    } else {
+      response.json(desafio);
+    }
+  }
 });
 
-app.get('/nivel/1/desafio/2', function(request, response) {
-  response.json(infoRespostas[1].desafios[2]);
-});
 
 // Variaveis para auxiliar as respostas das requisicoes
 
