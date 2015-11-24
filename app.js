@@ -21,13 +21,13 @@ app.get('/nivel/1/desafio/1', function(request, response) {
 var listaNiveis = [
   {
     "id": 1,
-    "titulo": "",
+    "titulo": "Métodos Ágeis",
     "isDisponivel": true,
     "desafiosCompletados": 1
   },
   {
     "id": 2,
-    "titulo": "",
+    "titulo": "Métodos Tradicionais",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
@@ -80,7 +80,7 @@ var infoDesafios = [
   { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
   {
     'nivel': {
-      'titulo': 'Metodologias Ágeis',
+      'titulo': 'Métodos Ágeis',
       'id': 1
     },
     'desafios': [
