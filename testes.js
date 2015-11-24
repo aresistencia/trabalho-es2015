@@ -67,55 +67,55 @@ describe('Faz requisicao para a lista de desafios do nivel 1', function() {
 // Variaveis para auxiliar os testes
 var listaNiveis = [
   {
-    "numero": 1,
+    "id": 1,
     "titulo": "",
     "isDisponivel": true,
     "desafiosCompletados": 1
   },
   {
-    "numero": 2,
+    "id": 2,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
   {
-    "numero": 3,
+    "id": 3,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
   {
-    "numero": 4,
+    "id": 4,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
   {
-    "numero": 5,
+    "id": 5,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
   {
-    "numero": 6,
+    "id": 6,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
   {
-    "numero": 7,
+    "id": 7,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
   {
-    "numero": 8,
+    "id": 8,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
   },
   {
-    "numero": 9,
+    "id": 9,
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
@@ -131,9 +131,9 @@ var infoDesafios = [
       'id': 1
     },
     'desafios': [
-      { 'titulo': 'Scrum', 'pontuacao': 0 },
-      { 'titulo': 'XP', 'pontuacao': 0 },
-      { 'titulo': 'Kanban', 'pontuacao': 0 }
+      { 'titulo': 'Scrum', 'pontuacao': 0, 'id': 1 },
+      { 'titulo': 'XP', 'pontuacao': 0, 'id': 2 },
+      { 'titulo': 'Kanban', 'pontuacao': 0, 'id': 3 }
     ]
   }
 ];

@@ -80,9 +80,9 @@ var infoDesafios = [
       'id': 1
     },
     'desafios': [
-      { 'titulo': 'Scrum', 'pontuacao': 0 },
-      { 'titulo': 'XP', 'pontuacao': 0 },
-      { 'titulo': 'Kanban', 'pontuacao': 0 }
+      { 'titulo': 'Scrum', 'pontuacao': 0, 'id': 1 },
+      { 'titulo': 'XP', 'pontuacao': 0, 'id': 2 },
+      { 'titulo': 'Kanban', 'pontuacao': 0, 'id': 3 }
     ]
   }
 ];
