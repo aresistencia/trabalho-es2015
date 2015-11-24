@@ -127,6 +127,32 @@ describe('Faz requisicoes para rotas de niveis e desafios que nao existem no jog
 
 });
 
+// Testes para tratar respostas corretas
+describe('Faz requisicoes HTTP POST com respostas corretas do desafio 1 do nivel 1', function() {
+
+  it('Retorna codigo de status 201 para resposta "Corridas"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Corridas')
+      .expect(201, done);
+  });
+
+  it('Retorna ID da resposta "Corridas"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Corridas')
+      .expect("1", done);
+  });
+
+  it('Retorna ID da resposta "Mestre do Scrum"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Mestre+do+Scrum')
+      .expect("2", done);
+  });
+
+});
+
 // Variaveis para auxiliar os testes
 var listaNiveis = [
   {

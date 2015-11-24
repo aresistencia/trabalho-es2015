@@ -1,6 +1,9 @@
 var express = require('express');
 var app = express();
 
+var bodyParser = require('body-parser');
+var parseUrlEncoded = bodyParser.urlencoded({ extended: false });
+
 app.use(express.static('public'));
 
 app.get('/lista-niveis', function(request, response) {
@@ -30,6 +33,16 @@ app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
   }
 });
 
+app.post('/nivel/1/desafio/1', parseUrlEncoded, function(request, response) {
+  var resposta = request.body.resposta;
+
+  if (resposta === "Corridas") {
+    response.status(201).json(1);
+  } else if (resposta === "Mestre do Scrum") {
+    response.status(201).json(2);
+  }
+
+});
 
 // Variaveis para auxiliar as respostas das requisicoes
 
