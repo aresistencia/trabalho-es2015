@@ -59,7 +59,7 @@ describe('Faz requisicao para a lista de desafios do nivel 1', function() {
   it('Retorna lista de desafios', function(done) {
     request(app)
       .get('/nivel/1')
-      .expect(listaDesafios[1], done);
+      .expect(listaInfoDesafios[1], done);
   });
 
 });
@@ -122,12 +122,18 @@ var listaNiveis = [
   }
 ];
 
-// Lista com lista de desafios para cada nivel
-var listaDesafios = [
+// Lista com informacao dos desafios desafios de cada nivel
+var listaInfoDesafios = [
   { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
   {
-    'numero': 1,
-    'titulo': 'Metodologias Ágeis',
-    'desafios': ['Scrum', 'XP', 'Kanban']
+    'nivel': {
+      'titulo': 'Metodologias Ágeis',
+      'id': 1
+    },
+    'desafios': [
+      { 'titulo': 'Scrum', 'pontuacao': 0 },
+      { 'titulo': 'XP', 'pontuacao': 0 },
+      { 'titulo': 'Kanban', 'pontuacao': 0 }
+    ]
   }
 ];
