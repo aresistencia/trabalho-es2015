@@ -1,5 +1,5 @@
 <!-- SHOW CASE DA PAGINA -->
-<section class="showcase nivel-showcase" ng-init="nivel = 1">
+<section class="showcase nivel-showcase">
   <div class="jumbotron">
     <div class="container">
       <div class="row">
@@ -7,7 +7,10 @@
           <a href="#/lista-niveis"><i class="fa fa-long-arrow-left fa-3x"></i></a>
         </div>
         <div class="col-xs-10">
-          <h2 class="text-center">Nível 0{{nivel}}</h2>
+          <h2 class="text-center">
+            Nível {{ desafios.nivel.id }}<br>
+            <small>{{ desafios.nivel.titulo}}</small>
+          </h2>
         </div>
       </div>
     </div>
