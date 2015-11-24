@@ -15,6 +15,10 @@ app.get('/nivel/1/desafio/1', function(request, response) {
   response.json(infoRespostas[1].desafios[1]);
 });
 
+app.get('/nivel/1/desafio/2', function(request, response) {
+  response.json(infoRespostas[1].desafios[2]);
+});
+
 // Variaveis para auxiliar as respostas das requisicoes
 
 // Lista de niveis do jogo
@@ -109,6 +113,17 @@ var infoRespostas = [
           { "id": 5, "pontos": 4, "resposta": "" },
           { "id": 6, "pontos": 9, "resposta": "" },
           { "id": 7, "pontos": 5, "resposta": "" }
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "XP",
+        "respostas": [
+          { "id": 1, "pontos": 40, "resposta": "" },
+          { "id": 2, "pontos": 15, "resposta": "" },
+          { "id": 3, "pontos": 10, "resposta": "" },
+          { "id": 4, "pontos": 11, "resposta": "" },
+          { "id": 5, "pontos": 4, "resposta": "" }
         ]
       }
     ]

@@ -87,6 +87,29 @@ describe('Faz requisicao para a lista de pontuacao das respostas do desafio 1 do
 
 });
 
+// Teste para a rota '/nivel/1/desafio/2'
+describe('Faz requisicao para a lista de pontuacao das respostas do desafio 2 do nivel 1', function() {
+
+  it('Retorna codigo de status 200', function(done) {
+    request(app)
+      .get('/nivel/1/desafio/2')
+      .expect(200, done);
+  });
+
+  it('Retorna um arquivo no formato JSON', function(done) {
+    request(app)
+      .get('/nivel/1/desafio/2')
+      .expect('Content-Type', /json/, done);
+  });
+
+  it('Retorna uma lista com a pontuacao das respostas do desafio 2 do nivel 1', function(done) {
+    request(app)
+      .get('/nivel/1/desafio/2')
+      .expect(infoRespostas[1].desafios[2], done);
+  });
+
+});
+
 // Variaveis para auxiliar os testes
 var listaNiveis = [
   {
@@ -179,6 +202,17 @@ var infoRespostas = [
           { "id": 5, "pontos": 4, "resposta": "" },
           { "id": 6, "pontos": 9, "resposta": "" },
           { "id": 7, "pontos": 5, "resposta": "" }
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "XP",
+        "respostas": [
+          { "id": 1, "pontos": 40, "resposta": "" },
+          { "id": 2, "pontos": 15, "resposta": "" },
+          { "id": 3, "pontos": 10, "resposta": "" },
+          { "id": 4, "pontos": 11, "resposta": "" },
+          { "id": 5, "pontos": 4, "resposta": "" }
         ]
       }
     ]
