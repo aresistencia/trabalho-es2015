@@ -111,15 +111,15 @@ describe('Faz requisicao para a lista de pontuacao das respostas do desafio 2 do
 });
 
 // Teste para rotas que nao existem
-describe('Faz teste para rotas de niveis e desafios que nao existem no jogo', function() {
+describe('Faz requisicoes para rotas de niveis e desafios que nao existem no jogo', function() {
 
-  it('Rotorna codigo de status 404 para rota para o nivel 10', function(done) {
+  it('Rotorna codigo de status 404 para a rota para o nivel 10', function(done) {
     request(app)
       .get('/nivel/10')
       .expect(404, done);
   });
 
-    it('Rotorna codigo de status 404 para rota para o desafio 976 nivel 320', function(done) {
+    it('Rotorna codigo de status 404 para a rota para o desafio 976 do nivel 320', function(done) {
     request(app)
       .get('/nivel/320/desafio/976')
       .expect(404, done);
