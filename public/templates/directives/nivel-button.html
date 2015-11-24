@@ -2,7 +2,7 @@
   <a class="btn btn-default btn-lg btn-block"
      ng-href="#/nivel/{{nivel.id}}"
      ng-class="{ 'nivel-disponivel':nivel.isDisponivel, 'nivel-bloqueado':!nivel.isDisponivel }">
-    {{ nivel.numero }}
+    {{ nivel.titulo }}
     <span ng-show="nivel.isDisponivel">
       <i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados === 0 }"></i><!-- 
    --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados < 2 }"></i><!-- 
