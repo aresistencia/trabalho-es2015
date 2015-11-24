@@ -4,7 +4,7 @@
   "description": "Jogo do Grupo **A Resistência**, que utiliza a ideia do jogo 94% para ensinar/testar conceitos de engenharia de software.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha testes.js"
+    "test": "mocha -w testes.js app.js"
   },
   "repository": {
     "type": "git",
