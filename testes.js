@@ -50,6 +50,18 @@ describe('Faz requisicao para a lista de desafios do nivel 1', function() {
       .expect(200, done);
   });
 
+  it('Retorna um arquivo JSON', function(done) {
+    request(app)
+      .get('/nivel/1')
+      .expect('Content-Type', /json/, done);
+  });
+
+  it('Retorna lista de desafios', function(done) {
+    request(app)
+      .get('/nivel/1')
+      .expect(listaDesafios[1], done);
+  });
+
 });
 
 // Variaveis para auxiliar os testes
@@ -107,5 +119,15 @@ var listaNiveis = [
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
+  }
+];
+
+// Lista com lista de desafios para cada nivel
+var listaDesafios = [
+  { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
+  {
+    'numero': 1,
+    'titulo': 'Metodologias Ágeis',
+    'desafios': ['Scrum', 'XP', 'Kanban']
   }
 ];

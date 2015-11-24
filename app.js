@@ -8,7 +8,7 @@ app.get('/lista-niveis', function(request, response) {
 });
 
 app.get('/nivel/1', function(request, response) {
-  response.send('OK');
+  response.send(listaDesafios[1]);
 });
 
 // Variaveis para auxiliar as respostas das requisicoes
@@ -68,6 +68,16 @@ var listaNiveis = [
     "titulo": "",
     "isDisponivel": false,
     "desafiosCompletados": 0
+  }
+];
+
+// Lista com lista de desafios para cada nivel
+var listaDesafios = [
+  { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
+  {
+    'numero': 1,
+    'titulo': 'Metodologias Ágeis',
+    'desafios': ['Scrum', 'XP', 'Kanban']
   }
 ];
 
