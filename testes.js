@@ -128,23 +128,23 @@ describe('Faz requisicoes para rotas de niveis e desafios que nao existem no jog
 });
 
 // Testes para tratar respostas corretas
-describe('Faz requisicoes HTTP POST com respostas corretas do desafio 1 do nivel 1', function() {
+describe('Faz requisicoes HTTP POST com respostas CORRETAS para o desafio 1 do nivel 1 ("Scrum")', function() {
 
-  it('Retorna codigo de status 201 para resposta "Corridas"', function(done) {
+  it('Retorna codigo de status 201', function(done) {
     request(app)
       .post('/nivel/1/desafio/1')
       .send('resposta=Corridas')
       .expect(201, done);
   });
 
-  it('Retorna ID da resposta "Corridas"', function(done) {
+  it('Retorna ID 1 para resposta "Corridas"', function(done) {
     request(app)
       .post('/nivel/1/desafio/1')
       .send('resposta=Corridas')
       .expect("1", done);
   });
 
-  it('Retorna ID da resposta "Mestre do Scrum"', function(done) {
+  it('Retorna ID 2 para resposta "Mestre do Scrum"', function(done) {
     request(app)
       .post('/nivel/1/desafio/1')
       .send('resposta=Mestre+do+Scrum')
@@ -152,6 +152,33 @@ describe('Faz requisicoes HTTP POST com respostas corretas do desafio 1 do nivel
   });
 
 });
+
+// Testes para tratar respostas erradas
+describe('Faz requisicoes HTTP POST com respostas ERRADAS para o desafio 1 do nivel 1 ("Scrum")', function() {
+
+  it('Retorna codigo de status 201', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Análise+de+Risco')
+      .expect(201, done);
+  });
+
+  it('Retorna ID -1 para resposta "Análise de Risco"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Análise+de+Risco')
+      .expect("-1", done);
+  });
+
+  it('Retorna ID -1 para resposta "Fluxo de Dados"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Fluxo+de+Dados')
+      .expect("-1", done);
+  });
+
+});
+
 
 // Variaveis para auxiliar os testes
 var listaNiveis = [

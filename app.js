@@ -40,6 +40,8 @@ app.post('/nivel/1/desafio/1', parseUrlEncoded, function(request, response) {
     response.status(201).json(1);
   } else if (resposta === "Mestre do Scrum") {
     response.status(201).json(2);
+  } else {
+    response.status(201).json(-1);
   }
 
 });
