@@ -9,7 +9,7 @@
         </div>
         <div class="col-xs-10">
           <!-- Pergunta do desafio -->
-          <h2 class="text-center">TITULO DO DESAFIO</h2>
+          <h2 class="text-center">{{ respostas.titulo }}</h2>
         </div>
       </div>
       <div class="row">
@@ -31,7 +31,7 @@
 <section class="lista-desafios">
   <div class="container">
     <div class="row">
-      <resposta-button ng-repeat="resposta in respostas">
+      <resposta-button ng-repeat="resposta in respostas.respostas">
       </resposta-button>
     </div>
   </div>

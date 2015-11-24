@@ -1,19 +1,14 @@
 angular.module('jogo')
-.controller('RespostasController', ['$scope', function($scope) {
+.controller('RespostasController', ['$scope', '$http', function($scope, $http) {
 
-  $scope.respostas = [
-    { 'resposta': '', 'pontos': '40', 'numero': 1 },
-    { 'resposta': '', 'pontos': '15', 'numero': 2 },
-    { 'resposta': '', 'pontos': '10', 'numero': 3 },
-    { 'resposta': '', 'pontos': '11', 'numero': 4 },
-    { 'resposta': '', 'pontos': '04', 'numero': 5 },
-    { 'resposta': '', 'pontos': '09', 'numero': 6 },
-    { 'resposta': '', 'pontos': '05', 'numero': 7 }
-  ];
+  $scope.respostas = [];
+  $http.get('/nivel/1/desafio/1').success(function(data) {
+    $scope.respostas = data;
+  });
 
   $scope.$on('rightAnswer', function(event, cardResposta) {
-    $scope.respostas.forEach(function(card) {
-      if (card.numero === cardResposta.numero) {
+    $scope.respostas.respostas.forEach(function(card) {
+      if (card.id === cardResposta.id) {
         card.resposta = cardResposta.resposta;
       }
     });
