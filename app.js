@@ -7,6 +7,9 @@ app.get('/lista-niveis', function(request, response) {
   response.json(listaNiveis);
 });
 
+app.get('/nivel/1', function(request, response) {
+  response.send('OK');
+});
 
 // Variaveis para auxiliar as respostas das requisicoes
 

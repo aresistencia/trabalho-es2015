@@ -1,6 +1,7 @@
 var request = require('supertest'),
     app = require('./app');
 
+// Testes para a rota '/'
 describe('Faz requisicao para rota raiz', function() {
 
   it('Retorna codigo de status 200', function(done) {
@@ -17,6 +18,7 @@ describe('Faz requisicao para rota raiz', function() {
 
 });
 
+// Testes para a rota '/lista-niveis'
 describe('Faz requisicao para a lista de niveis', function() {
 
   it('Retorna codigo de status 200', function(done) {
@@ -35,6 +37,17 @@ describe('Faz requisicao para a lista de niveis', function() {
     request(app)
       .get('/lista-niveis')
       .expect(listaNiveis, done);
+  });
+
+});
+
+// Testes para as rotas '/nivel/:nivel'
+describe('Faz requisicao para a lista de desafios do nivel 1', function() {
+
+  it('Retorna codigo de status 200', function(done) {
+    request(app)
+      .get('/nivel/1')
+      .expect(200, done);
   });
 
 });
