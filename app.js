@@ -33,26 +33,21 @@ app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
   }
 });
 
-app.post('/nivel/1/desafio/1', parseUrlEncoded, function(request, response) {
+app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request, response) {
 
-  var resposta = request.body.resposta;
-  if (resposta === "Corridas") {
-    response.status(201).json({ "resposta": "Corridas", "id": 1 });
-  } else if (resposta === "Mestre do Scrum") {
-    response.status(201).json({ "resposta": "Mestre do Scrum", "id": 2 });
-  } else if (resposta === "Dono do Produto") {
-    response.status(201).json({ "resposta": "Dono do Produto", "id": 3 });
-  } else if (resposta === "Time") {
-    response.status(201).json({ "resposta": "Time", "id": 4 });
-  } else if (resposta === "Fluxo de Processo") {
-    response.status(201).json({ "resposta": "Fluxo de Processo", "id": 5 });
-  } else if (resposta === "Reuniões Diárias") {
-    response.status(201).json({ "resposta": "Reuniões Diárias", "id": 6 });
-  } else if (resposta === "Revisão") {
-    response.status(201).json({ "resposta": "Revisão", "id": 7 });
-  } else {
-    response.status(201).json({ "resposta": "", "id": -1 });
-  }
+  var nivel = request.params.nivelID,
+      desafio = request.params.desafioID,
+      respostas = respostasDesafios[nivel][desafio],
+      reqResposta = request.body.resposta,
+      resResposta = { "resposta": "", "id": -1 };
+
+  respostas.forEach(function(resposta) {
+    if (resposta.resposta === reqResposta) {
+      resResposta = resposta;
+    }
+  });
+
+  response.status(201).json(resResposta);
 
 });
 
@@ -138,7 +133,7 @@ var infoRespostas = [
   {
     "nivelID": 1,
     "desafios": [
-      { /* Objeto vazio para facilitar a indexacao: desafio 1 -> desafio 1 */ },
+      { /* Objeto vazio para facilitar a indexacao: desafio 1 -> indice 1 */ },
       {
         "id": 1,
         "titulo": "Scrum",
@@ -165,6 +160,23 @@ var infoRespostas = [
       }
     ]
   }
+];
+
+// Respostas dos desafios
+var respostasDesafios = [
+  [ /* Para facilitar indexacao: nivel 1 -> indice 1 */ ],
+  [
+    { /* Para facilitar indexacao: desafio 1 -> indice 1 */ },
+    [
+      { "id": 1, "resposta": "Corridas" },
+      { "id": 2, "resposta": "Mestre do Scrum" },
+      { "id": 3, "resposta": "Dono do Produto" },
+      { "id": 4, "resposta": "Time" },
+      { "id": 5, "resposta": "Fluxo de Processo" },
+      { "id": 6, "resposta": "Reuniões Diárias" },
+      { "id": 7, "resposta": "Revisão" }
+    ]
+  ]
 ];
 
 module.exports = app;
