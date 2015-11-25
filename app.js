@@ -34,14 +34,14 @@ app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
 });
 
 app.post('/nivel/1/desafio/1', parseUrlEncoded, function(request, response) {
-  var resposta = request.body.resposta;
 
+  var resposta = request.body.resposta;
   if (resposta === "Corridas") {
-    response.status(201).json(1);
+    response.status(201).json({ "resposta": "Corridas", "id": 1 });
   } else if (resposta === "Mestre do Scrum") {
-    response.status(201).json(2);
+    response.status(201).json({ "resposta": "Mestre do Scrum", "id": 2 });
   } else {
-    response.status(201).json(-1);
+    response.status(201).json({ "resposta": "", "id": -1 });
   }
 
 });

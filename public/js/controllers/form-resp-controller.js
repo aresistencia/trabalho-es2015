@@ -1,21 +1,18 @@
 angular.module('jogo')
-.controller('FormRespController', ['$rootScope', function($rootScope) {
-
-  $rootScope.listaRespostas = [
-    { 'resposta': 'Corridas', 'id': 1 },
-    { 'resposta': 'Mestre do Scrum', 'id': 2 },
-    { 'resposta': 'Dono do Produto', 'id': 3 },
-    { 'resposta': 'Time', 'id': 4 },
-    { 'resposta': 'Fluxo de Processo', 'id': 5 },
-    { 'resposta': 'Reuniões Diárias', 'id': 6 },
-    { 'resposta': 'Revisão', 'id': 7  }
-  ];
+.controller('FormRespController', ['$rootScope', '$http', function($rootScope, $http) {
 
   $rootScope.validaResposta = function(inputText) {
-    $rootScope.listaRespostas.forEach(function(card) {
-      if (card.resposta === inputText) {
-        $rootScope.$broadcast('rightAnswer', card);
+
+    $http({
+      url: '/nivel/1/desafio/1',
+      method: "POST",
+      data: 'resposta=' + inputText,
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+    }).success(function (data, status, headers, config) {
+      if (data.id !== -1) {
+        $rootScope.$broadcast('rightAnswer', data);
       }
     });
+
   };
 }]);

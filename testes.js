@@ -141,14 +141,14 @@ describe('Faz requisicoes HTTP POST com respostas CORRETAS para o desafio 1 do n
     request(app)
       .post('/nivel/1/desafio/1')
       .send('resposta=Corridas')
-      .expect("1", done);
+      .expect({"resposta": "Corridas", "id": 1}, done);
   });
 
   it('Retorna ID 2 para resposta "Mestre do Scrum"', function(done) {
     request(app)
       .post('/nivel/1/desafio/1')
       .send('resposta=Mestre+do+Scrum')
-      .expect("2", done);
+      .expect({"resposta": "Mestre do Scrum", "id": 2}, done);
   });
 
 });
@@ -167,14 +167,14 @@ describe('Faz requisicoes HTTP POST com respostas ERRADAS para o desafio 1 do ni
     request(app)
       .post('/nivel/1/desafio/1')
       .send('resposta=Análise+de+Risco')
-      .expect("-1", done);
+      .expect({"resposta": "", "id": -1}, done);
   });
 
   it('Retorna ID -1 para resposta "Fluxo de Dados"', function(done) {
     request(app)
       .post('/nivel/1/desafio/1')
       .send('resposta=Fluxo+de+Dados')
-      .expect("-1", done);
+      .expect({"resposta": "", "id": -1}, done);
   });
 
 });
