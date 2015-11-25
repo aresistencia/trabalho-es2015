@@ -40,6 +40,16 @@ app.post('/nivel/1/desafio/1', parseUrlEncoded, function(request, response) {
     response.status(201).json({ "resposta": "Corridas", "id": 1 });
   } else if (resposta === "Mestre do Scrum") {
     response.status(201).json({ "resposta": "Mestre do Scrum", "id": 2 });
+  } else if (resposta === "Dono do Produto") {
+    response.status(201).json({ "resposta": "Dono do Produto", "id": 3 });
+  } else if (resposta === "Time") {
+    response.status(201).json({ "resposta": "Time", "id": 4 });
+  } else if (resposta === "Fluxo de Processo") {
+    response.status(201).json({ "resposta": "Fluxo de Processo", "id": 5 });
+  } else if (resposta === "Reuniões Diárias") {
+    response.status(201).json({ "resposta": "Reuniões Diárias", "id": 6 });
+  } else if (resposta === "Revisão") {
+    response.status(201).json({ "resposta": "Revisão", "id": 7 });
   } else {
     response.status(201).json({ "resposta": "", "id": -1 });
   }

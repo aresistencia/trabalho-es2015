@@ -151,6 +151,41 @@ describe('Faz requisicoes HTTP POST com respostas CORRETAS para o desafio 1 do n
       .expect({"resposta": "Mestre do Scrum", "id": 2}, done);
   });
 
+  it('Retorna ID 3 para resposta "Dono do Produto"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Dono+do+Produto')
+      .expect({"resposta": "Dono do Produto", "id": 3}, done);
+  });
+
+  it('Retorna ID 4 para resposta "Time"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Time')
+      .expect({"resposta": "Time", "id": 4}, done);
+  });
+
+  it('Retorna ID 5 para resposta "Fluxo de Processo"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Fluxo+de+Processo')
+      .expect({"resposta": "Fluxo de Processo", "id": 5}, done);
+  });
+
+  it('Retorna ID 6 para resposta "Reuniões Diárias"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Reuniões+Diárias')
+      .expect({"resposta": "Reuniões Diárias", "id": 6}, done);
+  });
+
+  it('Retorna ID 7 para resposta "Revisão"', function(done) {
+    request(app)
+      .post('/nivel/1/desafio/1')
+      .send('resposta=Revisão')
+      .expect({"resposta": "Revisão", "id": 7}, done);
+  });
+
 });
 
 // Testes para tratar respostas erradas
