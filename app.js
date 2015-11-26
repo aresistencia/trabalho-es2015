@@ -15,7 +15,8 @@ db.serialize(function() {
 
     // Cria esquema do banco de dados do jogo
     db.run("CREATE TABLE Niveis (id int PRIMARY KEY, titulo varchar(30), isDisponivel int, desafiosCompletados int)");
-    db.run("CREATE TABLE Desafios (id int PRIMARY KEY, nivel_id int REFERENCES Niveis(id), Titulo varchar(30), Resposta varchar(30))");
+    db.run("CREATE TABLE Desafios (id int PRIMARY KEY, Titulo varchar(30))");
+    db.run("CREATE TABLE Niveis_Desafios (id_nivel int REFERENCES Niveis(id), id_desafio int REFERENCES Desafios(id))");
 
     // Cria lista de niveis do jogo
     db.run("INSERT INTO Niveis VALUES (1, 'Métodos Ágeis', 1, 1)");
