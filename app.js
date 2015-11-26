@@ -15,8 +15,8 @@ db.serialize(function() {
 
     // Cria esquema do banco de dados do jogo
     db.run("CREATE TABLE Niveis (id int PRIMARY KEY, titulo varchar(30), isDisponivel int, desafiosCompletados int)");
-    db.run("CREATE TABLE Desafios (id int PRIMARY KEY, Titulo varchar(30))");
-    db.run("CREATE TABLE Niveis_Desafios (id_nivel int REFERENCES Niveis(id), id_desafio int REFERENCES Desafios(id))");
+    db.run("CREATE TABLE Desafios (id int PRIMARY KEY, titulo varchar(30), pontuacao int)");
+    db.run("CREATE TABLE Niveis_Desafios (nivel_id int REFERENCES Niveis(id), desafio_id int REFERENCES Desafios(id))");
 
     // Cria lista de niveis do jogo
     db.run("INSERT INTO Niveis VALUES (1, 'Métodos Ágeis', 1, 1)");
@@ -29,6 +29,13 @@ db.serialize(function() {
     db.run("INSERT INTO Niveis VALUES (8, '', 0, 0)");
     db.run("INSERT INTO Niveis VALUES (9, '', 0, 0)");
 
+    db.run("INSERT INTO Desafios VALUES (1, 'Scrum', 0)");
+    db.run("INSERT INTO Desafios VALUES (2, 'XP', 0)");
+    db.run("INSERT INTO Desafios VALUES (3, 'Kanban', 0)");
+    db.run("INSERT INTO Niveis_Desafios VALUES (1, 1)");
+    db.run("INSERT INTO Niveis_Desafios VALUES (1, 2)");
+    db.run("INSERT INTO Niveis_Desafios VALUES (1, 3)");
+
   }
 });
 
@@ -36,21 +43,63 @@ app.use(express.static('public'));
 
 app.get('/lista-niveis', function(request, response) {
 
-  var novaListaNiveis = [];
-
   db.all("SELECT * FROM Niveis", function(err, rows) {
-    response.json(rows);
+    if (err) {
+      console.log(err);
+    } else {
+      response.json(rows);
+    }
   });
 
 });
 
 app.get('/nivel/:nivelID', function(request, response) {
-  var desafios = infoDesafios[request.params.nivelID];
-  if (!desafios) {
-    response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
-  } else {
-    response.json(desafios);
-  }
+
+  // Consulta para listar informacoes dos desafios do nivel da rota requisitada
+  db.all("SELECT n.id nivel_id, d.id desafio_id, n.titulo nivel_titulo, d.titulo desafio_titulo, d.pontuacao desafio_pontuacao FROM Niveis n INNER JOIN Niveis_Desafios nd ON n.id = nd.nivel_id INNER JOIN Desafios d ON nd.desafio_id = d.id WHERE n.id = " + request.params.nivelID, function(err, rows) {
+
+    // Checa se houve algum erro na consulta
+    if (err) {
+      console.log(err);
+    } else {
+
+      // Checa se o resultado da consulta eh uma tabela vazia, ou seja, se o
+      // nivel existe ou nao
+      if (rows.length === 0) {
+        response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
+      } else {
+
+        // Objeto onde sera armazenada a resposta da requisicao
+        var desafiosNivel = {};
+
+        // Armazena na chave 'nivel' as informacoes do nivel atual. A tupla de
+        // indice zero foi usada porque todas as tuplas terao esse mesmo valor
+        // para essa coluna.
+        desafiosNivel.nivel = {
+          'id': rows[0].nivel_id,
+          'titulo': rows[0].nivel_titulo
+        };
+
+        // Varre a lista de tuplas da relacao resultante da consulta e armaneza
+        // as ifnromacoes referentes aos desafios em 'listaDesafios'
+        var listaDesafios = [];
+        rows.forEach(function(row) {
+          var auxDesafio = {
+            'titulo': row.desafio_titulo,
+            'pontuacao': row.desafio_pontuacao,
+            'id': row.desafio_id
+          };
+          listaDesafios.push(auxDesafio);
+        });
+
+        // Armazena na chave 'desafios' a lista de desafios do nivel atual
+        desafiosNivel.desafios = listaDesafios;
+
+        // Responde a requisicao com informacoes dos desafios do nivel atual
+        response.json(desafiosNivel);
+      }
+    }
+  });
 });
 
 app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
