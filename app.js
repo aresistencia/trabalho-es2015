@@ -4,10 +4,43 @@ var app = express();
 var bodyParser = require('body-parser');
 var parseUrlEncoded = bodyParser.urlencoded({ extended: false });
 
+var fs = require('fs');
+var dbFile = "jogo.db";
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database(dbFile);
+
+// Criacao do banco de dados do jogo
+db.serialize(function() {
+  if(!fs.existsSync(dbFile)) {
+
+    // Cria esquema do banco de dados do jogo
+    db.run("CREATE TABLE Niveis (id int PRIMARY KEY, titulo varchar(30), isDisponivel int, desafiosCompletados int)");
+    db.run("CREATE TABLE Desafios (DesafioID int, NivelID int, Titulo varchar(30), Resposta varchar(30))");
+
+    // Cria lista de niveis do jogo
+    db.run("INSERT INTO Niveis VALUES (1, 'Métodos Ágeis', 1, 1)");
+    db.run("INSERT INTO Niveis VALUES (2, 'Métodos Tradicionais', 0, 0)");
+    db.run("INSERT INTO Niveis VALUES (3, '', 0, 0)");
+    db.run("INSERT INTO Niveis VALUES (4, '', 0, 0)");
+    db.run("INSERT INTO Niveis VALUES (5, '', 0, 0)");
+    db.run("INSERT INTO Niveis VALUES (6, '', 0, 0)");
+    db.run("INSERT INTO Niveis VALUES (7, '', 0, 0)");
+    db.run("INSERT INTO Niveis VALUES (8, '', 0, 0)");
+    db.run("INSERT INTO Niveis VALUES (9, '', 0, 0)");
+
+  }
+});
+
 app.use(express.static('public'));
 
 app.get('/lista-niveis', function(request, response) {
-  response.json(listaNiveis);
+
+  var novaListaNiveis = [];
+
+  db.all("SELECT * FROM Niveis", function(err, rows) {
+    response.json(rows);
+  });
+
 });
 
 app.get('/nivel/:nivelID', function(request, response) {
@@ -52,64 +85,6 @@ app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request
 });
 
 // Variaveis para auxiliar as respostas das requisicoes
-
-// Lista de niveis do jogo
-var listaNiveis = [
-  {
-    "id": 1,
-    "titulo": "Métodos Ágeis",
-    "isDisponivel": true,
-    "desafiosCompletados": 1
-  },
-  {
-    "id": 2,
-    "titulo": "Métodos Tradicionais",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  },
-  {
-    "id": 3,
-    "titulo": "",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  },
-  {
-    "id": 4,
-    "titulo": "",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  },
-  {
-    "id": 5,
-    "titulo": "",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  },
-  {
-    "id": 6,
-    "titulo": "",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  },
-  {
-    "id": 7,
-    "titulo": "",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  },
-  {
-    "id": 8,
-    "titulo": "",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  },
-  {
-    "id": 9,
-    "titulo": "",
-    "isDisponivel": false,
-    "desafiosCompletados": 0
-  }
-];
 
 // Lista com informacao dos desafios desafios de cada nivel
 var infoDesafios = [
