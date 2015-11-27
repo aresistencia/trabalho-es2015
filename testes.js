@@ -313,11 +313,11 @@ var infoRespostas = [
         "id": 2,
         "titulo": "XP",
         "respostas": [
-          { "id": 1, "pontos": 40, "resposta": "" },
-          { "id": 2, "pontos": 15, "resposta": "" },
-          { "id": 3, "pontos": 10, "resposta": "" },
-          { "id": 4, "pontos": 11, "resposta": "" },
-          { "id": 5, "pontos": 4, "resposta": "" }
+          { "id": 8, "pontos": 40, "resposta": "" },
+          { "id": 9, "pontos": 15, "resposta": "" },
+          { "id": 10, "pontos": 10, "resposta": "" },
+          { "id": 11, "pontos": 11, "resposta": "" },
+          { "id": 12, "pontos": 4, "resposta": "" }
         ]
       }
     ]

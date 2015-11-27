@@ -17,6 +17,7 @@ db.serialize(function() {
     db.run("CREATE TABLE Niveis (id int PRIMARY KEY, titulo varchar(30), isDisponivel int, desafiosCompletados int)");
     db.run("CREATE TABLE Desafios (id int PRIMARY KEY, titulo varchar(30), pontuacao int)");
     db.run("CREATE TABLE Niveis_Desafios (nivel_id int REFERENCES Niveis(id), desafio_id int REFERENCES Desafios(id))");
+    db.run("CREATE TABLE Respostas (id int PRIMARY KEY, desafio_id int REFERENCES Desafios(id), pontos int, resposta varchar(30))");
 
     // Cria lista de niveis do jogo
     db.run("INSERT INTO Niveis VALUES (1, 'Métodos Ágeis', 1, 1)");
@@ -35,6 +36,22 @@ db.serialize(function() {
     db.run("INSERT INTO Niveis_Desafios VALUES (1, 1)");
     db.run("INSERT INTO Niveis_Desafios VALUES (1, 2)");
     db.run("INSERT INTO Niveis_Desafios VALUES (1, 3)");
+
+    db.run("INSERT INTO Respostas VALUES (1, 1, 40, 'Corridas')");
+    db.run("INSERT INTO Respostas VALUES (2, 1, 15, 'Mestre do Scrum')");
+    db.run("INSERT INTO Respostas VALUES (3, 1, 10, 'Dono do Produto')");
+    db.run("INSERT INTO Respostas VALUES (4, 1, 11, 'Time')");
+    db.run("INSERT INTO Respostas VALUES (5, 1, 4, 'Fluxo de Processo')");
+    db.run("INSERT INTO Respostas VALUES (6, 1, 9, 'Reuniões Diárias')");
+    db.run("INSERT INTO Respostas VALUES (7, 1, 5, 'Revisão')");
+
+    db.run("INSERT INTO Respostas VALUES (8, 2, 40, '')");
+    db.run("INSERT INTO Respostas VALUES (9, 2, 15, '')");
+    db.run("INSERT INTO Respostas VALUES (10, 2, 10, '')");
+    db.run("INSERT INTO Respostas VALUES (11, 2, 11, '')");
+    db.run("INSERT INTO Respostas VALUES (12, 2, 4, '')");
+
+
 
   }
 });
@@ -103,17 +120,61 @@ app.get('/nivel/:nivelID', function(request, response) {
 });
 
 app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
-  var nivel = infoRespostas[request.params.nivelID];
-  if (!nivel) {
-    response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
-  } else {
-    var desafio = infoRespostas[request.params.nivelID].desafios[request.params.desafioID];
-    if (!desafio) {
-      response.status(404).json("Desafio " + request.params.desafioID + " do nivel "+ request.params.nivelID + " nao existe");
+
+// var respresp = {
+//   "id": 1,
+//   "titulo": "Scrum",
+//   "respostas": [
+//     { "id": 1, "pontos": 40, "resposta": "" },
+//     { "id": 2, "pontos": 15, "resposta": "" },
+//     { "id": 3, "pontos": 10, "resposta": "" },
+//     { "id": 4, "pontos": 11, "resposta": "" },
+//     { "id": 5, "pontos": 4, "resposta": "" },
+//     { "id": 6, "pontos": 9, "resposta": "" },
+//     { "id": 7, "pontos": 5, "resposta": "" }
+//   ]
+// }
+
+  db.all("SELECT d.id desafio_id, d.titulo desafio_titulo, r.id resposta_id, r.pontos resposta_pontos, r.resposta resposta_solucao FROM Desafios d INNER JOIN Respostas r ON d.id = r.desafio_id WHERE d.id = " + request.params.desafioID, function(err, rows) {
+
+    // var nivel = infoRespostas[request.params.nivelID];
+    // if (!nivel) {
+    //   response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
+    // }
+    // else {
+    //   var desafio = infoRespostas[request.params.nivelID].desafios[request.params.desafioID];
+    //   if (!desafio) {
+    //     response.status(404).json("Desafio " + request.params.desafioID + " do nivel "+ request.params.nivelID + " nao existe");
+    //   }
+      // else {  
+    if (err) {
+      console.log(err); 
     } else {
-      response.json(desafio);
+
+      if (rows.length === 0) {
+        response.status(404).json("Problema...");
+      } else {
+        var respostas = {
+          id: rows[0].desafio_id,
+          titulo: rows[0].desafio_titulo,
+          respostas: []
+        };
+
+        rows.forEach(function(row) {
+          var auxResposta = {
+            'id': row.resposta_id,
+            'pontos': row.resposta_pontos,
+            'resposta': ""
+          };
+          respostas.respostas.push(auxResposta);
+        });
+
+        response.json(respostas);
+      }
     }
-  }
+
+  });
+
 });
 
 app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request, response) {
@@ -135,22 +196,6 @@ app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request
 });
 
 // Variaveis para auxiliar as respostas das requisicoes
-
-// Lista com informacao dos desafios desafios de cada nivel
-var infoDesafios = [
-  { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
-  {
-    'nivel': {
-      'titulo': 'Métodos Ágeis',
-      'id': 1
-    },
-    'desafios': [
-      { 'titulo': 'Scrum', 'pontuacao': 0, 'id': 1 },
-      { 'titulo': 'XP', 'pontuacao': 0, 'id': 2 },
-      { 'titulo': 'Kanban', 'pontuacao': 0, 'id': 3 }
-    ]
-  }
-];
 
 // Lista com a pontuacao da resposta dos desafios de cada nivel
 var infoRespostas = [
