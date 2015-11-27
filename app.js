@@ -31,51 +31,53 @@ app.get('/lista-niveis', function(request, response) {
 });
 
 app.get('/nivel/:nivelID', function(request, response) {
+  db.serialize(function() {
 
-  // Consulta para listar informacoes dos desafios do nivel da rota requisitada
-  db.all("SELECT n.id nivel_id, d.id desafio_id, n.titulo nivel_titulo, d.titulo desafio_titulo FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id WHERE n.id = " + request.params.nivelID, function(err, rows) {
+    // Consulta para listar informacoes dos desafios do nivel da rota requisitada
+    db.all("SELECT n.id nivel_id, d.id desafio_id, n.titulo nivel_titulo, d.titulo desafio_titulo, SUM(r.valor) pontuacao, r.is_respondida is_respondida FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id INNER JOIN resposta r ON d.id = r.desafio_id WHERE n.id = " + request.params.nivelID + " GROUP BY d.id ORDER BY d.id ASC", function(err, rows) {
 
-    // Checa se houve algum erro na consulta
-    if (err) {
-      console.log(err);
-    } else {
-
-      // Checa se o resultado da consulta eh uma tabela vazia, ou seja, se o
-      // nivel existe ou nao
-      if (rows.length === 0) {
-        response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
+      // Checa se houve algum erro na consulta
+      if (err) {
+        console.log(err);
       } else {
 
-        // Objeto onde sera armazenada a resposta da requisicao
-        var desafiosNivel = {};
+        // Checa se o resultado da consulta eh uma tabela vazia, ou seja, se o
+        // nivel existe ou nao
+        if (rows.length === 0) {
+          response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
+        } else {
 
-        // Armazena na chave 'nivel' as informacoes do nivel atual. A tupla de
-        // indice zero foi usada porque todas as tuplas terao esse mesmo valor
-        // para essa coluna.
-        desafiosNivel.nivel = {
-          'id': rows[0].nivel_id,
-          'titulo': rows[0].nivel_titulo
-        };
+          // Objeto onde sera armazenada a resposta da requisicao
+          var desafiosNivel = {};
 
-        // Varre a lista de tuplas da relacao resultante da consulta e armaneza
-        // as ifnromacoes referentes aos desafios em 'listaDesafios'
-        var listaDesafios = [];
-        rows.forEach(function(row) {
-          var auxDesafio = {
-            'titulo': row.desafio_titulo,
-            'pontuacao': 0, // Provisorio
-            'id': row.desafio_id
+          // Armazena na chave 'nivel' as informacoes do nivel atual. A tupla de
+          // indice zero foi usada porque todas as tuplas terao esse mesmo valor
+          // para essa coluna.
+          desafiosNivel.nivel = {
+            'id': rows[0].nivel_id,
+            'titulo': rows[0].nivel_titulo
           };
-          listaDesafios.push(auxDesafio);
-        });
 
-        // Armazena na chave 'desafios' a lista de desafios do nivel atual
-        desafiosNivel.desafios = listaDesafios;
+          // Varre a lista de tuplas da relacao resultante da consulta e armaneza
+          // as ifnromacoes referentes aos desafios em 'listaDesafios'
+          var listaDesafios = [];
+          rows.forEach(function(row) {
+            var auxDesafio = {
+              'titulo': row.desafio_titulo,
+              'pontuacao': row.is_respondida ? row.pontuacao: 0,
+              'id': row.desafio_id
+            };
+            listaDesafios.push(auxDesafio);
+          });
 
-        // Responde a requisicao com informacoes dos desafios do nivel atual
-        response.json(desafiosNivel);
+          // Armazena na chave 'desafios' a lista de desafios do nivel atual
+          desafiosNivel.desafios = listaDesafios;
+
+          // Responde a requisicao com informacoes dos desafios do nivel atual
+          response.json(desafiosNivel);
+        }
       }
-    }
+    });
   });
 });
 
