@@ -1,10 +1,10 @@
 angular.module('jogo')
-.controller('FormRespController', ['$rootScope', '$http', function($rootScope, $http) {
+.controller('FormRespController', ['$rootScope', '$http', '$routeParams', function($rootScope, $http, $routeParams) {
 
   $rootScope.validaResposta = function(inputText) {
 
     $http({
-      url: '/nivel/1/desafio/1',
+      url: '/nivel/' + $routeParams.nivelID + '/desafio/' + $routeParams.desafioID,
       method: "POST",
       data: 'resposta=' + inputText,
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
