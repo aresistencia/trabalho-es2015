@@ -45,11 +45,11 @@ db.serialize(function() {
     db.run("INSERT INTO Respostas VALUES (6, 1, 9, 'Reuniões Diárias')");
     db.run("INSERT INTO Respostas VALUES (7, 1, 5, 'Revisão')");
 
-    db.run("INSERT INTO Respostas VALUES (8, 2, 40, '')");
-    db.run("INSERT INTO Respostas VALUES (9, 2, 15, '')");
-    db.run("INSERT INTO Respostas VALUES (10, 2, 10, '')");
-    db.run("INSERT INTO Respostas VALUES (11, 2, 11, '')");
-    db.run("INSERT INTO Respostas VALUES (12, 2, 4, '')");
+    db.run("INSERT INTO Respostas VALUES (8, 2, 40, 'Desenvolvimento em Pares')");
+    db.run("INSERT INTO Respostas VALUES (9, 2, 15, 'História de Usuário')");
+    db.run("INSERT INTO Respostas VALUES (10, 2, 10, 'Keep It Simple')");
+    db.run("INSERT INTO Respostas VALUES (11, 2, 11, 'Refatoração')");
+    db.run("INSERT INTO Respostas VALUES (12, 2, 4, 'Testes')");
 
 
 
