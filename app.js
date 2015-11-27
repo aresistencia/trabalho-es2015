@@ -13,17 +13,10 @@ app.use(express.static('public'));
 
 app.get('/lista-niveis', function(request, response) {
 
-  db.all("SELECT * FROM nivel", function(err, rows) {
+  db.all("SELECT n.id id, n.titulo titulo, n.is_disponivel is_disponivel, IFNULL(SUM(d.is_completo), 0) desafios_completados FROM nivel n LEFT OUTER JOIN desafio d ON n.id = d.nivel_id GROUP BY n.id ORDER BY n.id ASC", function(err, rows) {
     if (err) {
       console.log(err);
     } else {
-      rows.forEach(function(row) {
-        if (row.id === 1) {
-          row.desafiosCompletados = 1;
-        } else {
-          row.desafiosCompletados = 0;
-        }
-      });
       response.json(rows);
     }
   });

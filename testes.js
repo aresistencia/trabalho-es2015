@@ -221,55 +221,55 @@ var listaNiveis = [
     "id": 1,
     "titulo": "Métodos Ágeis",
     "is_disponivel": 1,
-    "desafiosCompletados": 1
+    "desafios_completados": 0
   },
   {
     "id": 2,
     "titulo": "Métodos Tradicionais",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   },
   {
     "id": 3,
     "titulo": "",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   },
   {
     "id": 4,
     "titulo": "",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   },
   {
     "id": 5,
     "titulo": "",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   },
   {
     "id": 6,
     "titulo": "",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   },
   {
     "id": 7,
     "titulo": "",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   },
   {
     "id": 8,
     "titulo": "",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   },
   {
     "id": 9,
     "titulo": "",
     "is_disponivel": 0,
-    "desafiosCompletados": 0
+    "desafios_completados": 0
   }
 ];
 

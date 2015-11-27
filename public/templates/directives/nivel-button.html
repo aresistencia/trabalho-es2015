@@ -4,9 +4,9 @@
      ng-class="{ 'nivel-disponivel':nivel.is_disponivel, 'nivel-bloqueado':!nivel.is_disponivel }">
     {{ nivel.titulo }}
     <span ng-show="nivel.is_disponivel">
-      <i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados === 0 }"></i><!-- 
-   --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados < 2 }"></i><!-- 
-   --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafiosCompletados < 3 }"></i>
+      <i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafios_completados === 0 }"></i><!-- 
+   --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafios_completados < 2 }"></i><!-- 
+   --><i class="fa fa-star" ng-class="{ 'star-empty': nivel.desafios_completados < 3 }"></i>
     </span>
     <span ng-hide="nivel.is_disponivel">
       <i class="fa fa-lock"></i>
