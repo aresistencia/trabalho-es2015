@@ -110,37 +110,19 @@ app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request
 
   var nivel = request.params.nivelID,
       desafio = request.params.desafioID,
-      respostas = respostasDesafios[nivel][desafio],
       reqResposta = request.body.resposta,
       resResposta = { "resposta": "", "id": -1 };
 
-  respostas.forEach(function(resposta) {
-    if (resposta.resposta === reqResposta) {
-      resResposta = resposta;
-    }
+  db.all("SELECT * FROM Respostas WHERE desafio_id = " + desafio, function(err, rows) {
+    rows.forEach(function(row) {
+      if (row.resposta === reqResposta) {
+        resResposta.resposta = row.resposta;
+        resResposta.id = row.id;
+      }
+    });
+    response.status(201).json(resResposta);
   });
 
-  response.status(201).json(resResposta);
-
 });
-
-// Variaveis para auxiliar as respostas das requisicoes
-
-// Respostas dos desafios
-var respostasDesafios = [
-  [ /* Para facilitar indexacao: nivel 1 -> indice 1 */ ],
-  [
-    { /* Para facilitar indexacao: desafio 1 -> indice 1 */ },
-    [
-      { "id": 1, "resposta": "Corridas" },
-      { "id": 2, "resposta": "Mestre do Scrum" },
-      { "id": 3, "resposta": "Dono do Produto" },
-      { "id": 4, "resposta": "Time" },
-      { "id": 5, "resposta": "Fluxo de Processo" },
-      { "id": 6, "resposta": "Reuniões Diárias" },
-      { "id": 7, "resposta": "Revisão" }
-    ]
-  ]
-];
 
 module.exports = app;
