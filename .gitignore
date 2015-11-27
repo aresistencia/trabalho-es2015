@@ -5,3 +5,5 @@ outros/**
 
 public/js/json/**
 public/js/json/lista-niveis.json
+
+test_queries.sql

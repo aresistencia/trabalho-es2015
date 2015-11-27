@@ -13,10 +13,17 @@ app.use(express.static('public'));
 
 app.get('/lista-niveis', function(request, response) {
 
-  db.all("SELECT * FROM Niveis", function(err, rows) {
+  db.all("SELECT * FROM nivel", function(err, rows) {
     if (err) {
       console.log(err);
     } else {
+      rows.forEach(function(row) {
+        if (row.id === 1) {
+          row.desafiosCompletados = 1;
+        } else {
+          row.desafiosCompletados = 0;
+        }
+      });
       response.json(rows);
     }
   });
@@ -26,7 +33,7 @@ app.get('/lista-niveis', function(request, response) {
 app.get('/nivel/:nivelID', function(request, response) {
 
   // Consulta para listar informacoes dos desafios do nivel da rota requisitada
-  db.all("SELECT n.id nivel_id, d.id desafio_id, n.titulo nivel_titulo, d.titulo desafio_titulo, d.pontuacao desafio_pontuacao FROM Niveis n INNER JOIN Niveis_Desafios nd ON n.id = nd.nivel_id INNER JOIN Desafios d ON nd.desafio_id = d.id WHERE n.id = " + request.params.nivelID, function(err, rows) {
+  db.all("SELECT n.id nivel_id, d.id desafio_id, n.titulo nivel_titulo, d.titulo desafio_titulo FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id WHERE n.id = " + request.params.nivelID, function(err, rows) {
 
     // Checa se houve algum erro na consulta
     if (err) {
@@ -56,7 +63,7 @@ app.get('/nivel/:nivelID', function(request, response) {
         rows.forEach(function(row) {
           var auxDesafio = {
             'titulo': row.desafio_titulo,
-            'pontuacao': row.desafio_pontuacao,
+            'pontuacao': 0, // Provisorio
             'id': row.desafio_id
           };
           listaDesafios.push(auxDesafio);
@@ -74,7 +81,7 @@ app.get('/nivel/:nivelID', function(request, response) {
 
 app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
 
-  db.all("SELECT d.id desafio_id, d.titulo desafio_titulo, r.id resposta_id, r.pontos resposta_pontos, r.resposta resposta_solucao FROM Desafios d INNER JOIN Respostas r ON d.id = r.desafio_id WHERE d.id = " + request.params.desafioID, function(err, rows) {
+  db.all("SELECT d.id desafio_id, d.titulo desafio_titulo, r.id resposta_id, r.valor resposta_valor, r.solucao resposta_solucao FROM desafio d INNER JOIN resposta r ON d.id = r.desafio_id WHERE d.id = " + request.params.desafioID, function(err, rows) {
 
     if (err) {
       console.log(err); 
@@ -92,7 +99,7 @@ app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
         rows.forEach(function(row) {
           var auxResposta = {
             'id': row.resposta_id,
-            'pontos': row.resposta_pontos,
+            'pontos': row.resposta_valor,
             'resposta': ""
           };
           respostas.respostas.push(auxResposta);
@@ -113,10 +120,10 @@ app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request
       reqResposta = request.body.resposta,
       resResposta = { "resposta": "", "id": -1 };
 
-  db.all("SELECT * FROM Respostas WHERE desafio_id = " + desafio, function(err, rows) {
+  db.all("SELECT * FROM resposta WHERE desafio_id = " + desafio, function(err, rows) {
     rows.forEach(function(row) {
-      if (row.resposta === reqResposta) {
-        resResposta.resposta = row.resposta;
+      if (row.solucao === reqResposta) {
+        resResposta.resposta = row.solucao;
         resResposta.id = row.id;
       }
     });
