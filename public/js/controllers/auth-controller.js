@@ -4,6 +4,7 @@ angular.module('jogo')
   $scope.$on('loginSuccess', function(event, login) {
     $cookies.put('username', login.username);
     $cookies.put('nome', login.nome);
+    $cookies.put('isLoggedIn', true);
     $scope.usuario = $cookies.get('nome');
   });
 }]);
