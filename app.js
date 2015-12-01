@@ -130,15 +130,16 @@ app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request
 app.post('/login', parseUrlEncoded, function(request, response) {
   var username = request.body.username,
       password = request.body.password,
-      resObj = {"username": "", "isSuccessful": false};
+      resObj = {"username": "", "nome": "", "isSuccessful": false};
 
-  db.all("SELECT username, password FROM usuario", function(err, rows) {
+  db.all("SELECT username, password, nome FROM usuario", function(err, rows) {
     if (err) {
       console.log(err);
     } else {
       rows.forEach(function(row) {
         if (row.username === username && row.password === password) {
-          resObj.username = username;
+          resObj.username = row.username;
+          resObj.nome = row.nome;
           resObj.isSuccessful = true;
         }
       });

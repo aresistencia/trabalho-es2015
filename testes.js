@@ -235,35 +235,35 @@ describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() 
     request(app)
       .post('/login')
       .send('username=admin&password=12345')
-      .expect({"username": "admin", "isSuccessful": true}, done);
+      .expect({"username": "admin", "nome": "Administrador", "isSuccessful": true}, done);
   });
 
   it('Retorna mensagem de sucesso para login do usuario "jlennon" e senha "12345"', function(done) {
     request(app)
       .post('/login')
       .send('username=jlennon&password=12345')
-      .expect({"username": "jlennon", "isSuccessful": true}, done);
+      .expect({"username": "jlennon", "nome": "John Lennon", "isSuccessful": true}, done);
   });
 
   it('Retorna mensagem de sucesso para login do usuario "pmacca" e senha "12345"', function(done) {
     request(app)
       .post('/login')
       .send('username=pmacca&password=12345')
-      .expect({"username": "pmacca", "isSuccessful": true}, done);
+      .expect({"username": "pmacca", "nome": "Paul McCartney", "isSuccessful": true}, done);
   });
 
   it('Retorna mensagem de sucesso para login do usuario "harrison" e senha "12345"', function(done) {
     request(app)
       .post('/login')
       .send('username=harrison&password=12345')
-      .expect({"username": "harrison", "isSuccessful": true}, done);
+      .expect({"username": "harrison", "nome": "George Harrison", "isSuccessful": true}, done);
   });
 
   it('Retorna mensagem de sucesso para login do usuario "rstarr" e senha "12345"', function(done) {
     request(app)
       .post('/login')
       .send('username=rstarr&password=12345')
-      .expect({"username": "rstarr", "isSuccessful": true}, done);
+      .expect({"username": "rstarr", "nome": "Ringo Starr", "isSuccessful": true}, done);
   });
 
 });
@@ -290,14 +290,14 @@ describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() 
     request(app)
       .post('/login')
       .send('username=bwilson&password=12345')
-      .expect({"username": "", "isSuccessful": false}, done);
+      .expect({"username": "", "nome": "", "isSuccessful": false}, done);
   });
 
   it('Retorna mensagem de erro para login do usuario "mikelove" e senha "12345"', function(done) {
     request(app)
       .post('/login')
       .send('username=mikelove&password=12345')
-      .expect({"username": "", "isSuccessful": false}, done);
+      .expect({"username": "", "nome": "", "isSuccessful": false}, done);
   });
 
 });
