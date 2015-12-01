@@ -2,7 +2,6 @@ angular.module('jogo')
 .controller('FormRespController', ['$rootScope', '$http', '$routeParams', function($rootScope, $http, $routeParams) {
 
   $rootScope.validaResposta = function(inputText) {
-
     $http({
       url: '/nivel/' + $routeParams.nivelID + '/desafio/' + $routeParams.desafioID,
       method: "POST",
@@ -13,6 +12,6 @@ angular.module('jogo')
         $rootScope.$broadcast('rightAnswer', data);
       }
     });
-
   };
+
 }]);
