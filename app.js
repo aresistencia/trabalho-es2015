@@ -137,7 +137,7 @@ app.post('/login', parseUrlEncoded, function(request, response) {
       console.log(err);
     } else {
       rows.forEach(function(row) {
-        if (row.username === "admin" && row.password === "12345") {
+        if (row.username === username && row.password === password) {
           resObj.username = username;
           resObj.isSuccessful = true;
         }
