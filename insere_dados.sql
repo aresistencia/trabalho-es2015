@@ -38,7 +38,8 @@ VALUES (1, 'admin', '12345', 'Administrador'),
 
 INSERT INTO usuario_nivel (usuario_id, nivel_id)
 VALUES (2, 1), -- jlennon, nivel 1
-       (3, 1); -- pmacca, nivel 1
+       (3, 1), -- pmacca, nivel 1
+       (4, 1); -- harrison, nivel 1
 
 INSERT INTO usuario_desafio (usuario_id, desafio_id)
 VALUES (2, 1), -- jlennon, desafio 1

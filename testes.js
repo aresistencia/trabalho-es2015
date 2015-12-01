@@ -19,7 +19,7 @@ describe('Faz requisicao para rota raiz', function() {
 });
 
 // Testes para a rota '/lista-niveis'
-describe('Faz requisicao para a lista de niveis disponiveis para o usuario de ID 1 (pmacca)', function() {
+describe('Faz requisicao para a lista de niveis disponiveis para um usuario especifico', function() {
 
   it('Retorna codigo de status 200', function(done) {
     request(app)
@@ -35,7 +35,7 @@ describe('Faz requisicao para a lista de niveis disponiveis para o usuario de ID
       .expect('Content-Type', /json/, done);
   });
 
-  it('Retorna lista de niveis disponiveis', function(done) {
+  it('Retorna lista de niveis disponiveis para o usuario 3 (pmacca)', function(done) {
     var niveisUser3 = [
       { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 2 },
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
@@ -48,6 +48,36 @@ describe('Faz requisicao para a lista de niveis disponiveis para o usuario de ID
       .post('/lista-niveis')
       .send('userID=3')
       .expect(niveisUser3, done);
+  });
+
+  it('Retorna lista de niveis disponiveis para o usuario 2 (jlennon)', function(done) {
+    var niveisUser2 = [
+      { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 1 },
+      { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 3, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 6, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 }
+    ];
+    request(app)
+      .post('/lista-niveis')
+      .send('userID=2')
+      .expect(niveisUser2, done);
+  });
+
+    it('Retorna lista de niveis disponiveis para o usuario 4 (harrison)', function(done) {
+    var niveisUser4 = [
+      { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 0 },
+      { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 3, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 6, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 }
+    ];
+    request(app)
+      .post('/lista-niveis')
+      .send('userID=4')
+      .expect(niveisUser4, done);
   });
 
 });
