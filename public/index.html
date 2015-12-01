@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
 
   </head>
-  <body>
+  <body ng-controller="AuthController">
 
     <!-- BARRA DE NAVEGACAO -->
     <nav class="navbar navbar-default">
@@ -28,6 +28,7 @@
           </a>
         </div>
         <ul class="nav navbar-nav pull-right">
+          <li><a href="#/ranking">{{usuario}}</a></li>
           <li><a href="#/ranking">Ranking</a></li>
           <li><a href="#/registro">Registrar</a></li>
           <li><a href="#/entrar">Entrar</a></li>
@@ -54,12 +55,14 @@
     <!-- Angular -->
     <script src="js/vendor/angular.js"></script>
     <script src="js/vendor/angular-route.js"></script>
+    <script src="js/vendor/angular-cookies.js"></script>
     
     <!-- Codigo da aplicacao -->
     <script src="js/app.js"></script>
     <script src="js/routes.js"></script>
 
     <!-- Controllers -->
+    <script src="js/controllers/auth-controller.js"></script>
     <script src="js/controllers/lista-niveis-controller.js"></script>
     <script src="js/controllers/lista-desafios-controller.js"></script>
     <script src="js/controllers/form-resp-controller.js"></script>
