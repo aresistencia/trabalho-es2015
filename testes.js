@@ -65,46 +65,46 @@ describe('Faz requisicao para a lista de desafios do nivel 1', function() {
 });
 
 // Teste para a rota '/nivel/1/desafio/1'
-describe('Faz requisicao para a lista de pontuacao das respostas do desafio 1 do nivel 1', function() {
+describe('Faz requisicao para a lista de pontuacao das respostas do desafio 1', function() {
 
   it('Retorna codigo de status 200', function(done) {
     request(app)
-      .get('/nivel/1/desafio/1')
+      .get('/desafio/1')
       .expect(200, done);
   });
 
   it('Retorna um arquivo no formato JSON', function(done) {
     request(app)
-      .get('/nivel/1/desafio/1')
+      .get('/desafio/1')
       .expect('Content-Type', /json/, done);
   });
 
-  it('Retorna uma lista com a pontuacao das respostas do desafio 1 do nivel 1', function(done) {
+  it('Retorna uma lista com a pontuacao das respostas do desafio 1', function(done) {
     request(app)
-      .get('/nivel/1/desafio/1')
+      .get('/desafio/1')
       .expect(infoRespostas[1].desafios[1], done);
   });
 
 });
 
 // Teste para a rota '/nivel/1/desafio/2'
-describe('Faz requisicao para a lista de pontuacao das respostas do desafio 2 do nivel 1', function() {
+describe('Faz requisicao para a lista de pontuacao das respostas do desafio 2', function() {
 
   it('Retorna codigo de status 200', function(done) {
     request(app)
-      .get('/nivel/1/desafio/2')
+      .get('/desafio/2')
       .expect(200, done);
   });
 
   it('Retorna um arquivo no formato JSON', function(done) {
     request(app)
-      .get('/nivel/1/desafio/2')
+      .get('/desafio/2')
       .expect('Content-Type', /json/, done);
   });
 
-  it('Retorna uma lista com a pontuacao das respostas do desafio 2 do nivel 1', function(done) {
+  it('Retorna uma lista com a pontuacao das respostas do desafio 2', function(done) {
     request(app)
-      .get('/nivel/1/desafio/2')
+      .get('/desafio/2')
       .expect(infoRespostas[1].desafios[2], done);
   });
 
@@ -119,69 +119,69 @@ describe('Faz requisicoes para rotas de niveis e desafios que nao existem no jog
       .expect(404, done);
   });
 
-    it('Rotorna codigo de status 404 para a rota para o desafio 976 do nivel 320', function(done) {
+    it('Rotorna codigo de status 404 para a rota para o desafio 976', function(done) {
     request(app)
-      .get('/nivel/320/desafio/976')
+      .get('/desafio/976')
       .expect(404, done);
   });
 
 });
 
 // Testes para tratar respostas corretas
-describe('Faz requisicoes HTTP POST com respostas CORRETAS para o desafio 1 do nivel 1 ("Scrum")', function() {
+describe('Faz requisicoes HTTP POST com respostas CORRETAS para o desafio 1 ("Scrum")', function() {
 
   it('Retorna codigo de status 201', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Corridas')
       .expect(201, done);
   });
 
   it('Retorna ID 1 para resposta "Corridas"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Corridas')
       .expect({"resposta": "Corridas", "id": 1}, done);
   });
 
   it('Retorna ID 2 para resposta "Mestre do Scrum"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Mestre+do+Scrum')
       .expect({"resposta": "Mestre do Scrum", "id": 2}, done);
   });
 
   it('Retorna ID 3 para resposta "Dono do Produto"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Dono+do+Produto')
       .expect({"resposta": "Dono do Produto", "id": 3}, done);
   });
 
   it('Retorna ID 4 para resposta "Time"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Time')
       .expect({"resposta": "Time", "id": 4}, done);
   });
 
   it('Retorna ID 5 para resposta "Fluxo de Processo"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Fluxo+de+Processo')
       .expect({"resposta": "Fluxo de Processo", "id": 5}, done);
   });
 
   it('Retorna ID 6 para resposta "Reuniões Diárias"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Reuniões+Diárias')
       .expect({"resposta": "Reuniões Diárias", "id": 6}, done);
   });
 
   it('Retorna ID 7 para resposta "Revisão"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Revisão')
       .expect({"resposta": "Revisão", "id": 7}, done);
   });
@@ -193,21 +193,21 @@ describe('Faz requisicoes HTTP POST com respostas ERRADAS para o desafio 1 do ni
 
   it('Retorna codigo de status 201', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Análise+de+Risco')
       .expect(201, done);
   });
 
   it('Retorna ID -1 para resposta "Análise de Risco"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Análise+de+Risco')
       .expect({"resposta": "", "id": -1}, done);
   });
 
   it('Retorna ID -1 para resposta "Fluxo de Dados"', function(done) {
     request(app)
-      .post('/nivel/1/desafio/1')
+      .post('/desafio/1')
       .send('resposta=Fluxo+de+Dados')
       .expect({"resposta": "", "id": -1}, done);
   });

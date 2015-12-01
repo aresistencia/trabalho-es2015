@@ -74,7 +74,7 @@ app.get('/nivel/:nivelID', function(request, response) {
   });
 });
 
-app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
+app.get('/desafio/:desafioID', function(request, response) {
 
   db.all("SELECT d.id desafio_id, d.titulo desafio_titulo, r.id resposta_id, r.valor resposta_valor, r.solucao resposta_solucao FROM desafio d INNER JOIN resposta r ON d.id = r.desafio_id WHERE d.id = " + request.params.desafioID, function(err, rows) {
 
@@ -108,7 +108,7 @@ app.get('/nivel/:nivelID/desafio/:desafioID', function(request, response) {
 
 });
 
-app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request, response) {
+app.post('/desafio/:desafioID', parseUrlEncoded, function(request, response) {
 
   var nivel = request.params.nivelID,
       desafio = request.params.desafioID,
