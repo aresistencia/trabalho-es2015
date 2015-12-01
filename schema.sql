@@ -1,7 +1,7 @@
 CREATE TABLE usuario (
     id int PRIMARY KEY,
-    email varchar(100),
-    senha varchar(32),
+    username varchar(100),
+    password varchar(32),
     nome varchar(100)
 );
 

@@ -31,3 +31,6 @@ VALUES -- Scrum
        (12, 4, 'Testes', 0, 2),
        -- ...
        (13, 40, '', 0, 3);
+
+INSERT INTO usuario (id, username, password, nome)
+VALUES (1, 'admin', '12345', 'Administrador');
