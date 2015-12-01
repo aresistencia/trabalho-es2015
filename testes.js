@@ -214,6 +214,32 @@ describe('Faz requisicoes HTTP POST com respostas ERRADAS para o desafio 1 do ni
 
 });
 
+// Testa logins corretos
+describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() {
+
+  it('Retorna codigo de status 201', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=admin&password=12345')
+      .expect(201, done);
+  });
+
+  it('Retorna arquivo em formato JSON', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=admin&password=12345')
+      .expect('Content-Type', /json/, done);
+  });
+
+  it('Retorna mensagem de sucesso para login do usuario "admin" e senha "12345"', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=admin&password=12345')
+      .expect({"username": "admin", "isSuccessful": true}, done);
+  });
+
+});
+
 
 // Variaveis para auxiliar os testes
 var listaNiveis = [

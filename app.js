@@ -127,4 +127,17 @@ app.post('/nivel/:nivelID/desafio/:desafioID', parseUrlEncoded, function(request
 
 });
 
+app.post('/login', parseUrlEncoded, function(request, response) {
+  var username = request.body.username,
+      password = request.body.password,
+      resObj = {"username": "", "isSuccessful": false};
+
+  if (username === "admin" && password === "12345") {
+    resObj.username = username;
+    resObj.isSuccessful = true;
+    response.status(201).json(resObj);
+  }
+
+});
+
 module.exports = app;
