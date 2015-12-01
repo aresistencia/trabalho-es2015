@@ -9,16 +9,9 @@ angular.module('jogo')
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     }).success(function(data, status, headers, config) {
       if (data.isSuccessful) {
-        $rootScope.$broadcast('loginSuccess', data.username);  
+        $rootScope.$broadcast('loginSuccess', data);
       }
     });
-
-
-
-    // if (uname === 'admin' && pword === '12345') {
-    //   var user = { 'login': uname, 'password': pword };
-    //   $rootScope.$broadcast('loginSuccess', user);
-    // }
   };
 
 }]);
