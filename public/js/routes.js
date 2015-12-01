@@ -13,11 +13,17 @@ angular.module('jogo')
   })
   .when('/nivel/:nivelID', {
     templateUrl: 'templates/pages/nivel/index.html',
-    controller: 'ListaDesafiosController'
+    controller: 'ListaDesafiosController',
+    resolve: {
+      loggedIn: loginCheck
+    }
   })
   .when('/desafio/:desafioID', {
     templateUrl: 'templates/pages/desafio/index.html',
-    controller: 'RespostasController'
+    controller: 'RespostasController',
+    resolve: {
+      loggedIn: loginCheck
+    }
   })
   .when('/login', {
     templateUrl: 'templates/pages/login/index.html'
