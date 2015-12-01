@@ -6,7 +6,18 @@ angular.module('jogo')
   })
   .when('/lista-niveis', {
     templateUrl: 'templates/pages/lista-niveis/index.html',
-    controller: 'ListaNiveisController'
+    controller: 'ListaNiveisController',
+    resolve: {
+      loggedIn: function($cookies, $location, $q) {
+        var deferred = $q.defer();
+        if ($cookies.get('isLoggedIn')) {
+          deferred.resolve();
+        } else {
+          deferred.reject();
+          $location.url('/login');
+        }
+      }
+    }
   })
   .when('/nivel/:nivelID', {
     templateUrl: 'templates/pages/nivel/index.html',
