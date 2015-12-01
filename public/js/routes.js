@@ -12,7 +12,7 @@ angular.module('jogo')
     templateUrl: 'templates/pages/nivel/index.html',
     controller: 'ListaDesafiosController'
   })
-  .when('/nivel/:nivelID/desafio/:desafioID', {
+  .when('/desafio/:desafioID', {
     templateUrl: 'templates/pages/desafio/index.html',
     controller: 'RespostasController'
   })

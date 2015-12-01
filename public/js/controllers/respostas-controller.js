@@ -2,7 +2,7 @@ angular.module('jogo')
 .controller('RespostasController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
 
   $scope.respostas = [];
-  $http.get('/nivel/' + $routeParams.nivelID + '/desafio/' + $routeParams.desafioID).success(function(data) {
+  $http.get('/desafio/' + $routeParams.desafioID).success(function(data) {
     $scope.respostas = data;
   });
 
