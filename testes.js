@@ -214,7 +214,7 @@ describe('Faz requisicoes HTTP POST com respostas ERRADAS para o desafio 1 do ni
 
 });
 
-// Testa logins corretos
+// Testa logins CORRETOS
 describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() {
 
   it('Retorna codigo de status 201', function(done) {
@@ -264,6 +264,40 @@ describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() 
       .post('/login')
       .send('username=rstarr&password=12345')
       .expect({"username": "rstarr", "isSuccessful": true}, done);
+  });
+
+});
+
+
+// Testa logins INCORRETOS
+describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() {
+
+  it('Retorna codigo de status 201', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=admin&password=12345')
+      .expect(201, done);
+  });
+
+  it('Retorna arquivo em formato JSON', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=admin&password=12345')
+      .expect('Content-Type', /json/, done);
+  });
+
+  it('Retorna mensagem de erro para login do usuario "bwilson" e senha "12345"', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=bwilson&password=12345')
+      .expect({"username": "", "isSuccessful": false}, done);
+  });
+
+  it('Retorna mensagem de erro para login do usuario "mikelove" e senha "12345"', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=mikelove&password=12345')
+      .expect({"username": "", "isSuccessful": false}, done);
   });
 
 });
