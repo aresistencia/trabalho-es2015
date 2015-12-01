@@ -16,8 +16,8 @@ angular.module('jogo')
     templateUrl: 'templates/pages/desafio/index.html',
     controller: 'RespostasController'
   })
-  .when('/entrar', {
-    templateUrl: 'templates/pages/entrar/index.html'
+  .when('/login', {
+    templateUrl: 'templates/pages/login/index.html'
   })
   .when('/registro', {
     templateUrl: 'templates/pages/registro/index.html'
