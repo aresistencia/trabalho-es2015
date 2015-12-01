@@ -8,15 +8,7 @@ angular.module('jogo')
     templateUrl: 'templates/pages/lista-niveis/index.html',
     controller: 'ListaNiveisController',
     resolve: {
-      loggedIn: function($cookies, $location, $q) {
-        var deferred = $q.defer();
-        if ($cookies.get('isLoggedIn')) {
-          deferred.resolve();
-        } else {
-          deferred.reject();
-          $location.url('/login');
-        }
-      }
+      loggedIn: loginCheck
     }
   })
   .when('/nivel/:nivelID', {
@@ -38,3 +30,13 @@ angular.module('jogo')
   })
   ;
 });
+
+var loginCheck = function($cookies, $location, $q) {
+  var deferred = $q.defer();
+  if ($cookies.get('isLoggedIn')) {
+    deferred.resolve();
+  } else {
+    deferred.reject();
+    $location.url('/login');
+  }
+}
