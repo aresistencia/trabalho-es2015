@@ -132,11 +132,19 @@ app.post('/login', parseUrlEncoded, function(request, response) {
       password = request.body.password,
       resObj = {"username": "", "isSuccessful": false};
 
-  if (username === "admin" && password === "12345") {
-    resObj.username = username;
-    resObj.isSuccessful = true;
-    response.status(201).json(resObj);
-  }
+  db.all("SELECT username, password FROM usuario", function(err, rows) {
+    if (err) {
+      console.log(err);
+    } else {
+      rows.forEach(function(row) {
+        if (row.username === "admin" && row.password === "12345") {
+          resObj.username = username;
+          resObj.isSuccessful = true;
+        }
+      });
+      response.status(201).json(resObj);
+    }
+  });
 
 });
 
