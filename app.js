@@ -11,9 +11,15 @@ var db = new sqlite3.Database(dbFile);
 
 app.use(express.static('public'));
 
-app.get('/lista-niveis', function(request, response) {
+// Rota para listar os niveis disponiveis para o jogar logado
+app.post('/lista-niveis', parseUrlEncoded, function(request, response) {
 
-  db.all("SELECT n.id id, n.titulo titulo, n.is_disponivel is_disponivel, IFNULL(SUM(d.is_completo), 0) desafios_completados FROM nivel n LEFT OUTER JOIN desafio d ON n.id = d.nivel_id GROUP BY n.id ORDER BY n.id ASC", function(err, rows) {
+  // ID do usuario que esta acessando a lista de niveis
+  var userID = request.body.userID;
+
+  // Consulta para listar tuplas com id, titulo e disponibilidade de cada
+  // nivel, assim como numero de desafios copletados neles
+  db.all("SELECT n.id id, n.titulo titulo, n.is_disponivel is_disponivel, COUNT(d.is_completo) desafios_completados FROM nivel n LEFT OUTER JOIN usuario_nivel un LEFT OUTER JOIN usuario u LEFT OUTER JOIN usuario_desafio ud LEFT OUTER JOIN desafio d ON n.id = un.nivel_id AND u.id = un.usuario_id AND u.id = ud.usuario_id AND d.id = ud.desafio_id AND u.id = " + userID + " GROUP BY n.id ORDER BY n.id ASC", function(err, rows) {
     if (err) {
       console.log(err);
     } else {

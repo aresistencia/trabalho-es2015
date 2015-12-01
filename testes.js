@@ -19,24 +19,35 @@ describe('Faz requisicao para rota raiz', function() {
 });
 
 // Testes para a rota '/lista-niveis'
-describe('Faz requisicao para a lista de niveis', function() {
+describe('Faz requisicao para a lista de niveis disponiveis para o usuario de ID 1 (pmacca)', function() {
 
   it('Retorna codigo de status 200', function(done) {
     request(app)
-      .get('/lista-niveis')
+      .post('/lista-niveis')
+      .send('userID=3')
       .expect(200, done);
   });
 
   it('Retorna um arquivo JSON', function(done) {
     request(app)
-      .get('/lista-niveis')
+      .post('/lista-niveis')
+      .send('userID=3')
       .expect('Content-Type', /json/, done);
   });
 
-  it('Retorna lista de niveis', function(done) {
+  it('Retorna lista de niveis disponiveis', function(done) {
+    var niveisUser3 = [
+      { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 2 },
+      { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 3, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 6, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 }
+    ];
     request(app)
-      .get('/lista-niveis')
-      .expect(listaNiveis, done);
+      .post('/lista-niveis')
+      .send('userID=3')
+      .expect(niveisUser3, done);
   });
 
 });

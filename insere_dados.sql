@@ -4,10 +4,7 @@ VALUES (1, 'Métodos Ágeis', 1),
        (3, '', 0),
        (4, '', 0),
        (5, '', 0),
-       (6, '', 0),
-       (7, '', 0),
-       (8, '', 0),
-       (9, '', 0);
+       (6, '', 0);
 
 INSERT INTO desafio (id, titulo, is_completo, nivel_id)
 VALUES (1, 'Scrum', 0, 1),
@@ -38,3 +35,12 @@ VALUES (1, 'admin', '12345', 'Administrador'),
        (3, 'pmacca', '12345', 'Paul McCartney'),
        (4, 'harrison', '12345', 'George Harrison'),
        (5, 'rstarr', '12345', 'Ringo Starr');
+
+INSERT INTO usuario_nivel (usuario_id, nivel_id)
+VALUES (2, 1), -- jlennon, nivel 1
+       (3, 1); -- pmacca, nivel 1
+
+INSERT INTO usuario_desafio (usuario_id, desafio_id)
+VALUES (2, 1), -- jlennon, desafio 1
+       (3, 1), -- pmacca, desafio 1
+       (3, 2); -- pmacca, desafio 2
