@@ -33,4 +33,8 @@ VALUES -- Scrum
        (13, 40, '', 0, 3);
 
 INSERT INTO usuario (id, username, password, nome)
-VALUES (1, 'admin', '12345', 'Administrador');
+VALUES (1, 'admin', '12345', 'Administrador'),
+       (2, 'jlennon', '12345', 'John Lennon'),
+       (3, 'pmacca', '12345', 'Paulo McCartney'),
+       (4, 'harrison', '12345', 'George Harrison'),
+       (5, 'rstarr', '12345', 'Ringo Starr');

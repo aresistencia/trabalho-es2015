@@ -238,6 +238,34 @@ describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() 
       .expect({"username": "admin", "isSuccessful": true}, done);
   });
 
+  it('Retorna mensagem de sucesso para login do usuario "jlennon" e senha "12345"', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=jlennon&password=12345')
+      .expect({"username": "jlennon", "isSuccessful": true}, done);
+  });
+
+  it('Retorna mensagem de sucesso para login do usuario "pmacca" e senha "12345"', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=pmacca&password=12345')
+      .expect({"username": "pmacca", "isSuccessful": true}, done);
+  });
+
+  it('Retorna mensagem de sucesso para login do usuario "harrison" e senha "12345"', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=harrison&password=12345')
+      .expect({"username": "harrison", "isSuccessful": true}, done);
+  });
+
+  it('Retorna mensagem de sucesso para login do usuario "rstarr" e senha "12345"', function(done) {
+    request(app)
+      .post('/login')
+      .send('username=rstarr&password=12345')
+      .expect({"username": "rstarr", "isSuccessful": true}, done);
+  });
+
 });
 
 
