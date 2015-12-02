@@ -7,7 +7,6 @@ angular.module('jogo')
     data: 'userID=' + $cookies.get('userID'),
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
   }).success(function(data, status, config, headers) {
-    alert("HALAKA!!!");
     $scope.niveis = data;
   });
 }]);

@@ -8,8 +8,9 @@
         </div>
         <div class="col-xs-10">
           <h2 class="text-center">
-            Nível {{ infoDesafios.nivel.id }}<br>
-            <small>{{ infoDesafios.nivel.titulo}}</small>
+            <!-- nivel_id e titulo sao atributos comuns a todas as tuplas -->
+            Nível {{ infoDesafios[0].nivel_id }}<br>
+            <small>{{ infoDesafios[0].nivel_titulo}}</small>
           </h2>
         </div>
       </div>
@@ -21,7 +22,7 @@
 <section class="lista-desafios">
   <div class="container">
     <div class="row">
-      <desafio-button ng-repeat="desafio in infoDesafios.desafios"></desafio-button>
+      <desafio-button ng-repeat="desafio in infoDesafios"></desafio-button>
     </div>
   </div>
 </section>
