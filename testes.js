@@ -37,12 +37,12 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
 
   it('Retorna lista de niveis disponiveis para o usuario 3 (pmacca)', function(done) {
     var niveisUser3 = [
-      { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 2 },
-      { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 3, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 4, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 6, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 }
+      { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 3 },
+      { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 1, "desafios_completados": 0 },
+      { "id": 3, "titulo": "Nível 3", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "Nível 4", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "Nível 5", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
       .post('/lista-niveis')
@@ -54,10 +54,10 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
     var niveisUser2 = [
       { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 1 },
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 3, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 4, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 6, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 }
+      { "id": 3, "titulo": "Nível 3", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "Nível 4", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "Nível 5", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
       .post('/lista-niveis')
@@ -67,12 +67,12 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
 
     it('Retorna lista de niveis disponiveis para o usuario 4 (harrison)', function(done) {
     var niveisUser4 = [
-      { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 0 },
+      { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 1 },
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 3, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 4, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 6, "titulo": "", "is_disponivel": 0, "desafios_completados": 0 }
+      { "id": 3, "titulo": "Nível 3", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "Nível 4", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "Nível 5", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
       .post('/lista-niveis')

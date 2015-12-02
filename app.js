@@ -19,10 +19,18 @@ app.post('/lista-niveis', parseUrlEncoded, function(request, response) {
 
   // Consulta para listar tuplas com id, titulo e disponibilidade de cada
   // nivel, assim como numero de desafios copletados neles
-  db.all("SELECT n.id id, n.titulo titulo, n.is_disponivel is_disponivel, COUNT(d.is_completo) desafios_completados FROM nivel n LEFT OUTER JOIN usuario_nivel un LEFT OUTER JOIN usuario u LEFT OUTER JOIN usuario_desafio ud LEFT OUTER JOIN desafio d ON n.id = un.nivel_id AND u.id = un.usuario_id AND u.id = ud.usuario_id AND d.id = ud.desafio_id AND u.id = " + userID + " GROUP BY n.id ORDER BY n.id ASC", function(err, rows) {
+  db.all("SELECT n.id id, n.titulo titulo, IFNULL(ud.count, 0) desafios_completados, IFNULL(ud.uid1, 0) is_disponivel FROM nivel n LEFT OUTER JOIN (SELECT un.usuario_id uid1, un.nivel_id nid1, IFNULL(d.count, 0) count FROM usuario_nivel un LEFT OUTER JOIN (SELECT ud.usuario_id uid2, COUNT(ud.desafio_id) count, d.nivel_id nid2 FROM usuario_desafio ud INNER JOIN desafio d ON d.id = ud.desafio_id WHERE uid2 = " + userID + " GROUP BY d.nivel_id) AS d ON uid1 = uid2 AND nid1 = nid2 WHERE uid1 = " + userID + ") AS ud ON n.id = ud.nid1;", function(err, rows) {
     if (err) {
       console.log(err);
     } else {
+      // Quando um nivel esta disponivel para um usuario, o valor de
+      // is_disponivel eh igual ao id do usuario. Para padronizar isso,
+      // essa logica muda para 1
+      rows.forEach(function(row) {
+        if (row.is_disponivel != 0) {
+          row.is_disponivel = 1;
+        }
+      });
       response.json(rows);
     }
   });
