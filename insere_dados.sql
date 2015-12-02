@@ -12,7 +12,19 @@ VALUES (1, 'Scrum', 1),
        (3, 'Kanban', 1),
        (4, 'Desafio 4', 2),
        (5, 'Desafio 5', 2),
-       (6, 'Desafio 6', 2);
+       (6, 'Desafio 6', 2),
+       (7, 'Desafio 7', 3),
+       (8, 'Desafio 8', 3),
+       (9, 'Desafio 9', 3),
+       (10, 'Desafio 10', 4),
+       (11, 'Desafio 11', 4),
+       (12, 'Desafio 12', 4),
+       (13, 'Desafio 13', 5),
+       (14, 'Desafio 14', 5),
+       (15, 'Desafio 15', 5),
+       (16, 'Desafio 16', 6),
+       (17, 'Desafio 17', 6),
+       (18, 'Desafio 18', 6);
 
 INSERT INTO resposta (id, valor, solucao, desafio_id)
 VALUES -- Scrum
@@ -29,39 +41,99 @@ VALUES -- Scrum
        (10, 10, 'Keep It Simple', 2),
        (11, 11, 'Refatoração', 2),
        (12, 4, 'Testes', 2),
-       -- ...
-       (13, 40, '', 3);
-
-INSERT INTO usuario (id, username, password, nome)
-VALUES (1, 'admin', '12345', 'Administrador'),
-       (2, 'jlennon', '12345', 'John Lennon'),
-       (3, 'pmacca', '12345', 'Paul McCartney'),
-       (4, 'harrison', '12345', 'George Harrison'),
-       (5, 'ringo', '12345', 'Ringo Starr');
-
-INSERT INTO usuario_nivel (usuario_id, nivel_id)
-VALUES (2, 1), -- jlennon, nivel 1
-       (3, 1), -- pmacca, nivel 1
-       (4, 1), -- harrison, nivel 1
-       (5, 1), -- ringo, nivel 1
-       (3, 2); -- pmacca, nivel 2
-
-INSERT INTO usuario_desafio (usuario_id, desafio_id)
-VALUES (2, 1), -- jlennon, desafio 1
-       (3, 1), -- pmacca, desafio 1
-       (3, 2), -- pmacca, desafio 2
-       (3, 3), -- pmacca, desafio 3
-       (3, 6), -- pmacca, desafio 6
-       (4, 1), -- harrison, desafio 1
-       (5, 2); -- ringo, desafio 2
-
-INSERT INTO usuario_resposta (usuario_id, resposta_id)
-VALUES (3, 1), -- pmacca, resposta 1
-       (3, 2), -- pmacca, resposta 2
-       (3, 3), -- pmacca, resposta 3
-       (3, 4), -- pmacca, resposta 4
-       (3, 5), -- pmacca, resposta 5
-       (3, 6), -- pmacca, resposta 6
-       (3, 7), -- pmacca, resposta 7
-       (3, 9), -- pmacca, resposta 9
-       (3, 10); -- pmacca, resposta 10
+       -- Desafio  3
+       (13, 40, 'Resposta 13', 3),
+       (14, 40, 'Resposta 14', 3),
+       (15, 40, 'Resposta 15', 3),
+       (16, 40, 'Resposta 16', 3),
+       (17, 40, 'Resposta 17', 3),
+       -- Desafio 4 
+       (18, 40, 'Resposta 18', 4),
+       (19, 40, 'Resposta 19', 4),
+       (20, 40, 'Resposta 20', 4),
+       (21, 40, 'Resposta 21', 4),
+       (22, 40, 'Resposta 22', 4),
+       -- Desafio 5 
+       (23, 40, 'Resposta 23', 5),
+       (24, 40, 'Resposta 24', 5),
+       (25, 40, 'Resposta 25', 5),
+       (26, 40, 'Resposta 26', 5),
+       (27, 40, 'Resposta 27', 5),
+       -- Desafio 6 
+       (28, 40, 'Resposta 28', 6),
+       (29, 40, 'Resposta 29', 6),
+       (30, 40, 'Resposta 30', 6),
+       (31, 40, 'Resposta 31', 6),
+       (32, 40, 'Resposta 32', 6),
+       -- Desafio 7 
+       (33, 40, 'Resposta 33', 7),
+       (34, 40, 'Resposta 34', 7),
+       (35, 40, 'Resposta 35', 7),
+       (36, 40, 'Resposta 36', 7),
+       (37, 40, 'Resposta 37', 7),
+       -- Desafio 8 
+       (38, 40, 'Resposta 38', 8),
+       (39, 40, 'Resposta 39', 8),
+       (40, 40, 'Resposta 40', 8),
+       (41, 40, 'Resposta 41', 8),
+       (42, 40, 'Resposta 42', 8),
+       -- Desafio 9 
+       (43, 40, 'Resposta 43', 9),
+       (44, 40, 'Resposta 44', 9),
+       (45, 40, 'Resposta 45', 9),
+       (46, 40, 'Resposta 46', 9),
+       (47, 40, 'Resposta 47', 9),
+       -- Desafio 10 
+       (48, 40, 'Resposta 48', 10),
+       (49, 40, 'Resposta 49', 10),
+       (50, 40, 'Resposta 50', 10),
+       (51, 40, 'Resposta 51', 10),
+       (52, 40, 'Resposta 52', 10),
+       -- Desafio 11 
+       (53, 40, 'Resposta 53', 11),
+       (54, 40, 'Resposta 54', 11),
+       (55, 40, 'Resposta 55', 11),
+       (56, 40, 'Resposta 56', 11),
+       (57, 40, 'Resposta 57', 11),
+       -- Desafio 12 
+       (58, 40, 'Resposta 58', 12),
+       (59, 40, 'Resposta 59', 12),
+       (60, 40, 'Resposta 60', 12),
+       (61, 40, 'Resposta 61', 12),
+       (62, 40, 'Resposta 62', 12),
+       -- Desafio 13 
+       (63, 40, 'Resposta 63', 13),
+       (64, 40, 'Resposta 64', 13),
+       (65, 40, 'Resposta 65', 13),
+       (66, 40, 'Resposta 66', 13),
+       (67, 40, 'Resposta 67', 13),
+       -- Desafio 14 
+       (68, 40, 'Resposta 68', 14),
+       (69, 40, 'Resposta 69', 14),
+       (70, 40, 'Resposta 70', 14),
+       (71, 40, 'Resposta 71', 14),
+       (72, 40, 'Resposta 72', 14),
+       -- Desafio 15 
+       (73, 40, 'Resposta 73', 15),
+       (74, 40, 'Resposta 74', 15),
+       (75, 40, 'Resposta 75', 15),
+       (76, 40, 'Resposta 76', 15),
+       (77, 40, 'Resposta 77', 15),
+       -- Desafio 16 
+       (78, 40, 'Resposta 78', 16),
+       (79, 40, 'Resposta 79', 16),
+       (80, 40, 'Resposta 80', 16),
+       (81, 40, 'Resposta 81', 16),
+       (82, 40, 'Resposta 82', 16),
+       -- Desafio 17 
+       (83, 40, 'Resposta 83', 17),
+       (84, 40, 'Resposta 84', 17),
+       (85, 40, 'Resposta 85', 17),
+       (86, 40, 'Resposta 86', 17),
+       (87, 40, 'Resposta 87', 17),
+       -- Desafio 18 
+       (88, 40, 'Resposta 88', 18),
+       (89, 40, 'Resposta 89', 18),
+       (90, 40, 'Resposta 90', 18),
+       (91, 40, 'Resposta 91', 18),
+       (92, 40, 'Resposta 92', 18);
