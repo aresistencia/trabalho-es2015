@@ -39,9 +39,9 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
     var niveisUser3 = [
       { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 3 },
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 1, "desafios_completados": 1 },
-      { "id": 3, "titulo": "Nível 3", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 4, "titulo": "Nível 4", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "Nível 5", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 3, "titulo": "Modelagem", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "Certificação", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
@@ -54,9 +54,9 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
     var niveisUser2 = [
       { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 1 },
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 3, "titulo": "Nível 3", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 4, "titulo": "Nível 4", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "Nível 5", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 3, "titulo": "Modelagem", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "Certificação", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
@@ -69,9 +69,9 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
     var niveisUser4 = [
       { "id": 1, "titulo": "Métodos Ágeis", "is_disponivel": 1, "desafios_completados": 1 },
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 3, "titulo": "Nível 3", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 4, "titulo": "Nível 4", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "Nível 5", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 3, "titulo": "Modelagem", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 4, "titulo": "Certificação", "is_disponivel": 0, "desafios_completados": 0 },
+      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
@@ -101,14 +101,26 @@ describe('Faz requisicao para a lista de desafios do nivel 1 para um usuario esp
 
   it('Retorna lista de desafios do usuario 3 (pmacca)', function(done) {
     var nivel1User3 = [
-      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 1, "titulo": "Scrum", "pontos": "76" },
-      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 2, "titulo": "XP", "pontos": "25" },
-      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 3, "titulo": "Kanban", "pontos": "0" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 1, "titulo": "Scrum", "pontos": "94" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 2, "titulo": "XP", "pontos": "80" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 3, "titulo": "DAS (desenvolvimento adaptativo de software)", "pontos": "94" },
     ];
     request(app)
       .post('/nivel/1')
       .send('userID=3')
       .expect(nivel1User3, done);
+  });
+
+  it('Retorna lista de desafios do usuario 5 (ringo)', function(done) {
+    var nivel1User5 = [
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 1, "titulo": "Scrum", "pontos": "21" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 2, "titulo": "XP", "pontos": "80" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 3, "titulo": "DAS (desenvolvimento adaptativo de software)", "pontos": "0" },
+    ];
+    request(app)
+      .post('/nivel/1')
+      .send('userID=5')
+      .expect(nivel1User5, done);
   });
 
 });
@@ -308,11 +320,11 @@ describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() 
       .expect({"id": 4, "username": "harrison", "nome": "George Harrison", "isSuccessful": true}, done);
   });
 
-  it('Retorna mensagem de sucesso para login do usuario "rstarr" e senha "12345"', function(done) {
+  it('Retorna mensagem de sucesso para login do usuario "ringo" e senha "12345"', function(done) {
     request(app)
       .post('/login')
-      .send('username=rstarr&password=12345')
-      .expect({"id": 5, "username": "rstarr", "nome": "Ringo Starr", "isSuccessful": true}, done);
+      .send('username=ringo&password=12345')
+      .expect({"id": 5, "username": "ringo", "nome": "Ringo Starr", "isSuccessful": true}, done);
   });
 
 });
