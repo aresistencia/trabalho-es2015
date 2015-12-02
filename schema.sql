@@ -7,14 +7,12 @@ CREATE TABLE usuario (
 
 CREATE TABLE nivel (
     id int PRIMARY KEY,
-    titulo varchar(100),
-    is_disponivel int
+    titulo varchar(100)
 );
 
 CREATE TABLE desafio (
     id int PRIMARY KEY,
     titulo varchar(100),
-    is_completo int,
     nivel_id int REFERENCES nivel(id)
 );     
 
@@ -22,7 +20,6 @@ CREATE TABLE resposta (
     id int PRIMARY KEY,
     valor int,
     solucao varchar(100),
-    is_respondida int,
     desafio_id int REFERENCES desafio(id)
 );
 
