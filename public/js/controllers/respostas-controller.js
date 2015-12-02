@@ -12,14 +12,10 @@ angular.module('jogo')
     $scope.respostas = data;
   });
 
-  // $http.get('/desafio/' + $routeParams.desafioID).success(function(data) {
-  //   $scope.respostas = data;
-  // });
-
-  $scope.$on('rightAnswer', function(event, cardResposta) {
-    $scope.respostas.respostas.forEach(function(card) {
-      if (card.id === cardResposta.id) {
-        card.resposta = cardResposta.resposta;
+  $scope.$on('rightAnswer', function(event, card) {
+    $scope.respostas.forEach(function(resposta) {
+      if (resposta.id === card.id) {
+        resposta.solucao = card.resposta;
       }
     });
   });
