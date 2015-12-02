@@ -36,7 +36,6 @@ VALUES -- Scrum
        (6, 9, 'Reuniões Diárias', 1),
        (7, 5, 'Revisão', 1),
        -- XP
-<<<<<<< HEAD
        (8, 40, 'Desenvolvimento em Pares', 2),
        (9, 15, 'História de Usuário', 2),
        (10, 10, 'Keep It Simple', 2),
@@ -139,20 +138,20 @@ VALUES -- Scrum
        (94, 1, 'Grupo Restrito', 15),
        (95, 6, 'Entradas', 15),
        -- Desafio 16 
-       (78, 40, 'Resposta 78', 16),
-       (79, 40, 'Resposta 79', 16),
-       (80, 40, 'Resposta 80', 16),
-       (81, 40, 'Resposta 81', 16),
-       (82, 40, 'Resposta 82', 16),
+       (96, 40, 'Resposta 78', 16),
+       (97, 40, 'Resposta 79', 16),
+       (98, 40, 'Resposta 80', 16),
+       (99, 40, 'Resposta 81', 16),
+       (100, 40, 'Resposta 82', 16),
        -- Desafio 17 
-       (83, 40, 'Resposta 83', 17),
-       (84, 40, 'Resposta 84', 17),
-       (85, 40, 'Resposta 85', 17),
-       (86, 40, 'Resposta 86', 17),
-       (87, 40, 'Resposta 87', 17),
+       (101, 40, 'Resposta 83', 17),
+       (102, 40, 'Resposta 84', 17),
+       (103, 40, 'Resposta 85', 17),
+       (104, 40, 'Resposta 86', 17),
+       (105, 40, 'Resposta 87', 17),
        -- Desafio 18 
-       (88, 40, 'Resposta 88', 18),
-       (89, 40, 'Resposta 89', 18),
-       (90, 40, 'Resposta 90', 18),
-       (91, 40, 'Resposta 91', 18),
-       (92, 40, 'Resposta 92', 18);
+       (106, 40, 'Resposta 88', 18),
+       (107, 40, 'Resposta 89', 18),
+       (108, 40, 'Resposta 90', 18),
+       (109, 40, 'Resposta 91', 18),
+       (110, 40, 'Resposta 92', 18);
