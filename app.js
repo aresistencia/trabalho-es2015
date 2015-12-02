@@ -37,14 +37,16 @@ app.post('/lista-niveis', parseUrlEncoded, function(request, response) {
 
 });
 
+// Rota para listar a pontuacao dos desafios de um nivel para um usuario logado
 app.post('/nivel/:nivelID', parseUrlEncoded, function(request, response) {
 
+  // ID do usuario logado e do nivel que sera consultado
   var userID = request.body.userID,
       nivelID = request.params.nivelID;
 
   db.serialize(function() {
 
-    // Consulta para listar informacoes dos desafios do nivel da rota requisitada
+    // Consulta para listar informacoes dos desafios do nivel requisitada
     db.all("SELECT n.id nivel_id, n.titulo nivel_titulo, d.id id, d.titulo titulo, IFNULL(pontos, 0) pontos FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id LEFT OUTER JOIN (SELECT r.desafio_id did2, SUM(r.valor) pontos FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE ur.usuario_id = " + userID + " GROUP BY r.desafio_id) AS r ON d.id = did2 WHERE n.id = " + nivelID, function(err, rows) {
 
       // Checa se houve algum erro na consulta
@@ -57,40 +59,27 @@ app.post('/nivel/:nivelID', parseUrlEncoded, function(request, response) {
   });
 });
 
-app.get('/desafio/:desafioID', function(request, response) {
+// Rota para listar as respostas que um usuario logado ja acertou, deixando
+// em 'branco' as nao acertadas
+app.post('/desafio/:desafioID', parseUrlEncoded, function(request, response) {
 
-  db.all("SELECT d.id desafio_id, d.titulo desafio_titulo, r.id resposta_id, r.valor resposta_valor, r.solucao resposta_solucao FROM desafio d INNER JOIN resposta r ON d.id = r.desafio_id WHERE d.id = " + request.params.desafioID, function(err, rows) {
+  // ID do usuario e do desafio e do nivel que sera consultado
+  var userID = request.body.userID,
+      desafioID = request.params.desafioID;
+
+  db.all("SELECT d.id desafio_id, d.titulo desafio_titulo, r.id id, r.valor valor, IFNULL(res.solucao, '') solucao FROM desafio d INNER JOIN resposta r ON d.id = r.desafio_id LEFT OUTER JOIN (SELECT r.desafio_id did, r.id id, r.solucao solucao, ur.usuario_id uid FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE r.desafio_id = " + desafioID + " AND ur.usuario_id = " + userID + ") AS res ON r.id = res.id WHERE d.id = " + desafioID, function(err, rows) {
 
     if (err) {
-      console.log(err); 
+      console.log(err);
     } else {
-
-      if (rows.length === 0) {
-        response.status(404).json("Problema...");
-      } else {
-        var respostas = {
-          id: rows[0].desafio_id,
-          titulo: rows[0].desafio_titulo,
-          respostas: []
-        };
-
-        rows.forEach(function(row) {
-          var auxResposta = {
-            'id': row.resposta_id,
-            'pontos': row.resposta_valor,
-            'resposta': ""
-          };
-          respostas.respostas.push(auxResposta);
-        });
-
-        response.json(respostas);
-      }
+      response.status(201).json(rows);
     }
 
   });
 
 });
 
+// Rota para checar se uma resposta submetido por um usuario esta correta
 app.post('/desafio/:desafioID/checa-resposta', parseUrlEncoded, function(request, response) {
 
   var nivel = request.params.nivelID,
