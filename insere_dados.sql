@@ -1,10 +1,10 @@
 INSERT INTO nivel (id, titulo)
 VALUES (1, 'Métodos Ágeis'),
        (2, 'Métodos Tradicionais'),
-       (3, ''),
-       (4, ''),
-       (5, ''),
-       (6, '');
+       (3, 'Nível 3'),
+       (4, 'Nível 4'),
+       (5, 'Nível 5'),
+       (6, 'Nível 6');
 
 INSERT INTO desafio (id, titulo, nivel_id)
 VALUES (1, 'Scrum', 1),
