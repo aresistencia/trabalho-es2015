@@ -1,27 +1,27 @@
 INSERT INTO nivel (id, titulo)
 VALUES (1, 'Métodos Ágeis'),
        (2, 'Métodos Tradicionais'),
-       (3, 'Nível 3'),
-       (4, 'Nível 4'),
-       (5, 'Nível 5'),
+       (3, 'Modelagem'),
+       (4, 'Certificação'),
+       (5, 'Testes'),
        (6, 'Nível 6');
 
 INSERT INTO desafio (id, titulo, nivel_id)
 VALUES (1, 'Scrum', 1),
        (2, 'XP', 1),
-       (3, 'Kanban', 1),
-       (4, 'Desafio 4', 2),
-       (5, 'Desafio 5', 2),
-       (6, 'Desafio 6', 2),
-       (7, 'Desafio 7', 3),
-       (8, 'Desafio 8', 3),
-       (9, 'Desafio 9', 3),
-       (10, 'Desafio 10', 4),
-       (11, 'Desafio 11', 4),
-       (12, 'Desafio 12', 4),
-       (13, 'Desafio 13', 5),
-       (14, 'Desafio 14', 5),
-       (15, 'Desafio 15', 5),
+       (3, 'DAS (desenvolvimento adaptativo de software', 1),
+       (4, 'Cascata', 2),
+       (5, 'Desenvolvimento Incremental e Baseado em Reuso', 2),
+       (6, 'Espiral', 2),
+       (7, 'Análise Estruturada', 3),
+       (8, 'Análise Essencial', 3),
+       (9, 'UML', 3),
+       (10, 'CMMI', 4),
+       (11, 'MPS.BR', 4),
+       (12, 'ISO/IEC 15504', 4),
+       (13, 'Teste de Unidade', 5),
+       (14, 'Teste de Integração', 5),
+       (15, 'Teste de Aceitação', 5),
        (16, 'Desafio 16', 6),
        (17, 'Desafio 17', 6),
        (18, 'Desafio 18', 6);
@@ -36,89 +36,108 @@ VALUES -- Scrum
        (6, 9, 'Reuniões Diárias', 1),
        (7, 5, 'Revisão', 1),
        -- XP
+<<<<<<< HEAD
        (8, 40, 'Desenvolvimento em Pares', 2),
        (9, 15, 'História de Usuário', 2),
        (10, 10, 'Keep It Simple', 2),
        (11, 11, 'Refatoração', 2),
        (12, 4, 'Testes', 2),
-       -- Desafio  3
-       (13, 40, 'Resposta 13', 3),
-       (14, 40, 'Resposta 14', 3),
-       (15, 40, 'Resposta 15', 3),
-       (16, 40, 'Resposta 16', 3),
-       (17, 40, 'Resposta 17', 3),
-       -- Desafio 4 
-       (18, 40, 'Resposta 18', 4),
-       (19, 40, 'Resposta 19', 4),
-       (20, 40, 'Resposta 20', 4),
-       (21, 40, 'Resposta 21', 4),
-       (22, 40, 'Resposta 22', 4),
-       -- Desafio 5 
-       (23, 40, 'Resposta 23', 5),
-       (24, 40, 'Resposta 24', 5),
-       (25, 40, 'Resposta 25', 5),
-       (26, 40, 'Resposta 26', 5),
-       (27, 40, 'Resposta 27', 5),
-       -- Desafio 6 
-       (28, 40, 'Resposta 28', 6),
-       (29, 40, 'Resposta 29', 6),
-       (30, 40, 'Resposta 30', 6),
-       (31, 40, 'Resposta 31', 6),
-       (32, 40, 'Resposta 32', 6),
-       -- Desafio 7 
-       (33, 40, 'Resposta 33', 7),
-       (34, 40, 'Resposta 34', 7),
-       (35, 40, 'Resposta 35', 7),
-       (36, 40, 'Resposta 36', 7),
-       (37, 40, 'Resposta 37', 7),
-       -- Desafio 8 
-       (38, 40, 'Resposta 38', 8),
-       (39, 40, 'Resposta 39', 8),
-       (40, 40, 'Resposta 40', 8),
-       (41, 40, 'Resposta 41', 8),
-       (42, 40, 'Resposta 42', 8),
-       -- Desafio 9 
-       (43, 40, 'Resposta 43', 9),
-       (44, 40, 'Resposta 44', 9),
-       (45, 40, 'Resposta 45', 9),
-       (46, 40, 'Resposta 46', 9),
-       (47, 40, 'Resposta 47', 9),
-       -- Desafio 10 
-       (48, 40, 'Resposta 48', 10),
-       (49, 40, 'Resposta 49', 10),
-       (50, 40, 'Resposta 50', 10),
-       (51, 40, 'Resposta 51', 10),
-       (52, 40, 'Resposta 52', 10),
-       -- Desafio 11 
-       (53, 40, 'Resposta 53', 11),
-       (54, 40, 'Resposta 54', 11),
-       (55, 40, 'Resposta 55', 11),
-       (56, 40, 'Resposta 56', 11),
-       (57, 40, 'Resposta 57', 11),
-       -- Desafio 12 
-       (58, 40, 'Resposta 58', 12),
-       (59, 40, 'Resposta 59', 12),
-       (60, 40, 'Resposta 60', 12),
-       (61, 40, 'Resposta 61', 12),
-       (62, 40, 'Resposta 62', 12),
-       -- Desafio 13 
-       (63, 40, 'Resposta 63', 13),
-       (64, 40, 'Resposta 64', 13),
-       (65, 40, 'Resposta 65', 13),
-       (66, 40, 'Resposta 66', 13),
-       (67, 40, 'Resposta 67', 13),
-       -- Desafio 14 
-       (68, 40, 'Resposta 68', 14),
-       (69, 40, 'Resposta 69', 14),
-       (70, 40, 'Resposta 70', 14),
-       (71, 40, 'Resposta 71', 14),
-       (72, 40, 'Resposta 72', 14),
-       -- Desafio 15 
-       (73, 40, 'Resposta 73', 15),
-       (74, 40, 'Resposta 74', 15),
-       (75, 40, 'Resposta 75', 15),
-       (76, 40, 'Resposta 76', 15),
-       (77, 40, 'Resposta 77', 15),
+       -- DAS(desenvolvimento adaptativo de software)
+       (13, 12, 'Especulação', 0, 3);
+       (14, 17, 'Colaboração', 0, 3);
+       (15, 29, 'Aprendizado', 0, 3);
+       (16, 32, 'Feedback', 0, 3);
+       (17, 4, 'Avaliação de desempenho da equipe', 0, 3);
+       -- Cascata
+       (18, 21, 'Requisitos', 0, 4);
+       (19, 18, 'Processo', 0, 4);
+       (20, 31, 'Implementação', 0, 4);
+       (21, 15, 'Teste', 0, 4);
+       (22, 9, 'Manutenção', 0, 4);
+       -- Desenvolvimento Incremental e Baseado em Reuso
+       (23, 19, 'Atividades Intercaladas (Incremental)', 5),
+       (24, 12, 'Feedback (Incremental)', 5),
+       (25, 15, 'Minimização de Erros (Incremental)', 5),
+       (26, 20, 'Entregas Rápidas (Incremental)', 5),
+       (27, 11, 'Componentes Reusáveis (Orientado a Reuso)', 5),
+       (28, 6, 'Integração (Orientado a Reuso)', 5),
+       (29, 11, 'Analogia a Hardware (Orientado a Reuso)', 5),
+       -- Espiral
+       (30, 25, 'Objetivos', 6),
+       (31, 10, 'Restrições', 6),
+       (32, 13, 'Alternativas', 6),
+       (33, 5, 'Análise de Risco', 6),
+       (34, 1, 'Análise de Prototipação', 6),
+       (35, 14, 'Validação', 6),
+       (36, 17, 'Verificação', 6),
+       (37, 9, 'Planejamento', 6),
+       -- Análise Estruturada
+       (38, 5, 'Modelo Ambiental', 7),
+       (39, 5, 'Modelo Comportamental', 7),
+       (40, 28, 'Objetos', 7),
+       (41, 32, 'Diagrama', 7),
+       (42, 12, 'Contexto', 7),
+       (43, 8, 'Fluxo de Dados', 7),
+       (44, 4, 'Dicionário de Dados', 7),
+       -- Análise Essencial
+       (45, 29, 'Eventos', 8),
+       (46, 32, 'Fronteira', 8),
+       (47, 4, 'Ferramentas do Ambiente', 8),
+       (48, 12, 'Interface', 8),
+       (49, 17, 'Entidade Externa', 8),
+       -- UML
+       (50, 12, 'Diagrama', 9),
+       (51, 17, 'Classes', 9),
+       (52, 29, 'Objetos', 9),
+       (53, 32, 'Componentes', 9),
+       (54, 4, 'Perfil', 9),
+       (55, 4, 'Elementos', 9),
+       (56, 4, 'Associação', 9),
+       (57, 4, 'Pacote', 9),
+       (58, 4, 'Semântica', 9),
+       -- CMMI
+       (59, 29, 'Maturidade', 10),
+       (60, 32, 'Capacidade', 10),
+       (61, 3, 'Gerido', 10),
+       (62, 4, 'Otimizante', 10),
+       (63, 8, 'Implantação', 10),
+       (64, 12, 'Projetos', 10),
+       (65, 6, 'SEI(Software Engineering Institute)', 10),
+       -- MPS.BR
+       (66, 20, 'Maturidade', 11),
+       (67, 17, 'Melhoria em Processos', 11),
+       (68, 6, 'Desenvolvimento', 11),
+       (69, 8, 'Licitações', 11),
+       (70, 8, 'Treinamento', 11),
+       (71, 35, 'CMMI', 11),
+       -- ISO/IEC 15504
+       (72, 25, 'Spice', 12),
+       (73, 8, 'Documentação', 12),
+       (74, 7, 'Gestão de Configuração', 12),
+       (75, 18, 'Gestão de Qualidade', 12),
+       (76, 10, 'Verificação', 12),
+       (77, 12, 'Validação', 12),
+       (78, 14, 'Auditoria', 12),
+       -- Teste de Unidade
+       (79, 20, 'Válidos', 13),
+       (80, 20, 'Inválidos', 13),
+       (81, 11, 'Domínio', 13),
+       (82, 16, 'Campos Especiais', 13),
+       (83, 8, 'Senha', 13),
+       (84, 19, 'Tipos de Valores', 13),
+       -- Teste de Integração
+       (85, 16, 'Módulos', 14),
+       (86, 8, 'Grupo', 14),
+       (87, 3, 'Ambiente de Produção', 14),
+       (88, 12, 'Requisitos Funcionais', 14),
+       (89, 25, 'Desempenho', 14),
+       (90, 30, 'Confiabilidade', 14),
+       -- Teste de Aceitação
+       (91, 40, 'Caixa-Preta', 15),
+       (92, 40, 'Usuário', 15),
+       (93, 7, 'Requisitos', 15),
+       (94, 1, 'Grupo Restrito', 15),
+       (95, 6, 'Entradas', 15),
        -- Desafio 16 
        (78, 40, 'Resposta 78', 16),
        (79, 40, 'Resposta 79', 16),
