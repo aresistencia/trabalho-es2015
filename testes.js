@@ -413,38 +413,3 @@ describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() 
   });
 
 });
-
-// Lista com a pontuacao da resposta dos desafios de cada nivel
-var infoRespostas = [
-  { /* Objeto vazio para facilitar a indexacao: nivel 1 -> indice 1 */ },
-  {
-    "nivelID": 1,
-    "desafios": [
-      { /* Objeto vazio para facilitar a indexacao: desafio 1 -> desafio 1 */ },
-      {
-        "id": 1,
-        "titulo": "Scrum",
-        "respostas": [
-          { "id": 1, "pontos": 40, "resposta": "" },
-          { "id": 2, "pontos": 15, "resposta": "" },
-          { "id": 3, "pontos": 10, "resposta": "" },
-          { "id": 4, "pontos": 11, "resposta": "" },
-          { "id": 5, "pontos": 4, "resposta": "" },
-          { "id": 6, "pontos": 9, "resposta": "" },
-          { "id": 7, "pontos": 5, "resposta": "" }
-        ]
-      },
-      {
-        "id": 2,
-        "titulo": "XP",
-        "respostas": [
-          { "id": 8, "pontos": 40, "resposta": "" },
-          { "id": 9, "pontos": 15, "resposta": "" },
-          { "id": 10, "pontos": 10, "resposta": "" },
-          { "id": 11, "pontos": 11, "resposta": "" },
-          { "id": 12, "pontos": 4, "resposta": "" }
-        ]
-      }
-    ]
-  }
-];
