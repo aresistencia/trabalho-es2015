@@ -29,52 +29,55 @@ app.post('/lista-niveis', parseUrlEncoded, function(request, response) {
 
 });
 
-app.get('/nivel/:nivelID', function(request, response) {
+app.post('/nivel/:nivelID', parseUrlEncoded, function(request, response) {
+
+  var userID = request.body.userID,
+      nivelID = request.params.nivelID;
+
   db.serialize(function() {
 
     // Consulta para listar informacoes dos desafios do nivel da rota requisitada
-    db.all("SELECT n.id nivel_id, d.id desafio_id, n.titulo nivel_titulo, d.titulo desafio_titulo, SUM(r.valor) pontuacao, r.is_respondida is_respondida FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id INNER JOIN resposta r ON d.id = r.desafio_id WHERE n.id = " + request.params.nivelID + " GROUP BY d.id ORDER BY d.id ASC", function(err, rows) {
+    db.all("SELECT d.nivel_id nivel_id, n.titulo nivel_titulo, d.id desafio_id, d.titulo desafio_titulo, IFNULL(ru.desafio_pontos, 0) desafio_pontos FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id LEFT OUTER JOIN (SELECT r.desafio_id, SUM(r.valor) desafio_pontos FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE ur.usuario_id = " + userID + " GROUP BY r.desafio_id) AS ru ON d.id = ru.desafio_id WHERE n.id = " + nivelID, function(err, rows) {
 
       // Checa se houve algum erro na consulta
       if (err) {
         console.log(err);
       } else {
-
+        response.json(rows);
         // Checa se o resultado da consulta eh uma tabela vazia, ou seja, se o
         // nivel existe ou nao
-        if (rows.length === 0) {
-          response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
-        } else {
+        // if (rows.length === 0) {
+        //   response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
+        // } else {
+          // // Objeto onde sera armazenada a resposta da requisicao
+          // var desafiosNivel = {};
 
-          // Objeto onde sera armazenada a resposta da requisicao
-          var desafiosNivel = {};
+          // // Armazena na chave 'nivel' as informacoes do nivel atual. A tupla de
+          // // indice zero foi usada porque todas as tuplas terao esse mesmo valor
+          // // para essa coluna.
+          // desafiosNivel.nivel = {
+          //   'id': rows[0].nivel_id,
+          //   'titulo': rows[0].nivel_titulo
+          // };
 
-          // Armazena na chave 'nivel' as informacoes do nivel atual. A tupla de
-          // indice zero foi usada porque todas as tuplas terao esse mesmo valor
-          // para essa coluna.
-          desafiosNivel.nivel = {
-            'id': rows[0].nivel_id,
-            'titulo': rows[0].nivel_titulo
-          };
+          // // Varre a lista de tuplas da relacao resultante da consulta e armaneza
+          // // as ifnromacoes referentes aos desafios em 'listaDesafios'
+          // var listaDesafios = [];
+          // rows.forEach(function(row) {
+          //   var auxDesafio = {
+          //     'titulo': row.desafio_titulo,
+          //     'pontuacao': row.is_respondida ? row.pontuacao: 0,
+          //     'id': row.desafio_id
+          //   };
+          //   listaDesafios.push(auxDesafio);
+          // });
 
-          // Varre a lista de tuplas da relacao resultante da consulta e armaneza
-          // as ifnromacoes referentes aos desafios em 'listaDesafios'
-          var listaDesafios = [];
-          rows.forEach(function(row) {
-            var auxDesafio = {
-              'titulo': row.desafio_titulo,
-              'pontuacao': row.is_respondida ? row.pontuacao: 0,
-              'id': row.desafio_id
-            };
-            listaDesafios.push(auxDesafio);
-          });
+          // // Armazena na chave 'desafios' a lista de desafios do nivel atual
+          // desafiosNivel.desafios = listaDesafios;
 
-          // Armazena na chave 'desafios' a lista de desafios do nivel atual
-          desafiosNivel.desafios = listaDesafios;
-
-          // Responde a requisicao com informacoes dos desafios do nivel atual
-          response.json(desafiosNivel);
-        }
+          // // Responde a requisicao com informacoes dos desafios do nivel atual
+          // response.json(desafiosNivel);
+        // }
       }
     });
   });

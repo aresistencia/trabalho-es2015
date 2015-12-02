@@ -45,3 +45,11 @@ INSERT INTO usuario_desafio (usuario_id, desafio_id)
 VALUES (2, 1), -- jlennon, desafio 1
        (3, 1), -- pmacca, desafio 1
        (3, 2); -- pmacca, desafio 2
+
+INSERT INTO usuario_resposta (usuario_id, resposta_id)
+VALUES (3, 1), -- pmacca, desafio 1
+       (3, 2), -- pmacca, desafio 2
+       (3, 3), -- pmacca, desafio 3
+       (3, 4), -- pmacca, desafio 4
+       (3, 9), -- pmacca, desafio 9
+       (3, 10); -- pmacca, desafio 10

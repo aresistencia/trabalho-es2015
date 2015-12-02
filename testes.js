@@ -83,24 +83,32 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
 });
 
 // Testes para a rota '/nivel/1'
-describe('Faz requisicao para a lista de desafios do nivel 1', function() {
+describe('Faz requisicao para a lista de desafios do nivel 1 para um usuario especifico', function() {
 
   it('Retorna codigo de status 200', function(done) {
     request(app)
-      .get('/nivel/1')
+      .post('/nivel/1')
+      .send('userID=3')
       .expect(200, done);
   });
 
   it('Retorna um arquivo JSON', function(done) {
     request(app)
-      .get('/nivel/1')
+      .post('/nivel/1')
+      .send('userID=3')
       .expect('Content-Type', /json/, done);
   });
 
   it('Retorna lista de desafios', function(done) {
+    var nivel1User3 = [
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "desafio_id": 1, "desafio_titulo": "Scrum", "desafio_pontos": "76" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "desafio_id": 2, "desafio_titulo": "XP", "desafio_pontos": "25" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "desafio_id": 3, "desafio_titulo": "Kanban", "desafio_pontos": "0" },
+    ];
     request(app)
-      .get('/nivel/1')
-      .expect(infoDesafios[1], done);
+      .post('/nivel/1')
+      .send('userID=3')
+      .expect(nivel1User3, done);
   });
 
 });
