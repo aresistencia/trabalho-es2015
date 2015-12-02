@@ -125,48 +125,99 @@ describe('Faz requisicao para a lista de desafios do nivel 1 para um usuario esp
 
 });
 
-// Teste para a rota '/desafio/1'
-describe('Faz requisicao para a lista de pontuacao das respostas do desafio 1 para um usuario especifico', function() {
+// Teste para a rota '/desafio/desafioID'
+describe('Faz requisicao para a lista das respostas do usuario autenticado', function() {
 
-  it('Retorna codigo de status 200', function(done) {
+  it('Retorna codigo de status 201 para rota do desafio 1', function(done) {
     request(app)
-      .get('/desafio/1')
-      .expect(200, done);
+      .post('/desafio/1')
+      .send('userID=2')
+      .expect(201, done);
   });
 
-  it('Retorna um arquivo no formato JSON', function(done) {
+  it('Retorna um arquivo no formato JSON para rota do desafio 2', function(done) {
     request(app)
-      .get('/desafio/1')
+      .post('/desafio/2')
+      .send('userID=2')
       .expect('Content-Type', /json/, done);
   });
 
-  it('Retorna uma lista com a pontuacao das respostas do desafio 1', function(done) {
+  it('Retorna respostas do desafio 1 do usuario 2 (jlennon)', function(done) {
+    var desafio1User2 = [
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
+    ];
     request(app)
-      .get('/desafio/1')
-      .expect(infoRespostas[1].desafios[1], done);
+      .post('/desafio/1')
+      .send('userID=2')
+      .expect(desafio1User2, done);
   });
 
-});
-
-// Teste para a rota '/desafio/2'
-describe('Faz requisicao para a lista de pontuacao das respostas do desafio 2', function() {
-
-  it('Retorna codigo de status 200', function(done) {
+  it('Retorna respostas do desafio 1 do usuario 3 (pmacca)', function(done) {
+    var desafio1User3 = [
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
+    ];
     request(app)
-      .get('/desafio/2')
-      .expect(200, done);
+      .post('/desafio/1')
+      .send('userID=3')
+      .expect(desafio1User3, done);
   });
 
-  it('Retorna um arquivo no formato JSON', function(done) {
+  it('Retorna respostas do desafio 1 do usuario 4 (harrison)', function(done) {
+    var desafio1User4 = [
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
+    ];
     request(app)
-      .get('/desafio/2')
-      .expect('Content-Type', /json/, done);
+      .post('/desafio/1')
+      .send('userID=4')
+      .expect(desafio1User4, done);
   });
 
-  it('Retorna uma lista com a pontuacao das respostas do desafio 2', function(done) {
+  it('Retorna respostas do desafio 1 do usuario 5 (ringo)', function(done) {
+    var desafio1User5 = [
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': '' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': '' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': '' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': '' },
+      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': '' }
+    ];
     request(app)
-      .get('/desafio/2')
-      .expect(infoRespostas[1].desafios[2], done);
+      .post('/desafio/1')
+      .send('userID=5')
+      .expect(desafio1User5, done);
+  });
+
+  it('Retorna respostas do desafio 1 do usuario 4 (harrison)', function(done) {
+    var desafio2User4 = [
+      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 8, 'valor': 40, 'solucao': 'Desenvolvimento em Pares' },
+      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 9, 'valor': 15, 'solucao': '' },
+      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 10, 'valor': 10, 'solucao': 'Keep It Simple' },
+      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 11, 'valor': 11, 'solucao': '' },
+      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 12, 'valor': 4, 'solucao': '' }
+    ];
+    request(app)
+      .post('/desafio/2')
+      .send('userID=4')
+      .expect(desafio2User4, done);
   });
 
 });
