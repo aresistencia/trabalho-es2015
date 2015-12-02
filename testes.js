@@ -99,11 +99,11 @@ describe('Faz requisicao para a lista de desafios do nivel 1 para um usuario esp
       .expect('Content-Type', /json/, done);
   });
 
-  it('Retorna lista de desafios', function(done) {
+  it('Retorna lista de desafios do usuario 3 (pmacca)', function(done) {
     var nivel1User3 = [
-      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "desafio_id": 1, "desafio_titulo": "Scrum", "desafio_pontos": "76" },
-      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "desafio_id": 2, "desafio_titulo": "XP", "desafio_pontos": "25" },
-      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "desafio_id": 3, "desafio_titulo": "Kanban", "desafio_pontos": "0" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 1, "titulo": "Scrum", "pontos": "76" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 2, "titulo": "XP", "pontos": "25" },
+      { "nivel_id": 1, "nivel_titulo": "Métodos Ágeis", "id": 3, "titulo": "Kanban", "pontos": "0" },
     ];
     request(app)
       .post('/nivel/1')
