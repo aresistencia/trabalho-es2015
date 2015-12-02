@@ -9,7 +9,7 @@ VALUES (1, 'Métodos Ágeis'),
 INSERT INTO desafio (id, titulo, nivel_id)
 VALUES (1, 'Scrum', 1),
        (2, 'XP', 1),
-       (3, 'DAS (desenvolvimento adaptativo de software', 1),
+       (3, 'DAS (desenvolvimento adaptativo de software)', 1),
        (4, 'Cascata', 2),
        (5, 'Desenvolvimento Incremental e Baseado em Reuso', 2),
        (6, 'Espiral', 2),
@@ -42,17 +42,17 @@ VALUES -- Scrum
        (11, 11, 'Refatoração', 2),
        (12, 4, 'Testes', 2),
        -- DAS(desenvolvimento adaptativo de software)
-       (13, 12, 'Especulação', 0, 3);
-       (14, 17, 'Colaboração', 0, 3);
-       (15, 29, 'Aprendizado', 0, 3);
-       (16, 32, 'Feedback', 0, 3);
-       (17, 4, 'Avaliação de desempenho da equipe', 0, 3);
+       (13, 12, 'Especulação', 3),
+       (14, 17, 'Colaboração', 3),
+       (15, 29, 'Aprendizado', 3),
+       (16, 32, 'Feedback', 3),
+       (17, 4, 'Avaliação de desempenho da equipe', 3),
        -- Cascata
-       (18, 21, 'Requisitos', 0, 4);
-       (19, 18, 'Processo', 0, 4);
-       (20, 31, 'Implementação', 0, 4);
-       (21, 15, 'Teste', 0, 4);
-       (22, 9, 'Manutenção', 0, 4);
+       (18, 21, 'Requisitos', 4),
+       (19, 18, 'Processo', 4),
+       (20, 31, 'Implementação', 4),
+       (21, 15, 'Teste', 4),
+       (22, 9, 'Manutenção', 4),
        -- Desenvolvimento Incremental e Baseado em Reuso
        (23, 19, 'Atividades Intercaladas (Incremental)', 5),
        (24, 12, 'Feedback (Incremental)', 5),
