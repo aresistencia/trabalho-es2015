@@ -52,40 +52,6 @@ app.post('/nivel/:nivelID', parseUrlEncoded, function(request, response) {
         console.log(err);
       } else {
         response.json(rows);
-        // Checa se o resultado da consulta eh uma tabela vazia, ou seja, se o
-        // nivel existe ou nao
-        // if (rows.length === 0) {
-        //   response.status(404).json("Nivel " + request.params.nivelID + " nao existe");
-        // } else {
-          // // Objeto onde sera armazenada a resposta da requisicao
-          // var desafiosNivel = {};
-
-          // // Armazena na chave 'nivel' as informacoes do nivel atual. A tupla de
-          // // indice zero foi usada porque todas as tuplas terao esse mesmo valor
-          // // para essa coluna.
-          // desafiosNivel.nivel = {
-          //   'id': rows[0].nivel_id,
-          //   'titulo': rows[0].nivel_titulo
-          // };
-
-          // // Varre a lista de tuplas da relacao resultante da consulta e armaneza
-          // // as ifnromacoes referentes aos desafios em 'listaDesafios'
-          // var listaDesafios = [];
-          // rows.forEach(function(row) {
-          //   var auxDesafio = {
-          //     'titulo': row.desafio_titulo,
-          //     'pontuacao': row.is_respondida ? row.pontuacao: 0,
-          //     'id': row.desafio_id
-          //   };
-          //   listaDesafios.push(auxDesafio);
-          // });
-
-          // // Armazena na chave 'desafios' a lista de desafios do nivel atual
-          // desafiosNivel.desafios = listaDesafios;
-
-          // // Responde a requisicao com informacoes dos desafios do nivel atual
-          // response.json(desafiosNivel);
-        // }
       }
     });
   });
