@@ -9,7 +9,10 @@ VALUES (1, 'Métodos Ágeis'),
 INSERT INTO desafio (id, titulo, nivel_id)
 VALUES (1, 'Scrum', 1),
        (2, 'XP', 1),
-       (3, 'Kanban', 1);
+       (3, 'Kanban', 1),
+       (4, 'Desafio 4', 2),
+       (5, 'Desafio 5', 2),
+       (6, 'Desafio 6', 2);
 
 INSERT INTO resposta (id, valor, solucao, desafio_id)
 VALUES -- Scrum
@@ -48,6 +51,7 @@ VALUES (2, 1), -- jlennon, desafio 1
        (3, 1), -- pmacca, desafio 1
        (3, 2), -- pmacca, desafio 2
        (3, 3), -- pmacca, desafio 3
+       (3, 6), -- pmacca, desafio 6
        (4, 1), -- harrison, desafio 1
        (5, 2); -- ringo, desafio 2
 
