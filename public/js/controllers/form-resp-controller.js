@@ -3,7 +3,7 @@ angular.module('jogo')
 
   $rootScope.validaResposta = function(inputText) {
     $http({
-      url: '/desafio/' + $routeParams.desafioID,
+      url: '/desafio/' + $routeParams.desafioID + '/checa-resposta',
       method: "POST",
       data: 'resposta=' + inputText,
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}

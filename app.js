@@ -91,7 +91,7 @@ app.get('/desafio/:desafioID', function(request, response) {
 
 });
 
-app.post('/desafio/:desafioID', parseUrlEncoded, function(request, response) {
+app.post('/desafio/:desafioID/checa-resposta', parseUrlEncoded, function(request, response) {
 
   var nivel = request.params.nivelID,
       desafio = request.params.desafioID,
