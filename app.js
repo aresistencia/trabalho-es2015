@@ -139,14 +139,15 @@ app.post('/desafio/:desafioID', parseUrlEncoded, function(request, response) {
 app.post('/login', parseUrlEncoded, function(request, response) {
   var username = request.body.username,
       password = request.body.password,
-      resObj = {"username": "", "nome": "", "isSuccessful": false};
+      resObj = {"id": -1, "username": "", "nome": "", "isSuccessful": false};
 
-  db.all("SELECT username, password, nome FROM usuario", function(err, rows) {
+  db.all("SELECT id, username, password, nome FROM usuario", function(err, rows) {
     if (err) {
       console.log(err);
     } else {
       rows.forEach(function(row) {
         if (row.username === username && row.password === password) {
+          resObj.id = row.id;
           resObj.username = row.username;
           resObj.nome = row.nome;
           resObj.isSuccessful = true;
