@@ -1,10 +1,20 @@
 angular.module('jogo')
-.controller('RespostasController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+.controller('RespostasController', ['$scope', '$http', '$routeParams', '$cookies', function($scope, $http, $routeParams, $cookies) {
 
   $scope.respostas = [];
-  $http.get('/desafio/' + $routeParams.desafioID).success(function(data) {
+
+  $http({
+    url: '/desafio/' + $routeParams.desafioID,
+    method: 'POST',
+    data: 'userID=' + $cookies.get('userID'),
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  }).success(function(data, status, config, headers) {
     $scope.respostas = data;
   });
+
+  // $http.get('/desafio/' + $routeParams.desafioID).success(function(data) {
+  //   $scope.respostas = data;
+  // });
 
   $scope.$on('rightAnswer', function(event, cardResposta) {
     $scope.respostas.respostas.forEach(function(card) {

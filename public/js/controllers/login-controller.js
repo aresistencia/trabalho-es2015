@@ -7,7 +7,7 @@ angular.module('jogo')
       method: 'POST',
       data: "username=" + uname + "&password=" + pword,
       headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-    }).success(function(data, status, headers, config) {
+    }).success(function(data, status, config, headers) {
       if (data.isSuccessful) {
         $rootScope.$broadcast('loginSuccess', data);
         $location.url('/lista-niveis');
