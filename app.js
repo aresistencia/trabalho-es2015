@@ -98,16 +98,44 @@ app.post('/desafio/:desafioID/checa-resposta', parseUrlEncoded, function(request
           resResposta.resposta = row.solucao;
           resResposta.id = row.id;
 
-          // Checa se o usuario completou o nivel
+          // Checa se o usuario completou o desafio
           db.all("SELECT COUNT(r.id) respostas_restantes FROM resposta r WHERE r.desafio_id = " + desafio + " AND r.id NOT IN (SELECT r.id FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE r.desafio_id = " + desafio + " AND ur.usuario_id = " + userID + ") GROUP BY r.desafio_id", function(err, rows) {
             if (err) {
               console.log(err);
             } else {
               if (rows.length === 0) {
                 db.run("INSERT INTO usuario_desafio VALUES (" + userID + ", " + desafio + ")" );
+
+                // Nivel do desafio atual
+                var nivelID;
+                db.all("SELECT d.nivel_id nid FROM desafio d WHERE d.id = " + desafio, function(err, rows) {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    nivelID = rows[0].nid;
+                    // Checa se o usuario completou o nivel, consultando os
+                    // desafios do nivel atual que ele ainda nao completou
+                    db.all("SELECT d.id FROM desafio d WHERE d.nivel_id = " + nivelID + " AND d.id NOT IN (SELECT d.id FROM desafio d INNER JOIN usuario_desafio ud ON d.id = ud.desafio_id WHERE ud.usuario_id = " + userID + ")", function(err, rows) {
+                      if (err) {
+                        console.log(err);
+                      } else {
+                        // Caso a relacao resultante nao tenha nenhuma tupla, o
+                        // usuario ja completou todos os desafios do nivel atual,
+                        // podendo assim liberar o próximo nível
+                        if (rows.length === 0) {
+                          if (nivelID < 5) {
+                            var proximoNivelID = nivelID + 1;
+                            db.run("INSERT INTO usuario_nivel VALUES (" + userID + ", " + proximoNivelID + ")" );
+                          }
+                        }
+                      }
+                    });
+                  }
+                });
               }
             }
           });
+
         });
 
       }
