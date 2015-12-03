@@ -240,91 +240,91 @@ describe('Faz requisicoes para rotas de niveis e desafios que nao existem no jog
 });
 
 // Testes para tratar respostas corretas
-describe('Faz requisicoes HTTP POST com respostas CORRETAS para o desafio 1 ("Scrum")', function() {
+// describe('Faz requisicoes HTTP POST com respostas CORRETAS para o desafio 1 ("Scrum")', function() {
 
-  it('Retorna codigo de status 201', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Corridas')
-      .expect(201, done);
-  });
+//   it('Retorna codigo de status 201', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Corridas')
+//       .expect(201, done);
+//   });
 
-  it('Retorna ID 1 para resposta "Corridas"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Corridas')
-      .expect({"resposta": "Corridas", "id": 1}, done);
-  });
+//   it('Retorna ID 1 para resposta "Corridas"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Corridas')
+//       .expect({"resposta": "Corridas", "id": 1}, done);
+//   });
 
-  it('Retorna ID 2 para resposta "Mestre do Scrum"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Mestre+do+Scrum')
-      .expect({"resposta": "Mestre do Scrum", "id": 2}, done);
-  });
+//   it('Retorna ID 2 para resposta "Mestre do Scrum"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Mestre+do+Scrum')
+//       .expect({"resposta": "Mestre do Scrum", "id": 2}, done);
+//   });
 
-  it('Retorna ID 3 para resposta "Dono do Produto"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Dono+do+Produto')
-      .expect({"resposta": "Dono do Produto", "id": 3}, done);
-  });
+//   it('Retorna ID 3 para resposta "Dono do Produto"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Dono+do+Produto')
+//       .expect({"resposta": "Dono do Produto", "id": 3}, done);
+//   });
 
-  it('Retorna ID 4 para resposta "Time"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Time')
-      .expect({"resposta": "Time", "id": 4}, done);
-  });
+//   it('Retorna ID 4 para resposta "Time"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Time')
+//       .expect({"resposta": "Time", "id": 4}, done);
+//   });
 
-  it('Retorna ID 5 para resposta "Fluxo de Processo"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Fluxo+de+Processo')
-      .expect({"resposta": "Fluxo de Processo", "id": 5}, done);
-  });
+//   it('Retorna ID 5 para resposta "Fluxo de Processo"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Fluxo+de+Processo')
+//       .expect({"resposta": "Fluxo de Processo", "id": 5}, done);
+//   });
 
-  it('Retorna ID 6 para resposta "Reuniões Diárias"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Reuniões+Diárias')
-      .expect({"resposta": "Reuniões Diárias", "id": 6}, done);
-  });
+//   it('Retorna ID 6 para resposta "Reuniões Diárias"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Reuniões+Diárias')
+//       .expect({"resposta": "Reuniões Diárias", "id": 6}, done);
+//   });
 
-  it('Retorna ID 7 para resposta "Revisão"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Revisão')
-      .expect({"resposta": "Revisão", "id": 7}, done);
-  });
+//   it('Retorna ID 7 para resposta "Revisão"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Revisão')
+//       .expect({"resposta": "Revisão", "id": 7}, done);
+//   });
 
-});
+// });
 
 // Testes para tratar respostas erradas
-describe('Faz requisicoes HTTP POST com respostas ERRADAS para o desafio 1 do nivel 1 ("Scrum")', function() {
+// describe('Faz requisicoes HTTP POST com respostas ERRADAS para o desafio 1 do nivel 1 ("Scrum")', function() {
 
-  it('Retorna codigo de status 201', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Análise+de+Risco')
-      .expect(201, done);
-  });
+//   it('Retorna codigo de status 201', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Análise+de+Risco')
+//       .expect(201, done);
+//   });
 
-  it('Retorna ID -1 para resposta "Análise de Risco"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Análise+de+Risco')
-      .expect({"resposta": "", "id": -1}, done);
-  });
+//   it('Retorna ID -1 para resposta "Análise de Risco"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Análise+de+Risco')
+//       .expect({"resposta": "", "id": -1}, done);
+//   });
 
-  it('Retorna ID -1 para resposta "Fluxo de Dados"', function(done) {
-    request(app)
-      .post('/desafio/1/checa-resposta')
-      .send('resposta=Fluxo+de+Dados')
-      .expect({"resposta": "", "id": -1}, done);
-  });
+//   it('Retorna ID -1 para resposta "Fluxo de Dados"', function(done) {
+//     request(app)
+//       .post('/desafio/1/checa-resposta')
+//       .send('resposta=Fluxo+de+Dados')
+//       .expect({"resposta": "", "id": -1}, done);
+//   });
 
-});
+// });
 
 // Testa logins CORRETOS
 describe('Faz requisicoes HTTP POST com usuarios e senhas corretos', function() {
