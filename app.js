@@ -124,4 +124,12 @@ app.post('/login', parseUrlEncoded, function(request, response) {
 
 });
 
+app.post('/registro', parseUrlEncoded, function(request, response) {
+  var username = request.body.username,
+      password = request.body.password,
+      nome = request.body.pnome;// + " " + request.body.snome;
+  db.run("INSERT INTO usuario (username, password, nome) VALUES (" + username + "," + password + "," + nome + ")");
+  response.status(201).json(username);
+});
+
 module.exports = app;
