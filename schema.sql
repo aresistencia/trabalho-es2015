@@ -1,26 +1,26 @@
 CREATE TABLE usuario (
-    id int PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     username varchar(100),
     password varchar(32),
     nome varchar(100)
 );
 
 CREATE TABLE nivel (
-    id int PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     titulo varchar(100)
 );
 
 CREATE TABLE desafio (
-    id int PRIMARY KEY,
+    id INTEGER PRIMARY KEY,
     titulo varchar(100),
-    nivel_id int REFERENCES nivel(id)
+    nivel_id INTEGER REFERENCES nivel(id)
 );     
 
 CREATE TABLE resposta (
-    id int PRIMARY KEY,
-    valor int,
+    id INTEGER PRIMARY KEY,
+    valor INTEGER,
     solucao varchar(100),
-    desafio_id int REFERENCES desafio(id)
+    desafio_id INTEGER REFERENCES desafio(id)
 );
 
 CREATE TABLE usuario_nivel (

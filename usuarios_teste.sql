@@ -1,9 +1,9 @@
-INSERT INTO usuario (id, username, password, nome)
-VALUES (1, 'admin', '12345', 'Administrador'),
-       (2, 'jlennon', '12345', 'John Lennon'),
-       (3, 'pmacca', '12345', 'Paul McCartney'),
-       (4, 'harrison', '12345', 'George Harrison'),
-       (5, 'ringo', '12345', 'Ringo Starr');
+INSERT INTO usuario (username, password, nome)
+VALUES ('admin', '12345', 'Administrador'),
+       ('jlennon', '12345', 'John Lennon'),
+       ('pmacca', '12345', 'Paul McCartney'),
+       ('harrison', '12345', 'George Harrison'),
+       ('ringo', '12345', 'Ringo Starr');
 
 INSERT INTO usuario_nivel (usuario_id, nivel_id)
 VALUES (2, 1), -- jlennon, nivel 1
