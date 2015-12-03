@@ -85,11 +85,13 @@ app.post('/desafio/:desafioID/checa-resposta', parseUrlEncoded, function(request
   var nivel = request.params.nivelID,
       desafio = request.params.desafioID,
       reqResposta = request.body.resposta,
-      resResposta = { "resposta": "", "id": -1 };
+      resResposta = { "resposta": "", "id": -1 },
+      userID = request.body.userID;
 
   db.all("SELECT * FROM resposta WHERE desafio_id = " + desafio, function(err, rows) {
     rows.forEach(function(row) {
       if (row.solucao === reqResposta) {
+        db.run("INSERT INTO usuario_resposta VALUES (" + userID + ", " + row.id + ")" );
         resResposta.resposta = row.solucao;
         resResposta.id = row.id;
       }
