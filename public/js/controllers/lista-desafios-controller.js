@@ -1,5 +1,5 @@
 angular.module('jogo')
-.controller('ListaDesafiosController', [ '$scope', '$http', '$routeParams', '$cookies', function($scope, $http, $routeParams, $cookies) {
+.controller('ListaDesafiosController', [ '$scope', '$http', '$routeParams', '$cookies', '$location', function($scope, $http, $routeParams, $cookies, $location) {
   $scope.infoDesafios = [];
   $http({
     url: '/nivel/' + $routeParams.nivelID,
@@ -7,6 +7,10 @@ angular.module('jogo')
     data: 'userID=' + $cookies.get('userID'),
     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
   }).success(function(data, status, config, headers) {
-    $scope.infoDesafios = data;
+    if (data.nivel_id === -1) {
+      $location.url('/lista-niveis');
+    } else {
+      $scope.infoDesafios = data;
+    }
   });
 }]);

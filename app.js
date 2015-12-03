@@ -46,14 +46,28 @@ app.post('/nivel/:nivelID', parseUrlEncoded, function(request, response) {
 
   db.serialize(function() {
 
-    // Consulta para listar informacoes dos desafios do nivel requisitada
-    db.all("SELECT n.id nivel_id, n.titulo nivel_titulo, d.id id, d.titulo titulo, IFNULL(pontos, 0) pontos FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id LEFT OUTER JOIN (SELECT r.desafio_id did2, SUM(r.valor) pontos FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE ur.usuario_id = " + userID + " GROUP BY r.desafio_id) AS r ON d.id = did2 WHERE n.id = " + nivelID, function(err, rows) {
-
-      // Checa se houve algum erro na consulta
+    // Checa se usuario tem acesso a esse nivel
+    db.all("SELECT ur.nivel_id FROM usuario_nivel ur WHERE ur.nivel_id = " + nivelID + " AND ur.usuario_id = " + userID, function(err, rows) {
       if (err) {
         console.log(err);
       } else {
-        response.json(rows);
+        if (rows.length === 0) {
+          // Caso nao tenha acesso, responde com id de nivel -1
+          response.json({ 'nivel_id': -1 });
+        } else {
+
+          // Caso o usuario tenha acesso ao invel, consulta as informacoes
+          // dos desafios do nivel
+          db.all("SELECT n.id nivel_id, n.titulo nivel_titulo, d.id id, d.titulo titulo, IFNULL(pontos, 0) pontos FROM nivel n INNER JOIN desafio d ON n.id = d.nivel_id LEFT OUTER JOIN (SELECT r.desafio_id did2, SUM(r.valor) pontos FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE ur.usuario_id = " + userID + " GROUP BY r.desafio_id) AS r ON d.id = did2 WHERE n.id = " + nivelID, function(err, rows) {
+            // Checa se houve algum erro na consulta
+            if (err) {
+              console.log(err);
+            } else {
+              response.json(rows);
+            }
+          });
+
+        }
       }
     });
   });
