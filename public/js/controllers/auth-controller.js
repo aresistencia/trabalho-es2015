@@ -16,6 +16,7 @@ angular.module('jogo')
   $scope.$on('logout', function(event, emptyStr) {
     alert("Alouha!");
     $scope.usuario = "";
+    $cookies.put('isLoggedIn', false);
   });
 
 }]);
