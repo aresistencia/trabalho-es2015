@@ -129,7 +129,10 @@ app.post('/registro', parseUrlEncoded, function(request, response) {
       password = request.body.password,
       nome = request.body.pnome + " " + request.body.snome;
   db.run("INSERT INTO usuario (username, password, nome) VALUES (?, ?, ?)", username, password, nome);
-  response.status(201).json(username);
+  db.all("SELECT id FROM usuario WHERE usuario.username = (?)", username, function(err, rows) {
+    db.run("INSERT INTO usuario_nivel (usuario_id, nivel_id) VALUES (?, 1)", rows[0].id);
+    response.status(201).json(username);
+  });
 });
 
 module.exports = app;
