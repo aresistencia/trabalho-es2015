@@ -30,8 +30,8 @@
         <ul class="nav navbar-nav pull-right">
           <li><a href="#/ranking">{{usuario}}</a></li>
           <li><a href="#/ranking">Ranking</a></li>
-          <li><a href="#/registro">Registrar</a></li>
-          <li><a href="#/login">Entrar</a></li>
+          <li ng-show="username==''"><a href="#/registro">Registrar</a></li>
+          <li ng-show="username==''"><a href="#/login">Entrar</a></li>
         </ul>
       </div><!-- /.container -->
     </nav>
