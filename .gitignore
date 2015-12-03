@@ -7,3 +7,6 @@ public/js/json/**
 public/js/json/lista-niveis.json
 
 test_queries.sql
+
+node_modules/sqlite3/**
+jogo.db
