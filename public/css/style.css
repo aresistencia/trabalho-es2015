@@ -156,3 +156,8 @@ footer {
 .form-resposta .fa-question-circle {
   color: #fefefe;
 }
+/* Estilos para as pagina de Login e Registro */
+.login, .registro {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
