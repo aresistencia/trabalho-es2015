@@ -67,7 +67,7 @@ app.post('/desafio/:desafioID', parseUrlEncoded, function(request, response) {
   var userID = request.body.userID,
       desafioID = request.params.desafioID;
 
-  db.all("SELECT d.id desafio_id, d.titulo desafio_titulo, r.id id, r.valor valor, IFNULL(res.solucao, '') solucao FROM desafio d INNER JOIN resposta r ON d.id = r.desafio_id LEFT OUTER JOIN (SELECT r.desafio_id did, r.id id, r.solucao solucao, ur.usuario_id uid FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE r.desafio_id = " + desafioID + " AND ur.usuario_id = " + userID + ") AS res ON r.id = res.id WHERE d.id = " + desafioID, function(err, rows) {
+  db.all("SELECT d.nivel_id nivel_id, d.id desafio_id, d.titulo desafio_titulo, r.id id, r.valor valor, IFNULL(res.solucao, '') solucao FROM desafio d INNER JOIN resposta r ON d.id = r.desafio_id LEFT OUTER JOIN (SELECT r.desafio_id did, r.id id, r.solucao solucao, ur.usuario_id uid FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE r.desafio_id = " + desafioID + " AND ur.usuario_id = " + userID + ") AS res ON r.id = res.id WHERE d.id = " + desafioID, function(err, rows) {
 
     if (err) {
       console.log(err);

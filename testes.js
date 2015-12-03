@@ -144,13 +144,13 @@ describe('Faz requisicao para a lista das respostas do usuario autenticado', fun
 
   it('Retorna respostas do desafio 1 do usuario 2 (jlennon)', function(done) {
     var desafio1User2 = [
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
     ];
     request(app)
       .post('/desafio/1')
@@ -160,13 +160,13 @@ describe('Faz requisicao para a lista das respostas do usuario autenticado', fun
 
   it('Retorna respostas do desafio 1 do usuario 3 (pmacca)', function(done) {
     var desafio1User3 = [
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
     ];
     request(app)
       .post('/desafio/1')
@@ -176,13 +176,13 @@ describe('Faz requisicao para a lista das respostas do usuario autenticado', fun
 
   it('Retorna respostas do desafio 1 do usuario 4 (harrison)', function(done) {
     var desafio1User4 = [
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': 'Corridas' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': 'Mestre do Scrum' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': 'Fluxo de Processo' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': 'Reuniões Diárias' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': 'Revisão' }
     ];
     request(app)
       .post('/desafio/1')
@@ -192,13 +192,13 @@ describe('Faz requisicao para a lista das respostas do usuario autenticado', fun
 
   it('Retorna respostas do desafio 1 do usuario 5 (ringo)', function(done) {
     var desafio1User5 = [
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': '' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': '' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': '' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': '' },
-      { 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': '' }
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 1, 'valor': 40, 'solucao': '' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 2, 'valor': 15, 'solucao': '' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 3, 'valor': 10, 'solucao': 'Dono do Produto' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 4, 'valor': 11, 'solucao': 'Time' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 5, 'valor': 4, 'solucao': '' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 6, 'valor': 9, 'solucao': '' },
+      { 'nivel_id': 1, 'desafio_id': 1, 'desafio_titulo': 'Scrum', 'id': 7, 'valor': 5, 'solucao': '' }
     ];
     request(app)
       .post('/desafio/1')
@@ -208,11 +208,11 @@ describe('Faz requisicao para a lista das respostas do usuario autenticado', fun
 
   it('Retorna respostas do desafio 1 do usuario 4 (harrison)', function(done) {
     var desafio2User4 = [
-      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 8, 'valor': 40, 'solucao': 'Desenvolvimento em Pares' },
-      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 9, 'valor': 15, 'solucao': '' },
-      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 10, 'valor': 10, 'solucao': 'Keep It Simple' },
-      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 11, 'valor': 11, 'solucao': '' },
-      { 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 12, 'valor': 4, 'solucao': '' }
+      { 'nivel_id': 1, 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 8, 'valor': 40, 'solucao': 'Desenvolvimento em Pares' },
+      { 'nivel_id': 1, 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 9, 'valor': 15, 'solucao': '' },
+      { 'nivel_id': 1, 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 10, 'valor': 10, 'solucao': 'Keep It Simple' },
+      { 'nivel_id': 1, 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 11, 'valor': 11, 'solucao': '' },
+      { 'nivel_id': 1, 'desafio_id': 2, 'desafio_titulo': 'XP', 'id': 12, 'valor': 4, 'solucao': '' }
     ];
     request(app)
       .post('/desafio/2')
