@@ -3,8 +3,7 @@ VALUES (1, 'Métodos Ágeis'),
        (2, 'Métodos Tradicionais'),
        (3, 'Modelagem'),
        (4, 'Certificação'),
-       (5, 'Testes'),
-       (6, 'Nível 6');
+       (5, 'Testes');
 
 INSERT INTO desafio (id, titulo, nivel_id)
 VALUES (1, 'Scrum', 1),
@@ -21,10 +20,7 @@ VALUES (1, 'Scrum', 1),
        (12, 'ISO/IEC 15504', 4),
        (13, 'Teste de Unidade', 5),
        (14, 'Teste de Integração', 5),
-       (15, 'Teste de Aceitação', 5),
-       (16, 'Desafio 16', 6),
-       (17, 'Desafio 17', 6),
-       (18, 'Desafio 18', 6);
+       (15, 'Teste de Aceitação', 5);
 
 INSERT INTO resposta (id, valor, solucao, desafio_id)
 VALUES -- Scrum
@@ -136,22 +132,4 @@ VALUES -- Scrum
        (92, 40, 'Usuário', 15),
        (93, 7, 'Requisitos', 15),
        (94, 1, 'Grupo Restrito', 15),
-       (95, 6, 'Entradas', 15),
-       -- Desafio 16 
-       (96, 40, 'Resposta 78', 16),
-       (97, 40, 'Resposta 79', 16),
-       (98, 40, 'Resposta 80', 16),
-       (99, 40, 'Resposta 81', 16),
-       (100, 40, 'Resposta 82', 16),
-       -- Desafio 17 
-       (101, 40, 'Resposta 83', 17),
-       (102, 40, 'Resposta 84', 17),
-       (103, 40, 'Resposta 85', 17),
-       (104, 40, 'Resposta 86', 17),
-       (105, 40, 'Resposta 87', 17),
-       -- Desafio 18 
-       (106, 40, 'Resposta 88', 18),
-       (107, 40, 'Resposta 89', 18),
-       (108, 40, 'Resposta 90', 18),
-       (109, 40, 'Resposta 91', 18),
-       (110, 40, 'Resposta 92', 18);
+       (95, 6, 'Entradas', 15);

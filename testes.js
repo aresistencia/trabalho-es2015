@@ -41,8 +41,7 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 1, "desafios_completados": 1 },
       { "id": 3, "titulo": "Modelagem", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 4, "titulo": "Certificação", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
+      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
       .post('/lista-niveis')
@@ -56,8 +55,7 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 3, "titulo": "Modelagem", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 4, "titulo": "Certificação", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
+      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
       .post('/lista-niveis')
@@ -71,8 +69,7 @@ describe('Faz requisicao para a lista de niveis disponiveis para um usuario espe
       { "id": 2, "titulo": "Métodos Tradicionais", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 3, "titulo": "Modelagem", "is_disponivel": 0, "desafios_completados": 0 },
       { "id": 4, "titulo": "Certificação", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 },
-      { "id": 6, "titulo": "Nível 6", "is_disponivel": 0, "desafios_completados": 0 }
+      { "id": 5, "titulo": "Testes", "is_disponivel": 0, "desafios_completados": 0 }
     ];
     request(app)
       .post('/lista-niveis')
