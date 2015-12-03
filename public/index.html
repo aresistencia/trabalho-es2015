@@ -28,10 +28,11 @@
           </a>
         </div>
         <ul class="nav navbar-nav pull-right">
-          <li><a href="#/ranking">{{usuario}}</a></li>
+          <li ng-hide="usuario==''"><a href="#">{{usuario}}</a></li>
           <li><a href="#/ranking">Ranking</a></li>
           <li ng-show="usuario==''"><a href="#/registro">Registrar</a></li>
           <li ng-show="usuario==''"><a href="#/login">Entrar</a></li>
+          <li ng-hide="usuario==''"><a href="#/login" ng-click="logout()">Sair</a></li>
         </ul>
       </div><!-- /.container -->
     </nav>
