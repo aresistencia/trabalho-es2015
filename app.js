@@ -135,7 +135,6 @@ app.post('/desafio/:desafioID/checa-resposta', parseUrlEncoded, function(request
               }
             }
           });
-
         });
 
       }
