@@ -3,7 +3,10 @@ angular.module('jogo')
 
   $scope.usuario = $cookies.get('nome') || '';
 
-  $scope.logout = function() { $scope.usuario = ''; }
+  $scope.logout = function() {
+    $scope.usuario = '';
+    $cookies.put('isLoggedIn', false);
+  }
 
   $scope.$on('loginSuccess', function(event, login) {
     $cookies.put('userID', login.id);
@@ -11,12 +14,6 @@ angular.module('jogo')
     $cookies.put('nome', login.nome);
     $cookies.put('isLoggedIn', true);
     $scope.usuario = $cookies.get('nome');
-  });
-
-  $scope.$on('logout', function(event, emptyStr) {
-    alert("Alouha!");
-    $scope.usuario = "";
-    $cookies.put('isLoggedIn', false);
   });
 
 }]);
