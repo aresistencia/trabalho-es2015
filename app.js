@@ -192,4 +192,19 @@ app.post('/registro', parseUrlEncoded, function(request, response) {
   });
 });
 
+// Rota que retorna o ranking
+app.get('/ranking', function(request, response) {
+  db.all("SELECT u.nome, SUM(r.valor) total FROM usuario u INNER JOIN usuario_resposta ur ON u.id = ur.usuario_id INNER JOIN resposta r ON r.id = ur.resposta_id GROUP BY u.id ORDER BY total DESC", function(err, rows) {
+    if (err) {
+      console.log(err);
+    } else {
+      for (var i = 0; i < rows.length; i++) {
+        rows[i]["pos"] = i + 1;
+      }
+      response.json(rows);
+    }
+  });
+});
+
+
 module.exports = app;
