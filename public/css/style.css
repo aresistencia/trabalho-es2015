@@ -77,8 +77,8 @@ footer {
   color: #0070BA;
 }
 .lista-desafios {
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   margin: 0;
   background-color: #fefefe;
 }
@@ -91,6 +91,7 @@ footer {
   background-color: #22A7F0;
   border-color: #22A7F0;
   color: #fefefe;
+  margin-bottom: 10px;
 }
 .btn-desafio .progress-circle {
   font-size: 42px;
@@ -130,8 +131,21 @@ footer {
 .fa-circle {
   color: #F7CA18;
 } 
-.btn-desafio {
+.btn-resposta {
+  padding-top: 30px;
+  height: 70px;
+  background-color: #22A7F0;
+  border-color: #22A7F0;
+  color: #fefefe;
   margin-bottom: 10px;
+}
+.btn-resposta .progress-circle {
+  font-size: 42px;
+}
+.btn-resposta:hover, .btn-resposta:focus, .btn-resposta:active {
+  color: #fefefe !important;
+  background-color: #1297E0 !important;
+  border-color: #1297E0 !important;
 }
 .form-resposta {
   color: #fefefe;
