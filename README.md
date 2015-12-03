@@ -44,3 +44,7 @@ $ node server.js
 ```
 
 Desse modo, um servidor web é criado em localhost na porta 3000. O jogo, então, pode ser acessado em qualquer navegador, acessando [localhost:3000](http://localhost:3000)
+
+## Jogando
+
+Para jogar é necessário fazer login no sistema. Isso pode ser feito fazendo-se um novo registro, ou utilizando os usuários já cadastrados (**admin**, **jlennon**, **pmacca**, **harrison** ou **ringo**, qualquer um deles utilizando a senha **12345**)
