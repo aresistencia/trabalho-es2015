@@ -91,9 +91,25 @@ app.post('/desafio/:desafioID/checa-resposta', parseUrlEncoded, function(request
   db.all("SELECT * FROM resposta WHERE desafio_id = " + desafio, function(err, rows) {
     rows.forEach(function(row) {
       if (row.solucao === reqResposta) {
-        db.run("INSERT INTO usuario_resposta VALUES (" + userID + ", " + row.id + ")" );
-        resResposta.resposta = row.solucao;
-        resResposta.id = row.id;
+
+        db.serialize(function() {
+          // Registra no banco que o usuario acertou a questao
+          db.run("INSERT INTO usuario_resposta VALUES (" + userID + ", " + row.id + ")" );
+          resResposta.resposta = row.solucao;
+          resResposta.id = row.id;
+
+          // Checa se o usuario completou o nivel
+          db.all("SELECT COUNT(r.id) respostas_restantes FROM resposta r WHERE r.desafio_id = " + desafio + " AND r.id NOT IN (SELECT r.id FROM resposta r INNER JOIN usuario_resposta ur ON r.id = ur.resposta_id WHERE r.desafio_id = " + desafio + " AND ur.usuario_id = " + userID + ") GROUP BY r.desafio_id", function(err, rows) {
+            if (err) {
+              console.log(err);
+            } else {
+              if (rows.length === 0) {
+                db.run("INSERT INTO usuario_desafio VALUES (" + userID + ", " + desafio + ")" );
+              }
+            }
+          });
+        });
+
       }
     });
     response.status(201).json(resResposta);
