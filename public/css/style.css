@@ -161,3 +161,10 @@ footer {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+/* Estilos para a pagina de Ranking */
+.ranking {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 18px;
+}
+
