@@ -6,15 +6,16 @@ Matéria de Engenharia de Software - UFMG - 2015/02
 
 * Página do jogo: http://aresistencia.cpdee.ufmg.br/jogo/
 * Gerenciamento de tarefas:
-  * Iteração #1: https://trello.com/b/DPg3csur/iteracao-1-15-out-a-03-nov
-  * Iteração #2: https://trello.com/b/9Y8iLVkF/iteracao-2-04-nov-a-19-nov
+  * Corrida #1: https://trello.com/b/DPg3csur/iteracao-1-15-out-a-03-nov
+  * Corrida #2: https://trello.com/b/9Y8iLVkF/iteracao-2-04-nov-a-19-nov
+  * Corrida #3: https://trello.com/b/dIF5jr9t/iteracao-3-19-nov-a-03-dev
 
 
 ## Como instalar e configurar
 
 ### Dependências
 
-Para que o jogo seja executado em ambiente Linux, é necessário que o programa **sqlite3** esteja instalado, bem como o [**nodejs**](https://nodejs.org/).
+Para que o jogo seja executado em ambiente Linux, é necessário que o programa **sqlite3** esteja instalado, bem como o [**NodeJS**](https://nodejs.org/).
 
 ### Instalando dependência do Nodejs
 
@@ -48,3 +49,12 @@ Desse modo, um servidor web é criado em localhost na porta 3000. O jogo, então
 ## Jogando
 
 Para jogar é necessário fazer login no sistema. Isso pode ser feito fazendo-se um novo registro, ou utilizando os usuários já cadastrados (**admin**, **jlennon**, **pmacca**, **harrison** ou **ringo**, qualquer um deles utilizando a senha **12345**)
+
+
+## Rodando os testes
+
+Caso queira rodar os testes, basta executar o comando:
+
+```
+$ npm test
+```
