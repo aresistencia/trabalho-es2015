@@ -1,0 +1,28 @@
+<!-- SHOW CASE DA PAGINA -->
+<section class="showcase">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="text-center">
+        ESJ<br>
+        <small>Ranking</small>
+      </h1>
+    </div>
+  </div>
+</section>
+
+<!-- LISTA DE SELECAO DE NIVEIS -->
+<section class="ranking">
+  <div class="container">
+    <div class="row" ng-controller="RankingController">
+      <div class="col-sm-offset-2 col-sm-2 text-center"><strong>Colocação</strong></div>
+      <div class="col-sm-4 text-center"><strong>Nome</strong></div>
+      <div class="col-sm-2 text-center"><strong>Pontuação</strong></div>
+
+      <div ng-repeat="jogador in ranking">
+        <div class="col-sm-offset-2 col-sm-2 text-center">{{jogador.pos}}</div>
+        <div class="col-sm-4 text-center">{{jogador.nome}}</div>
+        <div class="col-sm-2 text-center">{{jogador.total}}</div>
+      </div>
+    </div>
+  </div>
+</section>
