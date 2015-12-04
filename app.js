@@ -104,7 +104,7 @@ app.post('/desafio/:desafioID/checa-resposta', parseUrlEncoded, function(request
 
   db.all("SELECT * FROM resposta WHERE desafio_id = " + desafio, function(err, rows) {
     rows.forEach(function(row) {
-      if (row.solucao === reqResposta) {
+      if (row.solucao.toLowerCase() === reqResposta.toLowerCase()) {
 
         db.serialize(function() {
           // Registra no banco que o usuario acertou a questao
